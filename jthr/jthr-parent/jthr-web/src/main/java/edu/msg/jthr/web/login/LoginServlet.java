@@ -48,17 +48,18 @@ public class LoginServlet extends HttpServlet {
 		if (username.equals(password)) {
 			s.setAttribute("username", username);
 			s.setAttribute("user_role", "Viewer");
-			s.setAttribute("lggedIn", true);
+			s.setAttribute("loggedIn", true);
 			
 			context.log("OK, redirect to home");
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/home.jsp"); // login failed
-			dispatcher.forward(request, response);
+			//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/home.jsp"); // login failed
+			//dispatcher.forward(request, response);
+			response.sendRedirect(request.getContextPath() + "/home");
 		} else {
 			context.log("NEIN NEIN NEIN!!!! login failed");
 			
-			s.setAttribute("lggedIn", false);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/login.jsp"); // login failed
+			s.setAttribute("loggedIn", false);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp"); // login failed
 			dispatcher.forward(request, response);
 		}
 	}
