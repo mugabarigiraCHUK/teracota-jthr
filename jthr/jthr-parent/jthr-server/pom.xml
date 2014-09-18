@@ -53,6 +53,7 @@
 						<httpPort>8080</httpPort>
 						<httpsPort>8443</httpsPort>
 					</domain>
+					<echo>true</echo>
 				</configuration>
 			</plugin>
 		</plugins>

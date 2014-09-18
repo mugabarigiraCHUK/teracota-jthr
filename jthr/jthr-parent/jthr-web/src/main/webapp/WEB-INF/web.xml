@@ -5,13 +5,21 @@
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.login.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>HomeServlet</servlet-name>
+  	<servlet-class>edu.msg.jthr.web.main.HomeServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
-  	<welcome-file>login.jsp</welcome-file>
+    <welcome-file>/login.jsp</welcome-file>
   </welcome-file-list>
-  
 </web-app>
