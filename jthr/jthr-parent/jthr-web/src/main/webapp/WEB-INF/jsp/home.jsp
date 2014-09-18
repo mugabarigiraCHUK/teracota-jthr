@@ -9,6 +9,7 @@
 
 <body>
 
+<%@include file="/WEB-INF/jsp/menu.jsp" %>
 
 </body>
 </html>

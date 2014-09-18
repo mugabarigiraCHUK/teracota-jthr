@@ -30,6 +30,8 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().println("bine vati , logat");
+		 request.getRequestDispatcher("/WEB-INF/jsp/home.jsp").
+         forward(request,response);
 	}
 
 	/**
