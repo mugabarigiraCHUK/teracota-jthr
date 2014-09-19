@@ -1,8 +1,3 @@
-<!-- TO BE INCLUDED:
-	in header: <link rel="stylesheet" type="text/css" href="menu/swimbi.css"/> 
- 	in body: <%-- <%@ include file="WEB-INF/jsp/menu.jsp" %> --%>
- -->
-
 <div id="swimbi">
     <ul>
         <li><a data-icon="&#xf015" href="/jthr-web/home">Home</a>
