@@ -4,7 +4,7 @@
         </li>
         <li><a data-icon="&#xF13C;" href="/jthr-web/position">Positions</a>
             <ul>
-                <li><a data-icon="&#xF00A;" href="http://">Add Position</a></li>
+                <li><a data-icon="&#xF00A;" href="/jthr-web/addposition">Add Position</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Update Position</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Delete Position</a></li>
             </ul>
