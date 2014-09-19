@@ -9,7 +9,7 @@
                 <li><a data-icon="&#xF00A;" href="http://">Delete Position</a></li>
             </ul>
         </li>
-        <li><a data-icon="&#xF13C;" href="=/jthr-web/candidate">Candidates</a>
+        <li><a data-icon="&#xF13C;" href="/jthr-web/candidate">Candidates</a>
             <ul>
                 <li><a data-icon="&#xF00A;" href="http://">Add Candidates</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Update Candidates</a></li>
