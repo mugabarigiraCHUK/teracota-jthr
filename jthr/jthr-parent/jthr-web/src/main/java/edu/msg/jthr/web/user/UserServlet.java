@@ -36,6 +36,15 @@ public class UserServlet extends HttpServlet {
 		list.add(new User("ptru", "ptru", "4", "4", "ptru@ptru.com", "BOSS4", "mergeee"));
 		list.add(new User("cinci", "cinci", "5", "5", "cinci@cinci.com", "BOSS5", "mergeee"));
 		request.getSession().setAttribute("list", list);
+		
+		ArrayList<User> poz = new ArrayList<User>();
+		poz.add(new User("pozitie", "pozitie", "pozitie", "pozitie", "unu@unu.com", "pozitie", "pozitie"));
+		request.getSession().setAttribute("poz", poz);
+		
+		ArrayList<User> cand = new ArrayList<User>();
+		cand.add(new User("candidate", "candidate", "candidate", "candidate", "unu@unu.com", "candidate", "candidate"));
+		request.getSession().setAttribute("cand", cand);
+		
 		request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request,response);
 		
 	}

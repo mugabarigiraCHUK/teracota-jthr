@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,16 +29,18 @@
 							<td>Job Position</td>
 							<td>Description</td>
 						</tr>
-						<tr>
-							<td><input type="checkbox" name="vehicle" value="Bike"></td>
-							<td>Adam</td>
-							<td>Gazsi</td>
-							<td>0987654432</td>
-							<td>0712383746</td>
-							<td>adam@adam.ciolo</td>
-							<td>Boss</td>
-							<td>Teracota Dreamer</td>
-						</tr>
+						<c:forEach items="${poz}" var="user">
+							<tr>
+								<td><input type="checkbox" name="blabal" value="BOSS"></td>
+								<td><c:out value="${user.firstName}"></c:out></td>
+								<td><c:out value="${user.lastName}" /></td>
+								<td><c:out value="${user.phoneNumber}" /></td>
+								<td><c:out value="${user.mobilePhoneNumber}"></c:out></td>
+								<td><c:out value="${user.email}"></c:out></td>
+								<td><c:out value="${user.jobPozition}"></c:out></td>
+								<td><c:out value="${user.description}"></c:out></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</div>
 			</div>
