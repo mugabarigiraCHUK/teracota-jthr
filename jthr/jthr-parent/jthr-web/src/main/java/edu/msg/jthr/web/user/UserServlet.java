@@ -38,7 +38,9 @@ public class UserServlet extends HttpServlet {
 		request.getSession().setAttribute("list", list);
 		
 		ArrayList<User> poz = new ArrayList<User>();
-		poz.add(new User("pozitie", "pozitie", "pozitie", "pozitie", "unu@unu.com", "pozitie", "pozitie"));
+		for (int i = 0; i<100; i++){
+			poz.add(new User("pozitie", "pozitie", "pozitie", "pozitie", "unu@unu.com", "pozitie", "pozitie"));
+		}
 		request.getSession().setAttribute("poz", poz);
 		
 		ArrayList<User> cand = new ArrayList<User>();
