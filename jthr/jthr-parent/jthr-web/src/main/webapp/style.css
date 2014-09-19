@@ -147,6 +147,12 @@ header {
 
 #logo_text h1 a .logo_colour {
 	color: #8b2d4b;
+	float: left;
+}
+
+#logo_image {
+	float: right;
+	height: 79px;
 }
 
 #logo_text h2 {
