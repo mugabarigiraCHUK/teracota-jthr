@@ -1,16 +1,90 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="menu/swimbi.css"/> 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>JT HR</title>
+<link rel="stylesheet" type="text/css" href="menu/swimbi.css" />
+<title>CSS3_simplistic</title>
+<meta name="description" content="website description" />
+<meta name="keywords" content="website keywords, website keywords" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="style.css" type="text/css">
+<!-- modernizr enables HTML5 elements and feature detects -->
+<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 </head>
 
 <body>
+	<div id="main">
+		<header>
+			<div id="logo">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h1>
+						<a><span class="logo_colour">JT Human Resources</span></a>
+					</h1>
+				</div>
+			</div>
+			<nav>
+				<ul <%@ include file="menu.jsp"%>>
+				</ul>
+			</nav>
+		</header>
+		<div id="site_content">
+			<div class="gallery">
+				<ul class="images">
+					<li class="show"><img width="950" height="300"
+						src="logopic.jpg" alt="simplistic 1" /></li>
+					<li><img width="950" height="300" src="images/2.jpg"
+						alt="simplistic 2" /></li>
+				</ul>
+			</div>
+			<div id="sidebar_container">
+				<div class="sidebar">
+					<h3>Latest News</h3>
+					<h4>New Website Launched</h4>
+					<h5>July 1st, 2013</h5>
 
-<%@ include file="menu.jsp" %>
-
+				</div>
+			</div>
+			<div class="content">
+				<h1>Welcome to the CSS3_simplistic_2 template</h1>
+				<p>msg systems România este activă pe piaţa din Cluj din anul
+					2008, având în prezent peste 180 de angajaţi. Centrul de competenţă
+					din Cluj dezvoltă în principal proiecte pentru piaţa germană,
+					inclusiv la nivel mondial, în mai multe domenii şi direcţii de
+					business: dezvoltare SAP-ABAP, linia de business Automotive şi
+					Asigurări, dezvoltare software în mediul JAVA, testare automatizată
+					şi dezvoltare de soft pentru piaţa financiar-bancară şi auto,
+					servicii de SAP-support. Domeniul de activitate al filialei msg
+					systems din Cluj este consultanţa şi integrarea soluţiilor IT.
+					Printre serviciile oferite se numără: implementarea software-ului
+					orientat client, dezvoltarea de software standard în parteneriat cu
+					SAP, realizarea de proiecte complexe parcurgând toate fazele
+					importante de la analiză preliminară de business până la faza de
+					release. Ca furnizor şi consultant de soluţii IT compania din Cluj
+					activeză pentru clienţi de referinţă din mai multe branşe:
+					industria automotive: Audi, BMW, Daimler, VW asigurări/reasigurări:
+					Munich RE, Vienna Insurance Group, Allianz, Achmea, ING, ADAC
+					domeniul financiar-bancar: LandesBank Berlin energie: E-ON msg
+					systems România se află în permanentă creştere şi reprezintă o
+					componentă importantă a strategiei de dezvoltare pe termen lung a
+					concernului german.</p>
+			</div>
+		</div>
+		<footer>
+			<p>Copyright &copy; Echipa Teracota</p>
+		</footer>
+	</div>
+	<p>&nbsp;</p>
+	<!-- javascript at the bottom for fast page loading -->
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.easing-sooper.js"></script>
+	<script type="text/javascript" src="jquery.sooperfish.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('ul.sf-menu').sooperfish();
+		});
+	</script>
 </body>
 </html>
