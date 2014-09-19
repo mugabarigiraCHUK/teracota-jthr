@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<div class="content">
-				<h1>Welcome to the CSS3_simplistic_2 template</h1>
+				<h1>Currently open positions</h1>
 				<p>msg systems România este activă pe piaţa din Cluj din anul
 					2008, având în prezent peste 180 de angajaţi. Centrul de competenţă
 					din Cluj dezvoltă în principal proiecte pentru piaţa germană,
