@@ -1,22 +1,22 @@
 <div id="swimbi">
     <ul>
-        <li><a data-icon="&#xf015" href="/jthr-web/home">Home</a>
+        <li><a data-icon="&#xf015;" href="/jthr-web/home">Home</a>
         </li>
-        <li><a data-icon="&#xF13C;" href="/jthr-web/position">Positions</a>
+        <li><a data-icon="&#xf039;" href="/jthr-web/position">Positions</a>
             <ul>
                 <li><a data-icon="&#xF00A;" href="/jthr-web/addposition">Add Position</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Update Position</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Delete Position</a></li>
             </ul>
         </li>
-        <li><a data-icon="&#xF13C;" href="/jthr-web/candidate">Candidates</a>
+        <li><a data-icon="&#xf0c0;" href="/jthr-web/candidate">Candidates</a>
             <ul>
                 <li><a data-icon="&#xF00A;" href="http://">Add Candidates</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Update Candidates</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Delete Candidates</a></li>
             </ul>
         </li>
-        <li><a data-icon="&#xF13C;" href="/jthr-web/user">Users</a>
+        <li><a data-icon="&#xf007;" href="/jthr-web/user">Users</a>
             <ul>
                 <li><a data-icon="&#xF00A;" href="http://">Add User</a></li>
                 <li><a data-icon="&#xF00A;" href="http://">Update User</a></li>
