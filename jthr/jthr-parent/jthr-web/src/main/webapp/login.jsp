@@ -7,21 +7,18 @@
 <meta http-equiv="Content-Type"
 	content="text/html; charset=windows-1256">
 <style>
-body {
+body{
 	margin: 0;
 	padding: 0;
-	background: #fff;
+	background: #EEE6E6;
+
 	color: #fff;
 	font-family: Arial;
 	font-size: 12px;
 }
 
-.body {
+.body{
 	position: absolute;
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
 	width: auto;
 	height: auto;
 	background-color: #EEE6E6;
@@ -30,7 +27,7 @@ body {
 	z-index: 0;
 }
 
-.grad {
+.grad{
 	position: absolute;
 	top: -20px;
 	left: -20px;
@@ -38,21 +35,19 @@ body {
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0
-		, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-	/* Chrome,Safari4+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
 	z-index: 1;
 	opacity: 0.7;
 }
 
-.header {
+.header{
 	position: absolute;
-	top: calc(50% - 35px);
+	top: calc(50% - 130px);
 	left: calc(50% - 375px);
 	z-index: 2;
 }
 
-.header div {
+.header div{
 	float: left;
 	color: #8b2d4b;
 	font-family: 'Exo', sans-serif;
@@ -60,11 +55,11 @@ body {
 	font-weight: 200;
 }
 
-.header div span {
+.header div span{
 	color: #8b2d4b !important;
 }
 
-.login {
+.login{
 	position: absolute;
 	top: calc(50% - 75px);
 	left: calc(50% - 50px);
@@ -74,11 +69,11 @@ body {
 	z-index: 2;
 }
 
-.login input[type=text] {
+.login input[type=text]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid rgba(125, 125, 125, 0.6);
+	border: 1px solid rgba(125,125,125,0.6);
 	border-radius: 2px;
 	color: #000;
 	font-family: 'Exo', sans-serif;
@@ -87,11 +82,11 @@ body {
 	padding: 4px;
 }
 
-.login input[type=password] {
+.login input[type=password]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid rgba(125, 125, 125, 0.6);
+	border: 1px solid rgba(125,125,125,0.6);
 	border-radius: 2px;
 	color: #000;
 	font-family: 'Exo', sans-serif;
@@ -116,57 +111,59 @@ body {
 	margin-top: 10px;
 }
 
-.login input[type=submit]:hover {
+.login input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.login input[type=submit]:active {
+.login input[type=submit]:active{
 	opacity: 0.6;
 }
 
-.login input[type=text]:focus {
+.login input[type=text]:focus{
 	outline: none;
-	border: 1px solid rgba(125, 125, 125, 0.9);
+	border: 1px solid rgba(125,125,125,0.9);
 }
 
-.login input[type=password]:focus {
+.login input[type=password]:focus{
 	outline: none;
-	border: 1px solid rgba(125, 125, 125, 0.9);
+	border: 1px solid rgba(125,125,125,0.9);
 }
 
-.login input[type=submit]:focus {
+.login input[type=submit]:focus{
 	outline: none;
 }
 
-::-webkit-input-placeholder {
-	color: rgba(125, 125, 125, 0.6);
+::-webkit-input-placeholder{
+   color: rgba(125,125,125,0.6);
 }
 
-::-moz-input-placeholder {
-	color: rgba(255, 255, 255, 0.6);
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+#logo {
+	float: right;
+	clear: both;
+}
+
+#name {
+	clear: both;
 }
 </style>
-<script src="js/prefixfree.min.js"></script>
 </head>
-
 <body>
-
-	<div class="body"></div>
-	<!-- <div class="grad"></div> -->
-	<div class="header">
-		<div>
-			JT<span> Human Resource</span>
+		<!-- <div class="grad"></div> -->
+		<div class="header">
+			<div id="logo"><img src="/jthr-web/header/msg2.gif" /></div>
+			<div id="name">JT<span> Human Resource</span></div>
 		</div>
-	</div>
-	<br>
-	<div class="login">
-		<form action="login" method="POST">
-			<input type="text" placeholder="username" name="username" autofocus><br>
-			<input type="password" placeholder="password" name="password"><br>
-			<input type="submit" value="Login">
-		</form>
-	</div>
-
-	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+		<br>
+		<div class="login">
+				<form action="login" method="POST">
+					<input type="text" placeholder="username" name="username" autofocus><br>
+					<input type="password" placeholder="password" name="password"><br>
+					<input type="submit" value="Login">
+				</form>
+		</div>
 </body>
 </html>
