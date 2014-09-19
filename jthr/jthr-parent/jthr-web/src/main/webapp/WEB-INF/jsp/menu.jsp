@@ -1,5 +1,5 @@
 <!-- TO BE INCLUDED:
-	in header: <link rel="stylesheet" href="CSS/test.css" rel="stylesheet" type="text/css" /> 
+	in header: <link rel="stylesheet" type="text/css" href="menu/swimbi.css"/> 
  	in body: <%-- <%@ include file="WEB-INF/jsp/menu.jsp" %> --%>
  -->
 
