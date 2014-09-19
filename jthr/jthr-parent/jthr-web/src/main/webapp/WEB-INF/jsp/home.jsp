@@ -5,13 +5,11 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="menu/swimbi.css" />
-<title>CSS3_simplistic</title>
+<title>JT HR</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="style.css" type="text/css">
-<!-- modernizr enables HTML5 elements and feature detects -->
-<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 </head>
 
 <body>
@@ -25,11 +23,8 @@
 					</h1>
 				</div>
 			</div>
-			<nav>
-				<ul <%@ include file="menu.jsp"%>>
-				</ul>
-			</nav>
 		</header>
+		<%@ include file="menu.jsp"%>
 		<div id="site_content">
 			<div class="gallery">
 				<ul class="images">
@@ -74,17 +69,11 @@
 		</div>
 		<footer>
 			<p>Copyright &copy; Echipa Teracota</p>
+
+
 		</footer>
 	</div>
 	<p>&nbsp;</p>
-	<!-- javascript at the bottom for fast page loading -->
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="jquery.easing-sooper.js"></script>
-	<script type="text/javascript" src="jquery.sooperfish.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('ul.sf-menu').sooperfish();
-		});
-	</script>
+
 </body>
 </html>
