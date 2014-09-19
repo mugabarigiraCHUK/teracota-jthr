@@ -6,19 +6,27 @@
 		<artifactId>jthr-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>jthr-web</artifactId>
 	<packaging>war</packaging>
 	<name>JTHR-WEB</name>
 	<description>Web Module</description>
-	
+
 	<dependencies>
-	
+
 		<!-- JAVA EE -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- JAVA JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 	</dependencies>
+
 </project>

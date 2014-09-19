@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,17 +12,7 @@
 </head>
 <body>
 	<div id="main">
-		<header>
-		<div id="logo">
-			<div id="logo_text">
-				<!-- class="logo_colour", allows you to change the colour of the text -->
-				<h1>
-					<a><span class="logo_colour">JT Human Resources</span></a>
-				</h1>
-			</div>
-		</div>
-		</header>
-
+		<%@ include file="header.jsp" %>
 		<%@ include file="menu.jsp"%>
 
 		<div id="site_content">
@@ -38,46 +29,18 @@
 							<td>Job Position</td>
 							<td>Description</td>
 						</tr>
-						<tr>
-							<td><input type="checkbox" name="vehicle" value="Bike"></td>
-							<td>Adam</td>
-							<td>Gazsi</td>
-							<td>0987654432</td>
-							<td>0712383746</td>
-							<td>adam@adam.ciolo</td>
-							<td>Boss</td>
-							<td>Teracota Dreamer</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="vehicle" value="Bike"></td>
-							<td>Razvan</td>
-							<td>Bogdan</td>
-							<td>1342243340</td>
-							<td>0742343436</td>
-							<td>razvi@bogdi.ciolo</td>
-							<td>Don</td>
-							<td>Trotineta</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="vehicle" value="Bike"></td>
-							<td>Catalin</td>
-							<td>Ciolocoiu</td>
-							<td>1234567890</td>
-							<td>0712383746</td>
-							<td>ciolo@ciolo.ciolo</td>
-							<td>Sef</td>
-							<td>TREBE TREBE INSTALL</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="vehicle" value="Bike"></td>
-							<td>test</td>
-							<td>test</td>
-							<td>test</td>
-							<td>test</td>
-							<td>test</td>
-							<td>test</td>
-							<td>test</td>
-						</tr>
+						<c:forEach items="${list}" var="user">
+							<tr>
+								<td><input type="checkbox" name="blabal" value="BOSS"></td>
+								<td><c:out value="${user.firstName}"></c:out></td>
+								<td><c:out value="${user.lastName}" /></td>
+								<td><c:out value="${user.phoneNumber}" /></td>
+								<td><c:out value="${user.mobilePhoneNumber}"></c:out></td>
+								<td><c:out value="${user.email}"></c:out></td>
+								<td><c:out value="${user.jobPozition}"></c:out></td>
+								<td><c:out value="${user.description}"></c:out></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</div>
 			</div>
