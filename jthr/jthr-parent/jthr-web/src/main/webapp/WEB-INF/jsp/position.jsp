@@ -7,12 +7,12 @@
 <link rel="stylesheet" type="text/css" href="menu/swimbi.css" />
 <link rel="stylesheet" href="user/userTable.css" type="text/css" />
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="stylesheet" href="menu/sideBar.css" type="text/css">
+<link rel="stylesheet" href="menu/sidebar.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
 </head>
 <body>
-	<%@ include file="sideBar.jsp" %>
+	<%@ include file="positionSidebar.jsp" %>
 	<div id="main">
 		<%@ include file="header.jsp" %>
 		<%@ include file="menu.jsp"%>

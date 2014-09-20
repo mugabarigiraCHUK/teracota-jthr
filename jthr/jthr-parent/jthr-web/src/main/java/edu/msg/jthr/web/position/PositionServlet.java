@@ -1,6 +1,8 @@
 package edu.msg.jthr.web.position;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +35,22 @@ public class PositionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		ServletContext context = getServletContext();
+		if (request.getParameter("addPosition") != null) {
+			request.getRequestDispatcher("/WEB-INF/jsp/addPosition.jsp").forward(request,response);
+		} else if (request.getParameter("editPosition") != null) {
+			String positionId = (String) request.getSession().getAttribute("position_id");
+			context.log("editPosition, id: " + positionId);
+		    // Invoke update
+		} else if (request.getParameter("clonePosition") != null) {
+			String positionId = (String) request.getSession().getAttribute("position_id");
+			context.log("clonePosition, id: " + positionId);
+		    // Invoke clone
+		}else if (request.getParameter("deletePosition") != null) {
+		    // Invoke delete
+			String positionId = (String) request.getSession().getAttribute("position_id");
+			context.log("deletePosition, id: " + positionId);
+		}
 	}
 
 }

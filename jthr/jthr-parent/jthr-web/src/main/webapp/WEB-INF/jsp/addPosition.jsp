@@ -23,7 +23,7 @@
 
 							<tr>
 								<td><label>Position Name</label><font color="red">*</font></td>
-								<td><input type="text" name="positionName"></td>
+								<td><input type="text" name="positionName" autofocus></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
 							</tr>
 
