@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.msg.jthr</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>jthr-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>JTHR PARENT</name>
+	<description>Parent Module</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<java.source>1.7</java.source>
+		<java.target>1.7</java.target>
+		
+		<!-- Dependency Versions -->
+		<javaee.version>7.0</javaee.version>
+		<glassfish.version>4.0</glassfish.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+		
+		<!-- JAVA EE & EJB -->
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+
+			<plugins>
+				<plugin>
+						<groupId>org.apache.maven.plugins</groupId>		
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.1</version>
+						<configuration>
+							<source>${java.source}</source>
+							<target>${java.target}</target>
+						</configuration>
+				</plugin>
+			</plugins>
+		
+		</pluginManagement>
+	</build>
+
+	<modules>
+		<module>jthr-web</module>
+		<module>jthr-server</module>
+	</modules>
+</project>
