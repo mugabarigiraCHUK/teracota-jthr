@@ -1,1 +1,0 @@
-<div class='static_sidebar'>I'm a sidebar</div>
