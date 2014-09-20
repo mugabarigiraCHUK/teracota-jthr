@@ -17,7 +17,7 @@
 			</ul></li>
 		<li><a data-icon="&#xf007;" href="/jthr-web/user">Users</a>
 			<ul>
-				<li><a data-icon="&#xF00A;" href="http://">Add User</a></li>
+				<li><a data-icon="&#xF00A;" href="/jthr-web/userAdd">Add User</a></li>
 				<li><a data-icon="&#xF00A;" href="http://">Update User</a></li>
 				<li><a data-icon="&#xF00A;" href="http://">Delete User</a></li>
 			</ul></li>

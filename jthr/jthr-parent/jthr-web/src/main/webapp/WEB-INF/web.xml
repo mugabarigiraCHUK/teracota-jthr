@@ -20,7 +20,6 @@
 		<servlet-name>HomeServlet</servlet-name>
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
-
 	<servlet>
 		<servlet-name>UserServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.user.UserServlet</servlet-class>
@@ -29,7 +28,14 @@
 		<servlet-name>UserServlet</servlet-name>
 		<url-pattern>/user</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>UserAddServlet</servlet-name>
+		<servlet-class>edu.msg.jthr.web.user.UserAddServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserAddServlet</servlet-name>
+		<url-pattern>/userAdd</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>PositionServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.position.PositionServlet</servlet-class>
@@ -38,7 +44,6 @@
 		<servlet-name>PositionServlet</servlet-name>
 		<url-pattern>/position</url-pattern>
 	</servlet-mapping>
-
 	<servlet>
 		<servlet-name>AddPositionServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.position.AddPositionServlet</servlet-class>
@@ -47,7 +52,6 @@
 		<servlet-name>AddPositionServlet</servlet-name>
 		<url-pattern>/addposition</url-pattern>
 	</servlet-mapping>
-
 	<servlet>
 		<servlet-name>CandidateServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.candidate.CandidateServlet</servlet-class>
@@ -56,7 +60,6 @@
 		<servlet-name>CandidateServlet</servlet-name>
 		<url-pattern>/candidate</url-pattern>
 	</servlet-mapping>
-
 	<servlet>
 		<servlet-name>AddCandidateServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.candidate.AddCandidateServlet</servlet-class>
@@ -65,9 +68,7 @@
 		<servlet-name>AddCandidateServlet</servlet-name>
 		<url-pattern>/addcandidate</url-pattern>
 	</servlet-mapping>
-
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
-
 </web-app>
