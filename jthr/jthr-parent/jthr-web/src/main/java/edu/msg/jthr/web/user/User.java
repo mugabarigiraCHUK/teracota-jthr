@@ -12,9 +12,7 @@ public class User {
 
 	public User() {}
 	
-	public User( String firstName, String lastName, String phoneNumber,
-			String mobilePhoneNumber, String email, String jobPozition,
-			String description) {
+	public User( String firstName, String lastName, String phoneNumber,String mobilePhoneNumber, String email, String jobPozition,String description) {
 		
 		
 		this.firstName = firstName;
