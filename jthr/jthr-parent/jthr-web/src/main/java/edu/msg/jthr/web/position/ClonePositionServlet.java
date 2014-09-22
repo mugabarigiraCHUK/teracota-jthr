@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class EditPositionServlet
+ * Servlet implementation class ClonePositionServlet
  */
-@WebServlet("/EditPositionServlet")
-public class EditPositionServlet extends HttpServlet {
+@WebServlet("/ClonePositionServlet")
+public class ClonePositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditPositionServlet() {
+    public ClonePositionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,9 +30,6 @@ public class EditPositionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().log("id to edit: " + request.getParameter("position_id"));
-		request.getRequestDispatcher("/WEB-INF/jsp/editPosition.jsp").forward(request,response);
-		response.sendRedirect("/WEB-INF/jsp/editPosition.jsp");
 	}
 
 	/**
@@ -59,7 +56,7 @@ public class EditPositionServlet extends HttpServlet {
 			request.setAttribute("selectedProject", new Long(2));
 			
 			String id = request.getParameter("position_id");
-			getServletContext().log("id to edit (post method): " + id);
+			getServletContext().log("id to clone (post method): " + id);
 			
 			//TODO - get position with id from request and put it in session
 			Position p = new Position(Long.parseLong(id), "name" + Long.parseLong(id), "nrOfPlaces", "pozitie", "pozitie", "unu@unu.com", "poz");
@@ -72,12 +69,12 @@ public class EditPositionServlet extends HttpServlet {
 			request.getSession().setAttribute("positionResponsibilities", p.getResponsibilities());
 			
 			//TODO - redirect to editPosition.jsp
-			request.getRequestDispatcher("/WEB-INF/jsp/editPosition.jsp").forward(request,response);
+			request.getRequestDispatcher("/WEB-INF/jsp/clonePosition.jsp").forward(request,response);
 			return;
 		}
 		
 		String id = request.getParameter("position_id");
-		getServletContext().log("update position with id: " + id);
+		getServletContext().log("clone position with id: " + id);
 	}
 
 }
