@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -149,6 +150,12 @@ body{
 #name {
 	clear: both;
 }
+
+#login-message{
+	color: #8b2d4b;
+	font-size: 15px;
+	padding: 10px;
+}
 </style>
 </head>
 <body>
@@ -159,6 +166,14 @@ body{
 		</div>
 		<br>
 		<div class="login">
+				<div id="login-message" <%
+						Boolean ic = (Boolean) request.getSession().getAttribute("invalid_credentials");
+						if (ic == null){
+							out.print("style='display:none;'");
+						} else {
+							request.getSession().removeAttribute("invalid_credentials");
+						}
+				%>>Username or password incorrect!</div>
 				<form action="login" method="POST">
 					<input type="text" placeholder="username" name="username" autofocus><br>
 					<input type="password" placeholder="password" name="password"><br>

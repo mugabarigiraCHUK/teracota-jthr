@@ -6,16 +6,10 @@
 <head>
 <link rel="stylesheet" href="form/form.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="menu/swimbi.css" />
+<!-- <link rel="stylesheet" href="user/userTable.css" type="text/css" /> -->
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
-
-<style>
-.forma {
-	width: 50%;
-	margin: 0 auto;
-}
-</style>
 </head>
 <body>
 	<div id="main">
@@ -24,56 +18,51 @@
 
 		<div id="site_content">
 			<div id="table_container">
-				<div class="forma form">
-					<form action="addposition" method="POST">
+				<div class="form">
+					<form action="editposition" method="POST">
+						<input type="hidden" name="position_id" value="${positionId}" />
 						<table border="0">
 							<tr>
 								<td><label>Position Name</label><font color="red">*</font></td>
-								<td><input type="text" name="positionName" autofocus></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
+								<td><input type="text" name="positionName" value="${positionName}" autofocus></td>
 							</tr>
 
 							<tr>
 								<td><label>Number of Persons</label><font color="red">*</font></td>
-								<td><input type="text" name="nrOfPersons"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="text" name="nrOfPersons" value="${positionNrOfPlaces}"></td>
 							</tr>
 
 							<tr>
 								<td><label>Department</label><font color="red">*</font></td>
 								<td><select name="department">
-										<c:forEach items="${depList}" var="dep">
-												<option value="${dep.key}">${dep.value}</option>
+											<c:forEach items="${depList}" var="dep">
+												<option value="${dep.key}" ${dep.key == selectedDep ? "selected='selected'" : ""}>${dep.value}</option>
 											</c:forEach>
 								</select></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Project</label></td>
 								<td><select name="project">
 										<c:forEach items="${projList}" var="project">
-											<option value="${project.key}">${project.value}</option>
+											<option value="${project.key}" ${project.key == selectedProject ? "selected='selected'" : ""}>${project.value}</option>
 										</c:forEach>
 								</select></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${emailmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Requirements</label><font color="red">*</font></td>
-								<td><input type="text" name="requirements"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${usermess} </p></td> -->
+								<td><input type="text" name="requirements" value="${positionRequirements}"></td>
 							</tr>
 
 							<tr>
 								<td><label>Responsibilities</label><font color="red">*</font></td>
-								<td><input type="text" name="responsibilities"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${passmess} </p></td> -->
+								<td><input type="text" name="responsibilities" value="${positionResponsibilities}"></td>
 							</tr>
 
 							<tr>
 								<td colspan="2"><center>
-										<input type="submit" value="Add" name="submit">
+										<input type="submit" value="Update" name="submit">
 									</center></td>
 							</tr>
 						</table>
