@@ -58,6 +58,42 @@
     <url-pattern>/editposition</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ClonePositionServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.position.ClonePositionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClonePositionServlet</servlet-name>
+    <url-pattern>/cloneposition</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeletePositionServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.position.DeletePositionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePositionServlet</servlet-name>
+    <url-pattern>/deleteposition</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ApprovePositionServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.position.ApprovePositionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApprovePositionServlet</servlet-name>
+    <url-pattern>/approveposition</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ViewPositionServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.position.ViewPositionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPositionServlet</servlet-name>
+    <url-pattern>/viewposition</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
     <servlet-name>CandidateServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.candidate.CandidateServlet</servlet-class>
   </servlet>

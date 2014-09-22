@@ -60,6 +60,8 @@ public class AddPositionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		context = getServletContext();
+		
 		Position p = new Position();
 		p.setName(request.getParameter("positionName"));
 		p.setNrOfPlaces(request.getParameter("nrOfPersons"));
