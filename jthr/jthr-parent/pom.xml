@@ -54,5 +54,6 @@
 	<modules>
 		<module>jthr-web</module>
 		<module>jthr-server</module>
+		<module>jthr-backend</module>
 	</modules>
 </project>

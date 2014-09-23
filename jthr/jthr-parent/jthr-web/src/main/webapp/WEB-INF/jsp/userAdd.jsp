@@ -99,7 +99,7 @@
 										<a href="login333333333"> <img
 											src="resources/plus.png" />
 										</a>
-										<div></td>
+										</div></td>
 							</tr>
 
 							<tr>
