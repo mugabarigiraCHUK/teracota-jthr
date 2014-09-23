@@ -52,7 +52,7 @@
 }
 
 .CSSTable tr:nth-child(odd) {
-	background-color: #b2b2b2;
+	background-color: #d9caca;
 }
 
 .CSSTable tr:nth-child(even) {
