@@ -1,4 +1,4 @@
-package edu.msg.jthr.web.position;
+package edu.msg.jthr.backend.model;
 
 public class Position {
 	@Override
@@ -10,7 +10,7 @@ public class Position {
 	}
 
 	private Long id;
-	private String name;
+	private String name = "pooooooosiziotn";
 	private String nrOfPlaces;
 	private String department;
 	private String project;
@@ -21,7 +21,6 @@ public class Position {
 			String project, String requirements, String responsibilities) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.nrOfPlaces = nrOfPlaces;
 		this.department = department;
 		this.project = project;
