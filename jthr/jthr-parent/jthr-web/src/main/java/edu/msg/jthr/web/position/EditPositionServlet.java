@@ -65,13 +65,13 @@ public class EditPositionServlet extends HttpServlet {
 			
 			//TODO - get position with id from request and put it in session
 			Position p = new Position(Long.parseLong(id), "name" + Long.parseLong(id), "nrOfPlaces", "pozitie", "pozitie", "unu@unu.com", "poz");
-			request.getSession().setAttribute("positionId", p.getId());
-			request.getSession().setAttribute("positionName", p.getName());
-			request.getSession().setAttribute("positionNrOfPlaces", p.getNrOfPlaces());
-			request.getSession().setAttribute("positionDepartment", p.getDepartment());
-			request.getSession().setAttribute("positionProject", p.getProject());
-			request.getSession().setAttribute("positionRequirements", p.getRequirements());
-			request.getSession().setAttribute("positionResponsibilities", p.getResponsibilities());
+			request.setAttribute("positionId", p.getId());
+			request.setAttribute("positionName", p.getName());
+			request.setAttribute("positionNrOfPlaces", p.getNrOfPlaces());
+			request.setAttribute("positionDepartment", p.getDepartment());
+			request.setAttribute("positionProject", p.getProject());
+			request.setAttribute("positionRequirements", p.getRequirements());
+			request.setAttribute("positionResponsibilities", p.getResponsibilities());
 			
 			//TODO - redirect to editPosition.jsp
 			request.getRequestDispatcher("/WEB-INF/jsp/editPosition.jsp").forward(request,response);
