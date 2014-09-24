@@ -15,6 +15,13 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>edu.msg.jthr</groupId> -->
+<!-- 			<artifactId>jthr-backend</artifactId> -->
+<!-- 			<version>${project.version}</version> -->
+<!-- 			<type>ejb</type> -->
+<!-- 		</dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -30,6 +37,11 @@
 							<groupId>edu.msg.jthr</groupId>
 							<artifactId>jthr-web</artifactId>
 						</webModule>
+
+<!-- 						<ejbModule> -->
+<!-- 							<groupId>edu.msg.jthr</groupId> -->
+<!-- 							<artifactId>jthr-backend</artifactId> -->
+<!-- 						</ejbModule> -->
 					</modules>
 				</configuration>
 			</plugin>
