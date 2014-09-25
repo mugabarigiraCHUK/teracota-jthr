@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Candidate;
+import edu.msg.jthr.backend.model.Comment;
+import edu.msg.jthr.backend.model.Interview;
 
 /**
  * Servlet implementation class EditCandidateServlet
@@ -44,16 +46,16 @@ public class EditCandidateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().log("edit candidate id: "+request.getParameter("candidate_id"));
 		getServletContext().log(
-				"EDIT candidate id: "
-						+ request.getParameter("candidate_id"));
+				"edit candidate id: " + request.getParameter("candidate_id"));
+		getServletContext().log(
+				"EDIT candidate id: " + request.getParameter("candidate_id"));
 		Long id = Long.valueOf(request.getParameter("candidate_id"));
 
 		// TODO - get position with id from request and put it in session
-		Candidate c = new Candidate(id, "lastName", "firstName",
-		"telephone","mobTelephone", "email", "address", false, "cv",
-		 "date");
+		Candidate c = new Candidate(id, "lastName", "firstName", "telephone",
+				"mobTelephone", "email", "address", false, "cv",
+				new ArrayList<Interview>(), new ArrayList<Comment>());
 
 		request.setAttribute("id", c.getId());
 		request.setAttribute("lastName", c.getLastName());
@@ -64,7 +66,8 @@ public class EditCandidateServlet extends HttpServlet {
 		request.setAttribute("address", c.getAddress());
 		request.setAttribute("relocation", c.getRelocation());
 		request.setAttribute("cv", c.getCV());
-		request.setAttribute("date", c.getDate());
+		request.setAttribute("interviews", c.getInterviews());
+		request.setAttribute("comments", c.getComments());
 
 		// TODO - redirect to editPosition.jsp
 		request.getRequestDispatcher("/WEB-INF/jsp/editCandidate.jsp").forward(

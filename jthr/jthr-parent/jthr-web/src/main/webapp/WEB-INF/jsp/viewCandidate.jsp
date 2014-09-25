@@ -94,8 +94,12 @@
 							</tr>
 							
 							<tr>
-								<td><label>Date</label><font color="red">*</font></td>
-								<td><input type="text" name="date" value="${date}" disabled></td>
+								<td><label>Interviews</label><font color="red">*</font></td>
+								<td><input type="text" name="interviews" value="${interviews}"></td>
+							</tr>
+							<tr>
+								<td><label>Comments</label><font color="red">*</font></td>
+								<td><input type="text" name="comments" value="${comments}"></td>
 							</tr>
 							
 						</table>
