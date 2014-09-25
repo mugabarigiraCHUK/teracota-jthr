@@ -26,11 +26,17 @@ public class Candidate extends BaseEntity {
 	@Column
 	private String CV;
 	@Column
-	private String date;
+	private List<Interview> interviews;
+	@Column
+	private List<Comment> comments;
+
+	public Candidate() {
+	}
 
 	public Candidate(Long id, String lastName, String firstName,
 			String telephone, String mobTelephone, String email,
-			String address, Boolean relocation, String CV, String date) {
+			String address, Boolean relocation, String CV,
+			List<Interview> interviews, List<Comment> comments) {
 		super(id);
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -40,7 +46,8 @@ public class Candidate extends BaseEntity {
 		this.address = address;
 		this.relocation = relocation;
 		this.CV = CV;
-		this.date = date;
+		this.interviews = interviews;
+		this.comments = comments;
 	}
 
 	public String getEmail() {
@@ -57,9 +64,6 @@ public class Candidate extends BaseEntity {
 
 	public void setRelocation(Boolean relocation) {
 		this.relocation = relocation;
-	}
-
-	public Candidate() {
 	}
 
 	public String getLastName() {
@@ -108,14 +112,6 @@ public class Candidate extends BaseEntity {
 
 	public void setCV(String cV) {
 		CV = cV;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
 	}
 
 }
