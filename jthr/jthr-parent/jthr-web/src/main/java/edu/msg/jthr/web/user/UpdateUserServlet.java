@@ -16,7 +16,7 @@ import edu.msg.jthr.backend.model.User;
 @WebServlet("/UpdateUserServlet")
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -57,7 +57,7 @@ public class UpdateUserServlet extends HttpServlet {
 
 		// TODO - redirect to editPosition.jsp
 		request.getRequestDispatcher("/WEB-INF/jsp/editUser.jsp").forward(request, response);
-		
+
 	}
 
 }

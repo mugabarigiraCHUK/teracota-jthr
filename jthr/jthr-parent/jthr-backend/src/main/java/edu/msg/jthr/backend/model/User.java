@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -22,7 +22,7 @@ public class User extends BaseEntity{
 	@Column
 	private String email;
 	@Column
-	private String jobPozition;
+	private String function;
 	@Column
 	private String description;
 	@Column
@@ -30,7 +30,7 @@ public class User extends BaseEntity{
 	@Column
 	private String password;
 	@Column
-	private List<String> roles = new ArrayList<String>();
+	private List<Role> roles = new ArrayList<Role>();
 	
 	public User() {}
 	
@@ -44,27 +44,12 @@ public class User extends BaseEntity{
 		this.phoneNumber = phoneNumber;
 		this.mobilePhoneNumber = mobilePhoneNumber;
 		this.email = email;
-		this.jobPozition = jobPozition;
+		this.function = jobPozition;
 		this.description = description;
 		this.username = username;
 		this.password = password;
 	}
 	
-	public User(String firstName, String lastName, String phoneNumber,
-			String mobilePhoneNumber, String email, String jobPozition,
-			String description, String username, String password) {
-		
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.phoneNumber = phoneNumber;
-		this.mobilePhoneNumber = mobilePhoneNumber;
-		this.email = email;
-		this.jobPozition = jobPozition;
-		this.description = description;
-		this.username = username;
-		this.password = password;
-		
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -106,12 +91,12 @@ public class User extends BaseEntity{
 		this.email = email;
 	}
 
-	public String getJobPozition() {
-		return jobPozition;
+	public String getFunction() {
+		return function;
 	}
 
-	public void setJobPozition(String jobPozition) {
-		this.jobPozition = jobPozition;
+	public void setFunction(String function) {
+		this.function = function;
 	}
 
 	public String getDescription() {
@@ -139,15 +124,15 @@ public class User extends BaseEntity{
 		this.password = password;
 	}
 	
-	public void addRole(String role) {
+	public void addRole(Role role) {
 		roles.add(role);
 	}
 
-	public List<String> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<String> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
 
@@ -160,7 +145,7 @@ public class User extends BaseEntity{
 		return "User [id= "+getId()+" firstName=" + firstName + ", lastName=" + lastName
 				+ ", phoneNumber=" + phoneNumber + ", mobilePhoneNumber="
 				+ mobilePhoneNumber + ", email=" + email + ", jobPozition="
-				+ jobPozition + ", description=" + description + ", username="
+				+ function + ", description=" + description + ", username="
 				+ username + ", password=" + password + ", roles=" + roles
 				+ "]";
 	}
