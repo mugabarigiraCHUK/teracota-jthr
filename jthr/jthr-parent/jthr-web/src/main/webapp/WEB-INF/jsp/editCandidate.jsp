@@ -18,7 +18,7 @@
 		<div id="site_content">
 			<div id="table_container">
 				<div class="form">
-					<form action="addcandidate" method="POST">
+					<form action="editcandidate" method="POST">
 						<table border="0">
 
 							<tr>
@@ -74,16 +74,6 @@
 								<td><label>Comments</label></td>
 								<td><input type="text" name="comments"></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
-
-								<td><div class="round-button">
-										<a href="login333333333"> <img src="resources/plus.png" />
-										</a>
-									</div></td>
-							</tr>
-
-							<tr>
-								<td><label> </label></td>
-								<td><input type="text" name="commentlist" disabled></td>
 							</tr>
 
 							<tr>
