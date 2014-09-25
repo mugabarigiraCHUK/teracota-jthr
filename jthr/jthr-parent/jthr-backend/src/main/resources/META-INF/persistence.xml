@@ -4,8 +4,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="jthr-backend">
 		<jta-data-source>jdbc/jthrConnection</jta-data-source>
-		<class>edu.msg.jthr.backend.model.Comment</class>
+		<class>edu.msg.jthr.backend.model.BaseEntity</class>
 		<class>edu.msg.jthr.backend.model.Candidate</class>
+		<class>edu.msg.jthr.backend.model.Comment</class>
 		<class>edu.msg.jthr.backend.model.Department</class>
 		<class>edu.msg.jthr.backend.model.Interview</class>
 		<class>edu.msg.jthr.backend.model.Position</class>

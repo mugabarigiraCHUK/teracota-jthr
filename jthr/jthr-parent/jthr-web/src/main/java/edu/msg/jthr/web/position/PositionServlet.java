@@ -39,7 +39,9 @@ public class PositionServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Position> poz = new ArrayList<Position>();
 		for (int i = 0; i < 100; i++) {
-			poz.add(new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true));
+			Position p = new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
+			p.setId(new Long(i));
+			poz.add(p);
 		}
 		request.getSession().setAttribute("poz", poz);
 
