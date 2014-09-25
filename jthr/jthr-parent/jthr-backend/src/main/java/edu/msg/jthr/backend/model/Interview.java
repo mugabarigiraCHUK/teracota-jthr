@@ -2,14 +2,18 @@ package edu.msg.jthr.backend.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Interview extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
+	@Column
 	String date;
+	@Column
 	List<User> interviewers;
+	@Column
 	List<Comment> comments;
 
 	public Interview(String date, List<User> interviewers,
@@ -53,6 +57,5 @@ public class Interview extends BaseEntity {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
 
 }
