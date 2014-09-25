@@ -5,11 +5,10 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-
 @Entity
-public class Position extends BaseEntity{
+public class Position extends BaseEntity {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Column
 	private String name;
 	@Column
@@ -34,14 +33,89 @@ public class Position extends BaseEntity{
 	public Position() {
 	}
 
-	
+	public String getName() {
+		return name;
+	}
 
-	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getNrOfPlaces() {
+		return nrOfPlaces;
+	}
+
+	public void setNrOfPlaces(Integer nrOfPlaces) {
+		this.nrOfPlaces = nrOfPlaces;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public String getProject() {
+		return project;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
+	}
+
+	public String getRequirements() {
+		return requirements;
+	}
+
+	public void setRequirements(String requirements) {
+		this.requirements = requirements;
+	}
+
+	public String getResponsibilities() {
+		return responsibilities;
+	}
+
+	public void setResponsibilities(String responsibilities) {
+		this.responsibilities = responsibilities;
+	}
+
+	public Boolean getIsApproved() {
+		return isApproved;
+	}
+
+	public void setIsApproved(Boolean isApproved) {
+		this.isApproved = isApproved;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
 	@Override
 	public String toString() {
-		return "Position [id=" + getId() + ", name=" + name + ", nrOfPlaces="
-				+ nrOfPlaces + ", department=" + department + ", project="
-				+ project + ", requirements=" + requirements
-				+ ", responsibilities=" + responsibilities + "]";
+		return "Position [id=" + getId() + ", name=" + name + ", nrOfPlaces=" + nrOfPlaces + ", department=" + department + ", project=" + project
+				+ ", requirements=" + requirements + ", responsibilities=" + responsibilities + "]";
 	}
 }
