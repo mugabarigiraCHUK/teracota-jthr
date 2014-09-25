@@ -44,7 +44,11 @@
 								<td><input type="text" name="mobileTelephone"></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
-
+							<tr>
+								<td><label>Email</label><font color="red">*</font></td>
+								<td><input type="text" name="email"></td>
+								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+							</tr>
 							<tr>
 								<td><label>Address</label></td>
 								<td><input type="text" name="address"></td>
@@ -64,7 +68,10 @@
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
-			
+							<tr>
+								<td><label>Interviews</label></td>
+								<td><input type="text" name="interviews"></td>
+							</tr>
 
 							<tr>
 								<td><label>Comments</label></td>
