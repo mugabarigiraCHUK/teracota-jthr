@@ -19,36 +19,40 @@
 			<div id="table_container">
 				<div class="form">
 					<form action="editcandidate" method="POST">
+						<input type="hidden" name="candidate_id" value="${id}" />
 						<table border="0">
 
 							<tr>
 								<td><label>Last Name</label><font color="red">*</font></td>
-								<td><input type="text" name="lastName"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
+								<td><input type="text" name="lastName" value="${lastName}"></td>
 							</tr>
 
 							<tr>
 								<td><label>First Name</label><font color="red">*</font></td>
-								<td><input type="text" name="firstName"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="text" name="firstName"
+									value="${firstName}"></td>
 							</tr>
 
 							<tr>
-								<td><label>Telephone</label></td>
-								<td><input type="text" name="telephone"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><label>Telephone</label><font color="red">*</font></td>
+								<td><input type="text" name="telephone"
+									value="${telephone}"></td>
 							</tr>
 
 							<tr>
-								<td><label>Mobile Telephone</label><font color="red">*</font></td>
-								<td><input type="text" name="mobileTelephone"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><label>Mobile Telephone</label></td>
+								<td><input type="text" name="mobTelephone"
+									value="${mobTelephone}"></td>
 							</tr>
 
 							<tr>
-								<td><label>Address</label></td>
-								<td><input type="text" name="address"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><label>Email</label><font color="red">*</font></td>
+								<td><input type="text" name="email" value="${email}"></td>
+							</tr>
+
+							<tr>
+								<td><label>Address</label><font color="red">*</font></td>
+								<td><input type="text" name="address" value="${address}"></td>
 							</tr>
 
 							<tr>
@@ -60,20 +64,12 @@
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
-								<td><input type="submit" name="cv" value="Add File"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="text" name="cv" value="${cv}"></td>
+								<td><input type="submit" name="cvButton" value="Add File"></td>
 							</tr>
-
 							<tr>
-								<td><label>Interview Date</label><font color="red">*</font></td>
-								<td><input type="date" name="date"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
-							</tr>
-
-							<tr>
-								<td><label>Comments</label></td>
-								<td><input type="text" name="comments"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><label>Date</label><font color="red">*</font></td>
+								<td><input type="text" name="date" value="${date}"></td>
 							</tr>
 
 							<tr>

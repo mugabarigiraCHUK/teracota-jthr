@@ -97,34 +97,32 @@ tr:hover {
 							<td>First Name</td>
 							<td>Phone Number</td>
 							<td>Mobile Number</td>
+							<td>Email</td>
 							<td>Address</td>
+							<td>Relocation</td>
 							<td>CV</td>
 							<td>Date</td>
-							<td>Comments</td>
 							<td>Operations</td>
 						</tr>
-						<c:forEach items="${candidateList}" var="candidateList">
+						<c:forEach items="${candidateList}" var="candidate">
 							<tr>
-								<td><c:out value="${candidateList.lastName}" /></td>
-								<td><c:out value="${candidateList.firstName}"></c:out></td>
-								<td><c:out value="${candidateList.telephone}" /></td>
-								<td><c:out value="${candidateList.mobTelephone}"></c:out></td>
-								<td><c:out value="${candidateList.address}"></c:out></td>
-								<td><c:out value="${candidateList.CV}"></c:out></td>
-								<td><c:out value="${candidateList.date}"></c:out></td>
-								<td><c:out value="${candidateList.comments}"></c:out></td>
+								<td><c:out value="${candidate.lastName}" /></td>
+								<td><c:out value="${candidate.firstName}"></c:out></td>
+								<td><c:out value="${candidate.telephone}" /></td>
+								<td><c:out value="${candidate.mobTelephone}"></c:out></td>
+								<td><c:out value="${candidate.email}"></c:out></td>
+								<td><c:out value="${candidate.address}"></c:out></td>
+								<td><c:out value="${candidate.relocation}"></c:out></td>
+								<td><c:out value="${candidate.CV}"></c:out></td>
+								<td><c:out value="${candidate.date}"></c:out></td>
 								<td>
 									<div style="text-align: center;">
 										<form action="candidate" method="POST">
-											<input type="hidden" name="id"
-												value="<c:out value="${candidateList.id}" />" /> <input
-												type="submit" name="viewCandidate" value="" class="view"
-												title="View" /> <input type="submit" name="editCandidate"
-												value="" class="edit" title="Edit" /> <input type="submit"
-												name="cloneCandidate" value="" class="clone" title="Reuse" />
-											<input type="submit" name="deleteCandidate" value=""
-												class="delete" title="Delete"
-												onclick="return confirm('Are you sure you want to delete?')" />
+											<input type="hidden" name="candidate_id" value="<c:out value="${candidate.id}" />" />
+											<input type="submit" name="viewCandidate" value="" class="view" title="View" /> 
+											<input type="submit" name="editCandidate" value="" class="edit" title="Edit" /> 
+											<input type="submit" name="cloneCandidate" value="" class="clone" title="Reuse" />
+											<input type="submit" name="deleteCandidate" value="" class="delete" title="Delete" onclick="return confirm('Are you sure you want to delete?')" />
 										</form>
 									</div>
 								</td>

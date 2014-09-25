@@ -2,40 +2,64 @@ package edu.msg.jthr.backend.model;
 
 import java.util.List;
 
-public class Candidate {
-	private int id;
-	private String lastName;
-	private String firstName;
-	private String telephone;
-	private String mobTelephone;
-	private String address;
-	private String CV;
-	private String date;
-	private List<String> comments;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
-	public Candidate(int id, String lastName, String firstName,
-			String telephone, String mobTelephone, String address, String cV,
-			String date, List<String> comments) {
-		this.id = id;
+@Entity
+public class Candidate extends BaseEntity {
+
+	private static final long serialVersionUID = 1L;
+	@Column
+	private String lastName;
+	@Column
+	private String firstName;
+	@Column
+	private String telephone;
+	@Column
+	private String mobTelephone;
+	@Column
+	private String email;
+	@Column
+	private String address;
+	@Column
+	private Boolean relocation;
+	@Column
+	private String CV;
+	@Column
+	private String date;
+
+	public Candidate(Long id, String lastName, String firstName,
+			String telephone, String mobTelephone, String email,
+			String address, Boolean relocation, String CV, String date) {
+		super(id);
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.telephone = telephone;
 		this.mobTelephone = mobTelephone;
+		this.email = email;
 		this.address = address;
-		CV = cV;
+		this.relocation = relocation;
+		this.CV = CV;
 		this.date = date;
-		this.comments = comments;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Boolean getRelocation() {
+		return relocation;
+	}
+
+	public void setRelocation(Boolean relocation) {
+		this.relocation = relocation;
 	}
 
 	public Candidate() {
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getLastName() {
@@ -92,14 +116,6 @@ public class Candidate {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public List<String> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<String> comments) {
-		this.comments = comments;
 	}
 
 }
