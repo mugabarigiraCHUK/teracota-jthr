@@ -37,6 +37,22 @@
 		<url-pattern>/userAdd</url-pattern>
 	</servlet-mapping>
 	<servlet>
+    <servlet-name>ViewUserServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.user.ViewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserServlet</servlet-name>
+    <url-pattern>/viewuser</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.user.UpdateUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserServlet</servlet-name>
+    <url-pattern>/updateuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
 		<servlet-name>PositionServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.position.PositionServlet</servlet-class>
 	</servlet>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="menu/swimbi.css" />
-<link rel="stylesheet" href="user/userTable.css" type="text/css" />
+<link rel="stylesheet" href="position/positionTable.css" type="text/css" />
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
@@ -25,20 +25,19 @@
 	opacity: 0.6;
 }
 
-.clone {
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZklEQVRYR+1Xy23CQBC1SyCB5EYTSSGcOdEAElEKwGkgkAJypxegET6WUkHyxtqR7JW9M7OxMUhYGiGxb96++ex4nSZJMoWtYSOY5Uk9MPGsYE9KkgNwb0RyhA2VTmWYLyDH4sDIkxPJb4OTv4HE7fOE/F9AtiPCvgTQ3oVgjQCOTMqIJQO3JUCqPa93loHeBdx7ILYEKj/NMVQRBQZa0F8jwNoDPC8kv84G0StC3pcyUjfACLPVTkJtCc4APmjBDtfqyyjmdbxoswf84KUeKPBdCsicIv6trY5GgLGsNvhVC7CF0owO3iNCGbi4AOnGYxVkPgW9C3hEiHS15uc/t2X6xqB7Px/1xuyVe+AbqHfYj0PHChjD/ws20QqImeHafqAsPIfAlIEZ7BNm/aqRRJwAmMM2koCm9dgSSMIq66HOZwEfzmOpqalpd4AlAbR55kjpl0S0elxDZLQhb86B1f1nDbqC/wMQHVui0whUHAAAAABJRU5ErkJggg==);
+.view {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACtUlEQVRYR+2WbWiOURjHN5qXSKIhfGMLhW3I28oH5ZvXko8LQ01rWG15Le/FYiuSmFb7Ylb7okmEFOY9L00pyQeTTZOa2Gj4/dc5dTvu8zieHu3Lc9evc9/nPudc/3Od61znZGb085PZz/Yz0gLSHvgXDwwlYBfDEpgFuTDQBHEv5Ut4BFfgOnwNCfAQASMZqAI2waiQQWnTCafhKHxK1CeRgAF0XAeHIBt+wl1oNmUrZY8ZfAjlNCiElTDT1HdQ7oRz8CNOiE/ABBpfgAUg99YZIa8DPTCZdtuhCLRMt2A1vHf7xwlYRKMGGGtmWkyp2dpnEC/yzHqYZCpfUdaamX6PtJ3O+xmYC29B3nkYFeEKWGGMy4g6loJ1s/rJMxch352J+X5MuRTeRf4P5v2kEfyFchlcs/+jAlZReR6yYDcccIxone/BDI9xW/2El3mOcP3bA3tBu2M5XFWlFaAON0BGdsHBGCNbqTv2F+P29xZeamLaamL7oAsWwnMJGANPYRychQ0eIw+onx0oQJ7SpOIexYpi6A3kS0ATKDhegBJMt6fjZ+qHBQrQDEd42iqhKWFNhXoJ0B5dC761s+OkSoCWuQXyoFEChoPcOwUSLcF9/s8J9IAS1nxPW9nQFtYSFNggzOFDnZRqd8DhmM6bqTsRKKCEdqdi2irA98NvQWjbKSovG49sozzuDKD9LC+EbEMlnm9O/3K+q0Axpm2oQ+uPG5Gy4CVQoFRDJUQzWzKJSHnlCJSZsZRvdJ70PXGpWOusnTER7sBG8KVipVo9z8CXinUqKh7aYQ3ctMZ9AlSvnNAIOt1ScRjdNsbbosYTCdC/kOP4g/GijuuUHsdRobqQKICUvca7M/B8p+RC4o6tc11BqghWStaVbDToovIR/tuVLHDSyTULuRMmN3Jgr7SAtAd+AYSclI75gs1sAAAAAElFTkSuQmCC);
 	width: 32px;
 	height: 32px;
 	border: none;
-	margin-left: 5px;
 }
 
-.clone:hover{
-	opacity: 0.7;
+.view:hover{
+	opacity: 0.5;
 }
 
-.clone:active{
-	opacity: 0.6;
+.view:active{
+	opacity: 0.3;
 }
 
 .delete {
@@ -67,13 +66,13 @@ tr:hover {
 	<div id="main">
 		<%@ include file="header.jsp"%>
 		<%@ include file="menu.jsp"%>
+		
 		<div id="site_content">
 			<div id="table_container">
 				<div class="CSSTable">
 					<form action="user" method="POST">
 						<table>
 							<tr>
-								<td>Select</td>
 								<td>First Name</td>
 								<td>Last Name</td>
 								<td>Phone Number</td>
@@ -85,7 +84,6 @@ tr:hover {
 							</tr>
 							<c:forEach items="${list}" var="user">
 								<tr>
-									<td><input type="checkbox" name="blabal" value="BOSS"></td>
 									<td><c:out value="${user.firstName}"></c:out></td>
 									<td><c:out value="${user.lastName}" /></td>
 									<td><c:out value="${user.phoneNumber}" /></td>
@@ -93,10 +91,16 @@ tr:hover {
 									<td><c:out value="${user.email}"></c:out></td>
 									<td><c:out value="${user.jobPozition}"></c:out></td>
 									<td><c:out value="${user.description}"></c:out></td>
-									<td><form action="user" method="POST">
-											<input type="submit" class="edit" name="editUser" value="">
-											<input type="submit" class="delete" name="deleteUser" value="">
-										</form></td>
+									<td>
+										<div style="text-align:center;">
+										<form action="user" method="POST">
+											<input type="hidden" name="user_id" value="<c:out value="${user.id}" />"/>
+											<input type="submit" class="view" name="viewUser" value=""  title="View" />
+											<input type="submit" class="edit" name="editUser" value="" title="Edit">
+											<input type="submit" class="delete" name="deleteUser" value="" title="Delete" onclick="return confirm('Are you sure you want to delete?')">
+										</form>
+										</div>
+									</td>
 								</tr>
 							</c:forEach>
 						</table>

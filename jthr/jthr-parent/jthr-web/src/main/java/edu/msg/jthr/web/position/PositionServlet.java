@@ -40,8 +40,7 @@ public class PositionServlet extends HttpServlet {
 		}
 		request.getSession().setAttribute("poz", poz);
 
-		request.getRequestDispatcher("/WEB-INF/jsp/position.jsp").forward(
-				request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/position.jsp").forward(request, response);
 	}
 
 	/**

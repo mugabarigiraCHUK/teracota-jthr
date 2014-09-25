@@ -2,8 +2,13 @@ package edu.msg.jthr.backend.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class BaseEntity extends AbstractModel implements Serializable {
 	private static final long serialVersionUID = 1L;
+	@Id
 	private Long id;
 
 	public BaseEntity() {
