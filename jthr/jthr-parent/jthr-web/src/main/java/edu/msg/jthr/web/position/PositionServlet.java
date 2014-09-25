@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.msg.jthr.backend.model.Candidate;
+import edu.msg.jthr.backend.model.Comment;
+import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.User;
 
 /**
  * Servlet implementation class PositionServlet
@@ -35,8 +39,7 @@ public class PositionServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Position> poz = new ArrayList<Position>();
 		for (int i = 0; i < 100; i++) {
-			poz.add(new Position(new Long(i), "name" + String.valueOf(i),
-					"pozitie", "pozitie", "pozitie", "unu@unu.com", "poz"));
+			poz.add(new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true));
 		}
 		request.getSession().setAttribute("poz", poz);
 
