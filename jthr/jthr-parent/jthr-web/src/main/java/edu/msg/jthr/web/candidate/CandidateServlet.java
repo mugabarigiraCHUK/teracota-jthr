@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Candidate;
+import edu.msg.jthr.backend.model.Comment;
+import edu.msg.jthr.backend.model.Interview;
 
 /**
  * Servlet implementation class CandidateServlet
@@ -37,7 +39,7 @@ public class CandidateServlet extends HttpServlet {
 		ArrayList<Candidate> candidateList = new ArrayList<Candidate>();
 		candidateList.add(new Candidate(Long.valueOf(1), "LASTNAME",
 				"FIRSTNAME", "TEL", "MOBILE", "EMAIL", "ADDRESS", false, "CV",
-				"DATE"));
+				new ArrayList<Interview>(), new ArrayList<Comment>()));
 		request.getSession().setAttribute("candidateList", candidateList);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/candidate.jsp").forward(

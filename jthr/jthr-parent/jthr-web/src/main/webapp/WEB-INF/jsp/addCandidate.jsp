@@ -64,11 +64,7 @@
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
-							<tr>
-								<td><label>Interview Date</label><font color="red">*</font></td>
-								<td><input type="date" name="date"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
-							</tr>
+			
 
 							<tr>
 								<td><label>Comments</label></td>

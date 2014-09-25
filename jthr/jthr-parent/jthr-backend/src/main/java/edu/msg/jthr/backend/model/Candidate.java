@@ -15,6 +15,22 @@ public class Candidate extends BaseEntity {
 	private String firstName;
 	@Column
 	private String telephone;
+	public List<Interview> getInterviews() {
+		return interviews;
+	}
+
+	public void setInterviews(List<Interview> interviews) {
+		this.interviews = interviews;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@Column
 	private String mobTelephone;
 	@Column
