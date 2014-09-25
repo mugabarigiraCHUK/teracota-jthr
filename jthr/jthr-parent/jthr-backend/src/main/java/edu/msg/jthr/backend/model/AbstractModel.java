@@ -28,11 +28,11 @@ public abstract class AbstractModel {
 		if (!(obj instanceof AbstractModel))
 			return false;
 		AbstractModel am = (AbstractModel) obj;
-		return this.uuid.equals(am.uuid);
+		return this.getUuid().equals(am.getUuid());
 	}
 
 	@Override
 	public int hashCode() {
-		return uuid.hashCode();
+		return getUuid().hashCode();
 	}
 }
