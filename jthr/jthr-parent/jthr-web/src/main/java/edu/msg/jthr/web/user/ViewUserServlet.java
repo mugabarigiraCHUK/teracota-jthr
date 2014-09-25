@@ -44,6 +44,7 @@ public class ViewUserServlet extends HttpServlet {
 		User u = new User(Long.parseLong(id), "firstName", "lastName", "phoneNumber", "mobilePhoneNumber", "email", "jobPozition", "description", "username", "password");
 		u.addRole("MERE !!!");
 		
+		request.setAttribute("userVid", u.getId());
 		request.setAttribute("userVFirstName", u.getFirstName());
 		request.setAttribute("userVLastName", u.getLastName());
 		request.setAttribute("userVPhoneNr", u.getPhoneNumber());

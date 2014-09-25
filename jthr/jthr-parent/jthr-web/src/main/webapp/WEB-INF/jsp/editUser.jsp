@@ -46,7 +46,7 @@
 
 
 							<tr>
-								<td><label>Job Position</label><font color="red">*</font></td>
+								<td><label>Job Position</label><font color="red"></font></td>
 								<td><select>
 										<option value="programmer">Programmer</option>
 										<option value="teamleader">Team Leader</option>
