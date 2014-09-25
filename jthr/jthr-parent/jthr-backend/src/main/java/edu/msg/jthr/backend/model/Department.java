@@ -27,6 +27,12 @@ public class Department extends BaseEntity{
 	public void setDepartName(String departName) {
 		this.departName = departName;
 	}
+
+	@Override
+	public String toString() {
+		return departName;
+	}
+	
 	
 	
 	
