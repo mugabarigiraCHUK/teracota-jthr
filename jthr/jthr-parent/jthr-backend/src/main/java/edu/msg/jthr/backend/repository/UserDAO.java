@@ -6,10 +6,10 @@ import edu.msg.jthr.backend.model.User;
 
 public interface UserDAO {
 	
-	public void addUser(User user);
-	public void editUser(User user);
-	public void deleteUser(Long id);
-	public List<User> getAllUsers();
-	public User getUserById(Long id);
+	public void add(User user);
+	public void edit(User user);
+	public void delete(Long id);
+	public List<User> getAll();
+	public User getById(Long id);
 	
 }

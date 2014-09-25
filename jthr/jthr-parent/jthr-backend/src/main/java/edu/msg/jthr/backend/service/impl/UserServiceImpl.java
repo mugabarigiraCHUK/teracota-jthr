@@ -8,31 +8,31 @@ import edu.msg.jthr.backend.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public void addUser(User user) {
+	public void add(User user) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void editUser(User user) {
+	public void edit(User user) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteUser(Long id) {
+	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public User getUserById(Long id) {
+	public User getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getAllUsers() {
+	public List<User> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
