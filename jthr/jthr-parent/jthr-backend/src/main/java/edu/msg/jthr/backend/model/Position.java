@@ -29,9 +29,29 @@ public class Position extends BaseEntity {
 	private List<Candidate> candidates;
 	@Column
 	private User creator;
+	@Column 
+	private Boolean isClosed;
 
 	public Position() {
 	}
+
+	public Position(String name, Integer nrOfPlaces, Department department, String project, String requirements, String responsibilities, Boolean isApproved,
+			List<Comment> comments, List<Candidate> candidates, User creator, Boolean isClosed) {
+		super();
+		this.name = name;
+		this.nrOfPlaces = nrOfPlaces;
+		this.department = department;
+		this.project = project;
+		this.requirements = requirements;
+		this.responsibilities = responsibilities;
+		this.isApproved = isApproved;
+		this.comments = comments;
+		this.candidates = candidates;
+		this.creator = creator;
+		this.isClosed = isClosed;
+	}
+
+
 
 	public String getName() {
 		return name;

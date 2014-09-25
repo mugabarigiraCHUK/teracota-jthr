@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
 
 /**
@@ -65,10 +66,10 @@ public class AddPositionServlet extends HttpServlet {
 		
 		Position p = new Position();
 		p.setName(request.getParameter("positionName"));
-		p.setNrOfPlaces(request.getParameter("nrOfPersons"));
+		p.setNrOfPlaces(Integer.parseInt(request.getParameter("nrOfPersons")));
 		// p.setNrOfPlaces(Integer.parseInt((String)
 		// request.getAttribute("nrOfPersons")));
-		p.setDepartment(request.getParameter("department"));
+		p.setDepartment(new Department(request.getParameter("department")));
 		p.setProject(request.getParameter("project"));
 		p.setRequirements(request.getParameter("requirements"));
 		p.setResponsibilities(request.getParameter("responsibilities"));
