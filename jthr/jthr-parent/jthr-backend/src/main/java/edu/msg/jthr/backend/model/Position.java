@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Position extends BaseEntity {
@@ -13,7 +14,7 @@ public class Position extends BaseEntity {
 	private String name;
 	@Column
 	private Integer nrOfPlaces;
-	@Column
+	@JoinColumn
 	private Department department;
 	@Column
 	private String project;
@@ -23,20 +24,22 @@ public class Position extends BaseEntity {
 	private String responsibilities;
 	@Column
 	private Boolean isApproved;
-	@Column
+	@JoinColumn
 	private List<Comment> comments;
-	@Column
+	@JoinColumn
 	private List<Candidate> candidates;
-	@Column
+	@JoinColumn
 	private User creator;
-	@Column 
+	@Column
 	private Boolean isClosed;
 
 	public Position() {
 	}
 
-	public Position(String name, Integer nrOfPlaces, Department department, String project, String requirements, String responsibilities, Boolean isApproved,
-			List<Comment> comments, List<Candidate> candidates, User creator, Boolean isClosed) {
+	public Position(String name, Integer nrOfPlaces, Department department,
+			String project, String requirements, String responsibilities,
+			Boolean isApproved, List<Comment> comments,
+			List<Candidate> candidates, User creator, Boolean isClosed) {
 		super();
 		this.name = name;
 		this.nrOfPlaces = nrOfPlaces;
@@ -50,8 +53,6 @@ public class Position extends BaseEntity {
 		this.creator = creator;
 		this.isClosed = isClosed;
 	}
-
-
 
 	public String getName() {
 		return name;
@@ -135,7 +136,9 @@ public class Position extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "Position [id=" + getId() + ", name=" + name + ", nrOfPlaces=" + nrOfPlaces + ", department=" + department + ", project=" + project
-				+ ", requirements=" + requirements + ", responsibilities=" + responsibilities + "]";
+		return "Position [id=" + getId() + ", name=" + name + ", nrOfPlaces="
+				+ nrOfPlaces + ", department=" + department + ", project="
+				+ project + ", requirements=" + requirements
+				+ ", responsibilities=" + responsibilities + "]";
 	}
 }

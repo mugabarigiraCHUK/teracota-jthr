@@ -5,11 +5,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class User extends BaseEntity {
-	
-	
+
 	private static final long serialVersionUID = 1L;
 	@Column
 	private String firstName;
@@ -29,15 +29,17 @@ public class User extends BaseEntity {
 	private String username;
 	@Column
 	private String password;
-	@Column
+	@JoinColumn
 	private List<Role> roles = new ArrayList<Role>();
-	
-	public User() {}
-	
-	public User(Long userID, String firstName, String lastName, String phoneNumber,
-			String mobilePhoneNumber, String email, String jobPozition,
-			String description, String username, String password) {
-		
+
+	public User() {
+	}
+
+	public User(Long userID, String firstName, String lastName,
+			String phoneNumber, String mobilePhoneNumber, String email,
+			String jobPozition, String description, String username,
+			String password) {
+
 		super(userID);
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -49,7 +51,6 @@ public class User extends BaseEntity {
 		this.username = username;
 		this.password = password;
 	}
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -123,7 +124,7 @@ public class User extends BaseEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public void addRole(Role role) {
 		roles.add(role);
 	}
@@ -142,14 +143,12 @@ public class User extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "User [id= "+getId()+" firstName=" + firstName + ", lastName=" + lastName
-				+ ", phoneNumber=" + phoneNumber + ", mobilePhoneNumber="
-				+ mobilePhoneNumber + ", email=" + email + ", jobPozition="
-				+ function + ", description=" + description + ", username="
-				+ username + ", password=" + password + ", roles=" + roles
-				+ "]";
+		return "User [id= " + getId() + " firstName=" + firstName
+				+ ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
+				+ ", mobilePhoneNumber=" + mobilePhoneNumber + ", email="
+				+ email + ", jobPozition=" + function + ", description="
+				+ description + ", username=" + username + ", password="
+				+ password + ", roles=" + roles + "]";
 	}
-	
 
 }
-

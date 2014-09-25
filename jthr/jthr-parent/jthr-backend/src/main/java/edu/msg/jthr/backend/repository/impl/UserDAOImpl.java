@@ -6,7 +6,7 @@ import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.repository.UserDAO;
 
 public class UserDAOImpl implements UserDAO {
-
+//stateless ejb, si e injectata in service
 	@Override
 	public void add(User user) {
 		// TODO Auto-generated method stub

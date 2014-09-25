@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Interview extends BaseEntity {
@@ -11,9 +12,9 @@ public class Interview extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	@Column
 	String date;
-	@Column
+	@JoinColumn
 	List<User> interviewers;
-	@Column
+	@JoinColumn
 	List<Comment> comments;
 
 	public Interview(String date, List<User> interviewers,

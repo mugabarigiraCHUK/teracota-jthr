@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Candidate extends BaseEntity {
@@ -15,6 +16,21 @@ public class Candidate extends BaseEntity {
 	private String firstName;
 	@Column
 	private String telephone;
+	@Column
+	private String mobTelephone;
+	@Column
+	private String email;
+	@Column
+	private String address;
+	@Column
+	private Boolean relocation;
+	@Column
+	private String CV;
+	@JoinColumn
+	private List<Interview> interviews;
+	@JoinColumn
+	private List<Comment> comments;
+
 	public List<Interview> getInterviews() {
 		return interviews;
 	}
@@ -30,21 +46,6 @@ public class Candidate extends BaseEntity {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-
-	@Column
-	private String mobTelephone;
-	@Column
-	private String email;
-	@Column
-	private String address;
-	@Column
-	private Boolean relocation;
-	@Column
-	private String CV;
-	@Column
-	private List<Interview> interviews;
-	@Column
-	private List<Comment> comments;
 
 	public Candidate() {
 	}
