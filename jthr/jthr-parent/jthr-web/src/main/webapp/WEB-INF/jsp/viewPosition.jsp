@@ -80,7 +80,7 @@
 						</table>
 					</form>
 				</div>
-				
+
 				<div id="comments-container">
 					<div class="comment">
 						<div class="comment-username">Gazsi Adam</div>
