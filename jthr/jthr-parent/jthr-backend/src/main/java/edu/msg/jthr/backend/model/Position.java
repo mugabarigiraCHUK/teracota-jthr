@@ -1,15 +1,13 @@
 package edu.msg.jthr.backend.model;
 
-public class Position {
-	@Override
-	public String toString() {
-		return "Position [id=" + id + ", name=" + name + ", nrOfPlaces="
-				+ nrOfPlaces + ", department=" + department + ", project="
-				+ project + ", requirements=" + requirements
-				+ ", responsibilities=" + responsibilities + "]";
-	}
+import javax.persistence.Entity;
 
-	private Long id;
+
+
+@Entity
+public class Position extends BaseEntity{
+	private static final long serialVersionUID = 1L;
+	//	private Long id;
 	private String name = "pooooooosiziotn";
 	private String nrOfPlaces;
 	private String department;
@@ -19,8 +17,7 @@ public class Position {
 	
 	public Position(Long id, String name, String nrOfPlaces, String department,
 			String project, String requirements, String responsibilities) {
-		super();
-		this.id = id;
+		super(id);
 		this.nrOfPlaces = nrOfPlaces;
 		this.department = department;
 		this.project = project;
@@ -31,13 +28,14 @@ public class Position {
 	public Position() {
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
+//	@Column(name="id")
+//	public Long getId() {
+//		return id;
+//	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 
 	public String getName() {
 		return name;
@@ -87,5 +85,11 @@ public class Position {
 		this.responsibilities = responsibilities;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Position [id=" + getId() + ", name=" + name + ", nrOfPlaces="
+				+ nrOfPlaces + ", department=" + department + ", project="
+				+ project + ", requirements=" + requirements
+				+ ", responsibilities=" + responsibilities + "]";
+	}
 }
