@@ -89,7 +89,7 @@ tr:hover {
 									<td><c:out value="${user.phoneNumber}" /></td>
 									<td><c:out value="${user.mobilePhoneNumber}"></c:out></td>
 									<td><c:out value="${user.email}"></c:out></td>
-									<td><c:out value="${user.jobPozition}"></c:out></td>
+									<td><c:out value="${user.function}"></c:out></td>
 									<td><c:out value="${user.description}"></c:out></td>
 									<td>
 										<div style="text-align:center;">
@@ -109,6 +109,5 @@ tr:hover {
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
