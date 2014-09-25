@@ -1,11 +1,11 @@
-package edu.msg.jthr.backend.repository.impl;
+package edu.msg.jthr.backend.service.impl;
 
 import java.util.List;
 
 import edu.msg.jthr.backend.model.User;
-import edu.msg.jthr.backend.repository.UserDAO;
+import edu.msg.jthr.backend.service.UserService;
 
-public class UserDAOImpl implements UserDAO {
+public class UserServiceImpl implements UserService {
 
 	@Override
 	public void addUser(User user) {
@@ -26,13 +26,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<User> getAllUsers() {
+	public User getUserById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User getUserById(Long id) {
+	public List<User> getAllUsers() {
 		// TODO Auto-generated method stub
 		return null;
 	}
