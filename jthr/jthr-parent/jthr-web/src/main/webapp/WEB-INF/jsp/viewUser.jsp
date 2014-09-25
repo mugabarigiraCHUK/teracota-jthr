@@ -17,6 +17,7 @@
 			<div id="table_container">
 				<div class="form">
 					<form action="register" method="POST">
+					<input type="hidden" name="user_id" value="${userVid}" />
 						<table border="0">
 
 							<tr>
@@ -45,7 +46,7 @@
 							</tr>
 
 							<tr>
-								<td><label>Job Position</label><font color="red">*</font></td>
+								<td><label>Job Position</label><font color="red"></font></td>
 								<td><input type="text" name="userJobPoz" value="${userVJobPoz}" disabled></td>
 							</tr>
 
