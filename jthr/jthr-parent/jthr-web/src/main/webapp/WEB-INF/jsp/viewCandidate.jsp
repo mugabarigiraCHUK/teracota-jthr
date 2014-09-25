@@ -70,6 +70,12 @@
 							</tr>
 
 							<tr>
+								<td><label>Email</label></td>
+								<td><input type="text" name="email"
+									value="${email}" disabled></td>
+							</tr>
+							
+							<tr>
 								<td><label>Address</label><font color="red">*</font></td>
 								<td><input type="text" name="address" value="${address}"
 									disabled></td>
@@ -79,22 +85,26 @@
 								<td><label>CV</label><font color="red">*</font></td>
 								<td><input type="text" name="cv" value="${cv}" disabled></td>
 							</tr>
+							
+							<tr>
+								<td><label>Request Relocation</label></td>
+								<td><input type="checkbox" name=relocation
+									value="relocation"></td>
+								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+							</tr>
+							
 							<tr>
 								<td><label>Date</label><font color="red">*</font></td>
 								<td><input type="text" name="date" value="${date}" disabled></td>
 							</tr>
-							<tr>
-								<td><label>Comments</label><font color="red">*</font></td>
-								<td><input type="text" name="comments" value="${comments}"
-									disabled></td>
-							</tr>
+							
 						</table>
 					</form>
 				</div>
 
 				<div id="comments-container">
 					<div class="comment">
-						<div class="comment-username">Gazsi Adam</div>
+						<div class="comment-username">rrrrazvan</div>
 						<div class="comment-buttons">button</div>
 						<div class="comment-text">comment text</div>
 					</div>

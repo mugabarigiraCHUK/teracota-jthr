@@ -50,22 +50,26 @@ public class ViewCandidateServlet extends HttpServlet {
 		} else if (request.getParameter("deleteComment") != null) {
 			return;
 		} else {
-			int id = Integer.valueOf(request.getParameter("id"));
+			getServletContext().log(
+					"VIEW candidate id: "
+							+ request.getParameter("candidate_id"));
+			Long id = Long.valueOf(request.getParameter("candidate_id"));
 
 			// TODO - get position with id from request and put it in session
-			Candidate c = new Candidate(1, "lastname", "firstname",
-					"telephone", "mobtelephone", "address", "cv", "date",
-					new ArrayList<String>());
+			Candidate c = new Candidate(id, "lastName", "firstName",
+					"telephone", "mobTelephone", "email", "address", false,
+					"cv", "date");
 
 			request.setAttribute("id", c.getId());
 			request.setAttribute("lastName", c.getLastName());
 			request.setAttribute("firstName", c.getFirstName());
 			request.setAttribute("telephone", c.getTelephone());
 			request.setAttribute("mobTelephone", c.getTelephone());
+			request.setAttribute("email", c.getEmail());
 			request.setAttribute("address", c.getAddress());
+			request.setAttribute("relocation", c.getRelocation());
 			request.setAttribute("cv", c.getCV());
 			request.setAttribute("date", c.getDate());
-			request.setAttribute("comments", c.getComments());
 
 			// TODO - redirect to editPosition.jsp
 			request.getRequestDispatcher("/WEB-INF/jsp/viewCandidate.jsp")
@@ -73,5 +77,4 @@ public class ViewCandidateServlet extends HttpServlet {
 			return;
 		}
 	}
-
 }
