@@ -4,10 +4,10 @@ import edu.msg.jthr.backend.repository.impl.UserDAOImpl;
 
 public class DAOFactory {
 
-	public UserDAO getUserDAO() {
+	/*public UserDAO getUserDAO() {
 		
 		return new UserDAOImpl();
 		
-	}
+	}*/
 	
 }

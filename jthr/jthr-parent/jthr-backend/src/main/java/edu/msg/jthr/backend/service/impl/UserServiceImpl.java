@@ -2,11 +2,16 @@ package edu.msg.jthr.backend.service.impl;
 
 import java.util.List;
 
+import javax.ejb.EJB;
+
 import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.repository.UserDAO;
 import edu.msg.jthr.backend.service.UserService;
 
 public class UserServiceImpl implements UserService {
-
+	@EJB
+	private UserDAO userDAO;
+	
 	@Override
 	public void add(User user) {
 		// TODO Auto-generated method stub
