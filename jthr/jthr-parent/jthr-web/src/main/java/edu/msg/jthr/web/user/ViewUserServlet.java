@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.msg.jthr.backend.model.Role;
 import edu.msg.jthr.backend.model.User;
 
 /**
@@ -42,7 +43,7 @@ public class ViewUserServlet extends HttpServlet {
 
 		// TODO - get position with id from request and put it in session
 		User u = new User(Long.parseLong(id), "firstName", "lastName", "phoneNumber", "mobilePhoneNumber", "email", "jobPozition", "description", "username", "password");
-		u.addRole("MERE !!!");
+		u.addRole(new Role("MERE !!!"));
 		
 		request.setAttribute("userVid", u.getId());
 		request.setAttribute("userVFirstName", u.getFirstName());
@@ -50,7 +51,7 @@ public class ViewUserServlet extends HttpServlet {
 		request.setAttribute("userVPhoneNr", u.getPhoneNumber());
 		request.setAttribute("userVMobileNr", u.getMobilePhoneNumber());
 		request.setAttribute("userVEmail", u.getEmail());
-		request.setAttribute("userVJobPoz", u.getJobPozition());
+		request.setAttribute("userVJobPoz", u.getFunction());
 		request.setAttribute("userVDescription", u.getDescription());
 		request.setAttribute("userVUsername", u.getUsername());
 		request.setAttribute("userVPassword", u.getPassword());
