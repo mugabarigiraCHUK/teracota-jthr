@@ -69,7 +69,7 @@
 							</tr>
 							<tr>
 								<td><label>Interviews</label><font color="red">*</font></td>
-								<td><input type="text" name="interviews"
+								<td><input type="date" name="interviews"
 									value="${interviews}"></td>
 							</tr>
 							<tr>

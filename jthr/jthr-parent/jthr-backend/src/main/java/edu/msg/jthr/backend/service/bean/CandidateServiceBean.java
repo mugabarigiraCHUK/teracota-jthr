@@ -25,7 +25,7 @@ public class CandidateServiceBean implements CandidateService {
 
 	@Override
 	public void editCandidate(Candidate candidate) {
-		// TODO Auto-generated method stub
+		repository.merge(candidate);
 
 	}
 

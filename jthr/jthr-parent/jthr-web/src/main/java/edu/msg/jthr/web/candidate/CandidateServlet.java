@@ -45,20 +45,12 @@ public class CandidateServlet extends HttpServlet {
 
 		if (request.getParameter("editCandidate") != null) {
 			String id = request.getParameter("candidate_id");
-			context.log("editCandidate, id: " + id); // Invoke update
+			context.log("editCandidate, id: " + id);
 			getServletConfig().getServletContext()
 					.getRequestDispatcher("/editcandidate")
 					.forward(request, response);
 			return;
-		} /*
-		 * else if (request.getParameter("clonePosition") != null) { String
-		 * positionId = request.getParameter("position_id");
-		 * context.log("clonePosition, id: " + positionId); // Invoke clone
-		 * getServletConfig().getServletContext()
-		 * .getRequestDispatcher("/cloneposition") .forward(request, response);
-		 * return; }
-		 */
-		else if (request.getParameter("deleteCandidate") != null) {
+		} else if (request.getParameter("deleteCandidate") != null) {
 			String id = request.getParameter("candidate_id");
 			request.getParameter("candidate_id");
 			context.log("deleteCandidate, id: " + id);

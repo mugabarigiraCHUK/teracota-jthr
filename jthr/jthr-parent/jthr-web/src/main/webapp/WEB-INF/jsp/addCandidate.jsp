@@ -71,7 +71,7 @@
 
 							<tr>
 								<td><label>Interviews</label></td>
-								<td><input type="text" name="interviews"></td>
+								<td><input type="date" name="interviews"></td>
 							</tr>
 
 							<tr>
