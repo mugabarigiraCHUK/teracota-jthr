@@ -55,6 +55,23 @@ public class Candidate extends BaseEntity {
 	public Candidate() {
 	}
 
+
+	public Candidate(String lastName, String firstName, String telephone,
+			String mobTelephone, String email, String address,
+			Boolean relocation, String CV, List<Interview> interviews,
+			List<Comment> comments) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.telephone = telephone;
+		this.mobTelephone = mobTelephone;
+		this.email = email;
+		this.address = address;
+		this.relocation = relocation;
+		this.CV = CV;
+		this.interviews = interviews;
+		this.comments = comments;
+	}
+
 	public Candidate(Long id, String lastName, String firstName,
 			String telephone, String mobTelephone, String email,
 			String address, Boolean relocation, String CV,
