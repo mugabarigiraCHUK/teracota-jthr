@@ -1,4 +1,4 @@
-package edu.msg.jthr.backend.repository.impl;
+package edu.msg.jthr.backend.repository.bean;
 
 import java.util.List;
 
@@ -20,9 +20,8 @@ public class DepartmentDAOImpl implements BaseRepository<Department, Long>{
 	}
 
 	@Override
-	public Department delete(Department e) {
+	public void delete(Department e) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

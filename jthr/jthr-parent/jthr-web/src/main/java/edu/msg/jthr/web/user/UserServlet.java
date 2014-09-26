@@ -1,8 +1,9 @@
 package edu.msg.jthr.web.user;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.service.UserService;
 
 /**
  * Servlet implementation class UserServlet
@@ -18,6 +20,9 @@ import edu.msg.jthr.backend.model.User;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	private UserService service;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,12 +37,15 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ArrayList<User> list = new ArrayList<User>();
+		/*ArrayList<User> list = new ArrayList<User>();
 		list.add(new User((long)1,"unu", "unu", "1", "1", "unu@unu.com", "BOSS", "mergeee", "username", "password"));
 		list.add(new User((long)2,"doi", "doi", "2", "2", "doi@doi.com", "BOSS2", "mergeee", "username", "password"));
 		list.add(new User((long)3,"trei", "trei", "3", "3","trei@trei.com", "BOSS3", "mergeee", "username", "password"));
 		list.add(new User((long)4,"patru", "patru", "4", "4", "doi@doi.com", "BOSS4", "mergeee","username", "password"));
-		list.add(new User((long)5,"cinci", "cinci", "5", "5", "doi@doi.com", "BOSS5", "mergeee", "username", "password"));
+		list.add(new User((long)5,"cinci", "cinci", "5", "5", "doi@doi.com", "BOSS5", "mergeee", "username", "password"));*/
+		
+		List<User> list = service.getAllUsers();
+		
 		request.getSession().setAttribute("list", list);
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request,response);

@@ -1,43 +1,42 @@
-package edu.msg.jthr.backend.repository.impl;
+package edu.msg.jthr.backend.repository.bean;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-
-import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.repository.BaseRepository;
 
-@Stateless
-public class PositionDAOImpl implements BaseRepository<Position, Long> {
+public class CandidateDAOImpl implements BaseRepository<Candidate, Long> {
 
 	@Override
-	public Position save(Position e) {
+	public Candidate save(Candidate e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Position merge(Position e) {
+	public Candidate merge(Candidate e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Position delete(Position e) {
+	public void delete(Candidate e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Candidate> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Position> getAll() {
+	public Candidate getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public Position getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

@@ -1,44 +1,43 @@
-package edu.msg.jthr.backend.repository.impl;
+package edu.msg.jthr.backend.repository.bean;
 
 import java.util.List;
 
-import edu.msg.jthr.backend.model.User;
+import javax.ejb.Stateless;
+
+import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.repository.BaseRepository;
 
-public class UserDAOImpl implements BaseRepository<User, Long> {
+@Stateless
+public class PositionDAOImpl implements BaseRepository<Position, Long> {
 
 	@Override
-	public User save(User e) {
+	public Position save(Position e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User merge(User e) {
+	public Position merge(Position e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User delete(User e) {
+	public void delete(Position e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Position> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getAll() {
+	public Position getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public User getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 
 }
-
-//stateless ejb, si e injectata in service

@@ -1,4 +1,4 @@
-package edu.msg.jthr.backend.service.impl;
+package edu.msg.jthr.backend.service.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import edu.msg.jthr.backend.model.Position;
-import edu.msg.jthr.backend.repository.impl.PositionDAOImpl;
+import edu.msg.jthr.backend.repository.bean.PositionDAOImpl;
 import edu.msg.jthr.backend.service.PositionService;
 
 @Stateful

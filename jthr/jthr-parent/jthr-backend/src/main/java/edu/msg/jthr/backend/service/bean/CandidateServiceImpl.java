@@ -1,27 +1,37 @@
-package edu.msg.jthr.backend.repository.impl;
+package edu.msg.jthr.backend.service.bean;
 
 import java.util.List;
 
+import javax.ejb.EJB;
+
 import edu.msg.jthr.backend.model.Candidate;
-import edu.msg.jthr.backend.repository.BaseRepository;
 import edu.msg.jthr.backend.repository.CandidateDAO;
+import edu.msg.jthr.backend.service.CandidateService;
 
-public class CandidateDAOImpl implements BaseRepository<Candidate, Long> {
-
+public class CandidateServiceImpl implements CandidateService {
+	@EJB 
+	private CandidateDAO candidateDAO;
+	
 	@Override
-	public Candidate save(Candidate e) {
+	public void add(Candidate user) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	@Override
-	public Candidate merge(Candidate e) {
+	public void edit(Candidate user) {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	@Override
-	public Candidate delete(Candidate e) {
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Candidate getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,13 +41,5 @@ public class CandidateDAOImpl implements BaseRepository<Candidate, Long> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Candidate getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 
 }
