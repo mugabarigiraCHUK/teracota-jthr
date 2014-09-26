@@ -1,7 +1,9 @@
 package edu.msg.jthr.web.user;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Role;
 import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.service.UserService;
 
 /**
  * Servlet implementation class UserServletView
@@ -17,6 +20,9 @@ import edu.msg.jthr.backend.model.User;
 @WebServlet("/ViewUserServlet")
 public class ViewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB
+	private UserService service;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,8 +48,9 @@ public class ViewUserServlet extends HttpServlet {
 		String id = request.getParameter("user_id");
 
 		// TODO - get position with id from request and put it in session
-		User u = new User(Long.parseLong(id), "firstName", "lastName", "phoneNumber", "mobilePhoneNumber", "email", "jobPozition", "description", "username", "password");
-		u.addRole(new Role("MERE !!!"));
+	
+		User u = service.getUserById(Long.parseLong(id));
+		getServletContext().log("USER u :"+u);
 		
 		request.setAttribute("userVid", u.getId());
 		request.setAttribute("userVFirstName", u.getFirstName());
@@ -56,7 +63,7 @@ public class ViewUserServlet extends HttpServlet {
 		request.setAttribute("userVUsername", u.getUsername());
 		request.setAttribute("userVPassword", u.getPassword());
 		request.setAttribute("userVRoles", u.getRoles());
-
+		
 		// TODO - redirect to editPosition.jsp
 		request.getRequestDispatcher("/WEB-INF/jsp/viewUser.jsp").forward(request, response);
 		

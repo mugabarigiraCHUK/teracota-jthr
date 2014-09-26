@@ -43,7 +43,7 @@ public class UpdateUserServlet extends HttpServlet {
 
 		// TODO - get position with id from request and put it in session
 		User u = new User(Long.parseLong(id), "firstName", "lastName", "phoneNumber", "mobilePhoneNumber", "email", "jobPozition", "description", "username", "password");
-		u.addRole(new Role("MERE_!!!"));
+		//u.addRole(new Role("MERE_!!!"));
 		
 		request.setAttribute("userUFirstName", u.getFirstName());
 		request.setAttribute("userULastName", u.getLastName());
