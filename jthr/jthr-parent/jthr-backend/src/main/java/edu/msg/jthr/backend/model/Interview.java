@@ -15,10 +15,10 @@ public class Interview extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	@Column
 	String date;
-	@OneToMany(cascade={CascadeType.ALL}) 
+	@OneToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name="INTERVIEW_USER", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="USER_ID")})
 	List<User> interviewers;
-	@OneToMany(cascade={CascadeType.ALL}) 
+	@OneToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name="INTERVIEW_COMMENT", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	List<Comment> comments;
 

@@ -5,9 +5,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Position extends BaseEntity {
@@ -17,6 +18,8 @@ public class Position extends BaseEntity {
 	private String name;
 	@Column
 	private Integer nrOfPlaces;
+	
+	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	@JoinColumn
 	private Department department;
 	@Column
@@ -28,14 +31,17 @@ public class Position extends BaseEntity {
 	@Column
 	private Boolean isApproved;
 	
-	@OneToMany(cascade={CascadeType.ALL}) 
-	@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+//	@OneToMany(cascade={CascadeType.ALLPERSIST}) 
+	///@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+	@Transient
 	private List<Comment> comments;
 	
-	@OneToMany(cascade={CascadeType.ALL}) 
-	@JoinTable(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+//	@OneToMany(cascade={CascadeType.ALL}) 
+	//@JoinTable(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	@Transient
 	private List<Candidate> candidates;
-	@JoinColumn
+//	@JoinColumn
+	@Transient
 	private User creator;
 	@Column
 	private Boolean isClosed;
@@ -58,7 +64,7 @@ public class Position extends BaseEntity {
 		this.comments = comments;
 		this.candidates = candidates;
 		this.creator = creator;
-		this.isClosed = isClosed;
+		this.setIsClosed(isClosed);
 	}
 
 	public String getName() {
@@ -139,6 +145,14 @@ public class Position extends BaseEntity {
 
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+
+	public Boolean getIsClosed() {
+		return isClosed;
+	}
+
+	public void setIsClosed(Boolean isClosed) {
+		this.isClosed = isClosed;
 	}
 
 	@Override

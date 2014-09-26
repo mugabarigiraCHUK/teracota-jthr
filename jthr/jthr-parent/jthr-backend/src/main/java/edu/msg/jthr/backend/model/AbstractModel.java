@@ -2,9 +2,12 @@ package edu.msg.jthr.backend.model;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class AbstractModel {
+	@Column
 	private String uuid;
 
 	public AbstractModel() {

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -93,21 +94,27 @@ tr:hover {
 					<table>
 						<tr>
 							<td>Position Name</td>
-							<td>Nr of places</td>
+							<td>Places O/T</td>
 							<td>Department</td>
 							<td>Project</td>
 							<td>Requirements</td>
 							<td>Responsibilities</td>
+							<td>Approved</td>
+							<td>Closed</td>
+							<td>Created by</td>
 							<td>Operations</td>
 						</tr>
 						<c:forEach items="${poz}" var="position">
 							<tr>
 								<td><c:out value="${position.name}"></c:out></td>
-								<td><c:out value="${position.nrOfPlaces}" /></td>
+								<td><c:out value="${position.nrOfPlaces}" />/<c:out value="${fn:length(position.candidates)}" /></td>
 								<td><c:out value="${position.department}" /></td>
-								<td><c:out value="${position.project}"></c:out></td>
-								<td><c:out value="${position.requirements}"></c:out></td>
-								<td><c:out value="${position.responsibilities}"></c:out></td>
+								<td><c:out value="${position.project}" /></td>
+								<td><c:out value="${position.requirements}" /></td>
+								<td><c:out value="${position.responsibilities}" /></td>
+								<td><c:out value="${position.isApproved}" /></td>
+								<td><c:out value="${position.isClosed}" /></td>
+								<td><c:out value="${position.creator.firstName}" /> <c:out value="${position.creator.lastName}" /></td>
 								<td>
 									<div style="text-align:center;">
 									<form action="position" method="POST">

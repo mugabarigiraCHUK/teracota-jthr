@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
 
+
 /**
  * Servlet implementation class AddCandidateServlet
  */
@@ -21,6 +23,8 @@ import edu.msg.jthr.backend.model.Position;
 public class AddPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
+	@EJB PositionService positionService;
+	//@EJB DepartmentService departmentService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -69,13 +73,14 @@ public class AddPositionServlet extends HttpServlet {
 		p.setNrOfPlaces(Integer.parseInt(request.getParameter("nrOfPersons")));
 		// p.setNrOfPlaces(Integer.parseInt((String)
 		// request.getAttribute("nrOfPersons")));
-		p.setDepartment(new Department(request.getParameter("department")));
+		p.setDepartment(new Department("test"));
 		p.setProject(request.getParameter("project"));
 		p.setRequirements(request.getParameter("requirements"));
 		p.setResponsibilities(request.getParameter("responsibilities"));
 
 		context.log("add position: " + p.toString());
 
+		positionService.add(p);
 		// TODO - send position to repo
 
 		response.sendRedirect(request.getContextPath() + "/position");
