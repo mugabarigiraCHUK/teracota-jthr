@@ -2,9 +2,12 @@ package edu.msg.jthr.backend.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Position extends BaseEntity {
@@ -24,9 +27,13 @@ public class Position extends BaseEntity {
 	private String responsibilities;
 	@Column
 	private Boolean isApproved;
-	@JoinColumn
+	
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	private List<Comment> comments;
-	@JoinColumn
+	
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
 	private List<Candidate> candidates;
 	@JoinColumn
 	private User creator;
