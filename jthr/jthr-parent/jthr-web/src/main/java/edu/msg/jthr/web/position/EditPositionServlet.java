@@ -37,7 +37,7 @@ public class EditPositionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().log("id to edit: " + request.getParameter("position_id"));
+		getServletContext().log("id to edit in get: " + request.getParameter("position_id"));
 		request.getRequestDispatcher("/WEB-INF/jsp/editPosition.jsp").forward(request,response);
 		response.sendRedirect("/WEB-INF/jsp/editPosition.jsp");
 	}
@@ -85,6 +85,10 @@ public class EditPositionServlet extends HttpServlet {
 		
 		String id = request.getParameter("position_id");
 		getServletContext().log("update position with id: " + id);
+		
+		// positionService.update(position);
+		
+		request.getRequestDispatcher("/WEB-INF/jsp/viewPosition.jsp").forward(request,response);
 	}
 
 }

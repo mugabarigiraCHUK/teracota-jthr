@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.service.PositionService;
 
 
 /**
@@ -80,7 +81,7 @@ public class AddPositionServlet extends HttpServlet {
 
 		context.log("add position: " + p.toString());
 
-		positionService.add(p);
+		positionService.addPosition(p);
 		// TODO - send position to repo
 
 		response.sendRedirect(request.getContextPath() + "/position");
