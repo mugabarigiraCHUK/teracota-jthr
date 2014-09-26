@@ -1,5 +1,6 @@
 package edu.msg.jthr.backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,21 +33,24 @@ public class Position extends BaseEntity {
 	@Column
 	private String responsibilities;
 	@Column
-	private Boolean isApproved;
-	
-	@OneToMany(cascade={CascadeType.PERSIST}) 
-	@JoinTable//(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
-	private List<Comment> comments;
-	
-	@OneToMany(cascade={CascadeType.ALL}) 
-	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
-	private List<Candidate> candidates;
-
+	private Boolean isApproved = false;
+	@Column
+	private Boolean isClosed = false;
 	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	@JoinColumn
 	private User creator;
-	@Column
-	private Boolean isClosed;
+	
+	@OneToMany(cascade={CascadeType.PERSIST}) 
+	@JoinTable//(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+	private List<Comment> comments = new ArrayList<>();
+	
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	private List<Candidate> candidates = new ArrayList<>();
+
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	private List<Candidate> acceptedCandidates = new ArrayList<>();
 
 	public Position() {
 	}
@@ -139,6 +143,14 @@ public class Position extends BaseEntity {
 
 	public void setCandidates(List<Candidate> candidates) {
 		this.candidates = candidates;
+	}
+
+	public List<Candidate> getAcceptedCandidates() {
+		return acceptedCandidates;
+	}
+
+	public void setAcceptedCandidates(List<Candidate> acceptedCandidates) {
+		this.acceptedCandidates = acceptedCandidates;
 	}
 
 	public User getCreator() {

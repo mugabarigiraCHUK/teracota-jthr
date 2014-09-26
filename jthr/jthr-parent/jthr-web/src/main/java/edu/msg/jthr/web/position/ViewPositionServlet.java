@@ -17,6 +17,7 @@ import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.model.Project;
 import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.service.PositionService;
+import edu.msg.jthr.backend.service.UserService;
 
 /**
  * Servlet implementation class ViewPositionServlet
@@ -24,7 +25,8 @@ import edu.msg.jthr.backend.service.PositionService;
 @WebServlet("/ViewPositionServlet")
 public class ViewPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	@EJB PositionService positionService;
+	@EJB private PositionService positionService;
+	@EJB private UserService userService;
 	
 	
 	/**
@@ -49,10 +51,14 @@ public class ViewPositionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("submitComment") != null) {
+			Comment c = new Comment();
+			c.setText(request.getParameter("comment_text"));
+			c.setUser(userService.getUserById((Long) request.getSession().getAttribute("user_id")));
+			positionService.addPositionComment(c, Long.parseLong(request.getParameter("position_id")));
+			request.setAttribute("submitComment", null);
+			response.sendRedirect(request.getContextPath() + "/position");			
 			return;
 		} else if (request.getParameter("editComment") != null) {
-			return;
-		} else if (request.getParameter("updateComment") != null) {
 			return;
 		} else if (request.getParameter("deleteComment") != null) {
 			return;
@@ -60,17 +66,18 @@ public class ViewPositionServlet extends HttpServlet {
 			getServletContext().log("view position with id: " + request.getParameter("position_id"));
 			String id = request.getParameter("position_id");
 
-			// TODO - get position with id from request and put it in session
-			Position p = new Position("name", 2, new Department("dep"), new Project(), "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
-
+			Position p = positionService.getPositionById(Long.parseLong(id));
 			request.setAttribute("positionId", p.getId());
 			request.setAttribute("positionName", p.getName());
+			request.setAttribute("positionDepartment", p.getDepartment().getDepartName());
 			request.setAttribute("positionDepartment", p.getDepartment());
-			request.setAttribute("positionNrOfPlaces", p.getNrOfPlaces());
-			request.setAttribute("positionDepartment", p.getDepartment());
-			request.setAttribute("positionProject", p.getProject());
+			request.setAttribute("positionProject", p.getProject().getProjectName());
 			request.setAttribute("positionRequirements", p.getRequirements());
 			request.setAttribute("positionResponsibilities", p.getResponsibilities());
+			request.setAttribute("positionNrOfPlaces", p.getNrOfPlaces());
+			request.setAttribute("positionCandidates", p.getCandidates());
+			request.setAttribute("positionAcceptedCandidates", p.getAcceptedCandidates());
+			request.setAttribute("comments", p.getComments());
 
 			// TODO - redirect to editPosition.jsp
 			request.getRequestDispatcher("/WEB-INF/jsp/viewPosition.jsp").forward(request, response);
