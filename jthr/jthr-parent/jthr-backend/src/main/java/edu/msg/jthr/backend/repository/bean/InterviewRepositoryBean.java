@@ -8,7 +8,6 @@ public class InterviewRepositoryBean extends
 
 	public InterviewRepositoryBean() {
 		super(Interview.class);
-		// TODO Auto-generated constructor stub
 	}
 
 }
