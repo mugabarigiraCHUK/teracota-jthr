@@ -2,9 +2,12 @@ package edu.msg.jthr.backend.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Candidate extends BaseEntity {
@@ -26,9 +29,11 @@ public class Candidate extends BaseEntity {
 	private Boolean relocation;
 	@Column
 	private String CV;
-	@JoinColumn
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
 	private List<Interview> interviews;
-	@JoinColumn
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "CANDIDATE_COMMENT", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
 	private List<Comment> comments;
 
 	public List<Interview> getInterviews() {
