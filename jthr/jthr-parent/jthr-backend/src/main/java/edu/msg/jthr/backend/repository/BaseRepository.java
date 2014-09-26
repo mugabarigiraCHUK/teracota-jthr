@@ -6,9 +6,10 @@ import edu.msg.jthr.backend.model.AbstractModel;
 
 
 public interface BaseRepository<T extends AbstractModel, I> {
-	public T save(T e);
-	public T merge(T e);
-	public T delete(T e);
-	public List<T> getAll();
-	public T getById(I id);
+	
+	T save(T e);
+	T merge(T e);
+	void delete(T e);
+	List<T> getAll();
+	T getById(I id);
 }
