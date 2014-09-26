@@ -31,14 +31,13 @@ public class CandidateServiceBean implements CandidateService {
 
 	@Override
 	public void deleteCandidate(Candidate candidate) {
-		// TODO Auto-generated method stub
+		repository.delete(candidate);
 
 	}
 
 	@Override
 	public Candidate getCandidateById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getById(id);
 	}
 
 	@Override

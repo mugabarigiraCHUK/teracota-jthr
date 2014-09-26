@@ -64,12 +64,13 @@
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
-								<td><input type="text" name="cv" value="${cv}"></td>
+								<td><input type="text" name="cv" value="${cv}" disabled></td>
 								<td><input type="submit" name="cvButton" value="Add File"></td>
 							</tr>
 							<tr>
 								<td><label>Interviews</label><font color="red">*</font></td>
-								<td><input type="text" name="interviews" value="${interviews}"></td>
+								<td><input type="text" name="interviews"
+									value="${interviews}"></td>
 							</tr>
 							<tr>
 								<td><label>Comments</label><font color="red">*</font></td>
