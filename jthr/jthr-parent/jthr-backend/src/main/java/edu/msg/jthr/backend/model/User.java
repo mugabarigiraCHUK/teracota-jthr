@@ -3,9 +3,12 @@ package edu.msg.jthr.backend.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User extends BaseEntity {
@@ -29,7 +32,8 @@ public class User extends BaseEntity {
 	private String username;
 	@Column
 	private String password;
-	@JoinColumn
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "USER_ROLE", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
 	private List<Role> roles = new ArrayList<Role>();
 
 	public User() {

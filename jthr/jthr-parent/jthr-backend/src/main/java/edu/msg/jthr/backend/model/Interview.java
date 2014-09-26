@@ -2,9 +2,12 @@ package edu.msg.jthr.backend.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Interview extends BaseEntity {
@@ -12,9 +15,11 @@ public class Interview extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	@Column
 	String date;
-	@JoinColumn
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable(name="INTERVIEW_USER", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="USER_ID")})
 	List<User> interviewers;
-	@JoinColumn
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable(name="INTERVIEW_COMMENT", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	List<Comment> comments;
 
 	public Interview(String date, List<User> interviewers,
