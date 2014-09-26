@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -31,17 +33,17 @@ public class Position extends BaseEntity {
 	@Column
 	private Boolean isApproved;
 	
-//	@OneToMany(cascade={CascadeType.ALLPERSIST}) 
-	///@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
-	@Transient
+	@OneToMany(cascade={CascadeType.PERSIST}) 
+	@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	private List<Comment> comments;
 	
 //	@OneToMany(cascade={CascadeType.ALL}) 
 	//@JoinTable(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
 	@Transient
 	private List<Candidate> candidates;
-//	@JoinColumn
-	@Transient
+
+	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@JoinColumn
 	private User creator;
 	@Column
 	private Boolean isClosed;
