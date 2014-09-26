@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
 @Entity
 public class Position extends BaseEntity {
@@ -24,8 +23,10 @@ public class Position extends BaseEntity {
 	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
 	@JoinColumn
 	private Department department;
-	@Column
-	private String project;
+	
+	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@JoinColumn
+	private Project project;
 	@Column
 	private String requirements;
 	@Column
@@ -51,7 +52,7 @@ public class Position extends BaseEntity {
 	}
 
 	public Position(String name, Integer nrOfPlaces, Department department,
-			String project, String requirements, String responsibilities,
+			Project project, String requirements, String responsibilities,
 			Boolean isApproved, List<Comment> comments,
 			List<Candidate> candidates, User creator, Boolean isClosed) {
 		super();
@@ -92,11 +93,11 @@ public class Position extends BaseEntity {
 		this.department = department;
 	}
 
-	public String getProject() {
+	public Project getProject() {
 		return project;
 	}
 
-	public void setProject(String project) {
+	public void setProject(Project project) {
 		this.project = project;
 	}
 

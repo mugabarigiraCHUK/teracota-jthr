@@ -2,9 +2,8 @@ package edu.msg.jthr.web.position;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,9 @@ import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.Project;
 import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.service.PositionService;
 
 /**
  * Servlet implementation class ViewPositionServlet
@@ -23,7 +24,9 @@ import edu.msg.jthr.backend.model.User;
 @WebServlet("/ViewPositionServlet")
 public class ViewPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	@EJB PositionService positionService;
+	
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -58,7 +61,7 @@ public class ViewPositionServlet extends HttpServlet {
 			String id = request.getParameter("position_id");
 
 			// TODO - get position with id from request and put it in session
-			Position p = new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
+			Position p = new Position("name", 2, new Department("dep"), new Project(), "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
 
 			request.setAttribute("positionId", p.getId());
 			request.setAttribute("positionName", p.getName());

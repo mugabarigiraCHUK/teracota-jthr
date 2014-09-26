@@ -1,21 +1,18 @@
 package edu.msg.jthr.web.position;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.msg.jthr.backend.model.Candidate;
-import edu.msg.jthr.backend.model.Comment;
-import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
-import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.service.PositionService;
 
 /**
  * Servlet implementation class EditPositionServlet
@@ -23,6 +20,7 @@ import edu.msg.jthr.backend.model.User;
 @WebServlet("/EditPositionServlet")
 public class EditPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@EJB PositionService positionService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -69,7 +67,7 @@ public class EditPositionServlet extends HttpServlet {
 			getServletContext().log("id to edit (post method): " + id);
 			
 			//TODO - get position with id from request and put it in session
-			Position p = new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
+			Position p = positionService.getPositionById(Long.parseLong(id));
 			request.setAttribute("positionId", p.getId());
 			request.setAttribute("positionName", p.getName());
 			request.setAttribute("positionNrOfPlaces", p.getNrOfPlaces());

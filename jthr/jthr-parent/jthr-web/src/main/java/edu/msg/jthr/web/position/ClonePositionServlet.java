@@ -15,6 +15,7 @@ import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.Project;
 import edu.msg.jthr.backend.model.User;
 
 /**
@@ -66,7 +67,7 @@ public class ClonePositionServlet extends HttpServlet {
 			getServletContext().log("id to clone (post method): " + id);
 			
 			//TODO - get position with id from request and put it in session
-			Position p = new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
+			Position p = new Position("name", 2, new Department("dep"), new Project(), "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
 			request.getSession().setAttribute("positionId", p.getId());
 			request.getSession().setAttribute("positionName", p.getName());
 			request.getSession().setAttribute("positionNrOfPlaces", p.getNrOfPlaces());

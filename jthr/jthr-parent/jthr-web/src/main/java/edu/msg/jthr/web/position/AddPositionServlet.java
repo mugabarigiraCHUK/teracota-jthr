@@ -2,6 +2,7 @@ package edu.msg.jthr.web.position;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJB;
@@ -14,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.Project;
+import edu.msg.jthr.backend.service.DepartmentService;
 import edu.msg.jthr.backend.service.PositionService;
+import edu.msg.jthr.backend.service.ProjectService;
 
 
 /**
@@ -25,7 +29,8 @@ public class AddPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
 	@EJB PositionService positionService;
-	//@EJB DepartmentService departmentService;
+	@EJB DepartmentService departmentService;
+	@EJB ProjectService projectService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -42,20 +47,20 @@ public class AddPositionServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		context = getServletContext();
 		
+		List<Department> deps = departmentService.getAllDepartments();
 		Map<Long, String> m = new HashMap<>();
-		m.put(new Long(1), "Department first");
-		m.put(new Long(2), "Department second");
-		m.put(new Long(3), "Department third");
-		m.put(new Long(4), "Department fourth");
-		m.put(new Long(5), "Department fifth");
+		
+		for (Department d: deps){
+			m.put(d.getId(), d.getDepartName());
+		}
 		request.setAttribute("depList", m);
 		
+		List<Project> projects = projectService.getAllProjects();
 		Map<Long, String> m2 = new HashMap<>();
-		m2.put(new Long(1), "Project first");
-		m2.put(new Long(2), "Project second");
-		m2.put(new Long(3), "Project third");
-		m2.put(new Long(4), "Project fourth");
-		m2.put(new Long(5), "Project fifth");
+		
+		for (Project p: projects){
+			m2.put(p.getId(), p.getProjectName());
+		}
 		request.setAttribute("projList", m2);
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/addPosition.jsp").forward(request, response);
@@ -75,7 +80,7 @@ public class AddPositionServlet extends HttpServlet {
 		// p.setNrOfPlaces(Integer.parseInt((String)
 		// request.getAttribute("nrOfPersons")));
 		p.setDepartment(new Department("test"));
-		p.setProject(request.getParameter("project"));
+		p.setProject(new Project());
 		p.setRequirements(request.getParameter("requirements"));
 		p.setResponsibilities(request.getParameter("responsibilities"));
 
