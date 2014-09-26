@@ -20,43 +20,39 @@ public class PositionServiceBean implements PositionService {
 
 	@Override
 	public void addPosition(Position position) {
-		// TODO Auto-generated method stub
+		repository.save(position);
 	}
 
 	@Override
-	public void editPosition(Position Position) {
-		// TODO Auto-generated method stub
+	public void editPosition(Position position) {
+		repository.merge(position);
 		
 	}
 
 	@Override
-	public void deletePosition(Long id) {
-		// TODO Auto-generated method stub
+	public void deletePosition(Position position) {
+		repository.delete(position);
 		
 	}
 
 	@Override
 	public Position getPositionById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getById(id);
 	}
 
 	@Override
 	public List<Position> getAllPositions() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getAll();
 	}
 
 	@Override
 	public List<Position> getPositionbyFilter(String pattern) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getPositionbyFilter(pattern);
 	}
 
 	@Override
 	public void addPositionComment(Comment comment, Long positionId) {
-		// TODO Auto-generated method stub
-		
+				
 	}
 
 	@Override
