@@ -29,14 +29,12 @@
 						<table border="0">
 							<tr>
 								<td><label>Position Name</label><font color="red">*</font></td>
-								<td><input type="text" name="positionName" autofocus></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
+								<td><input type="text" name="positionName" autofocus required></td>
 							</tr>
 
 							<tr>
 								<td><label>Number of Persons</label><font color="red">*</font></td>
-								<td><input type="text" name="nrOfPersons"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="number" name="nrOfPersons" min="1"></td>
 							</tr>
 
 							<tr>
@@ -46,7 +44,6 @@
 												<option value="${dep.key}">${dep.value}</option>
 											</c:forEach>
 								</select></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
@@ -56,19 +53,16 @@
 											<option value="${project.key}">${project.value}</option>
 										</c:forEach>
 								</select></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${emailmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Requirements</label><font color="red">*</font></td>
-								<td><input type="text" name="requirements"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${usermess} </p></td> -->
+								<td><input type="text" name="requirements" required></td>
 							</tr>
 
 							<tr>
 								<td><label>Responsibilities</label><font color="red">*</font></td>
-								<td><input type="text" name="responsibilities"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${passmess} </p></td> -->
+								<td><input type="text" name="responsibilities" required></td>
 							</tr>
 
 							<tr>

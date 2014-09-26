@@ -20,7 +20,7 @@
 			<div id="table_container">
 				<div class="form">
 					<form action="editposition" method="POST">
-						<input type="hidden" name="position_id" value="${positionId}" />
+						<input type="hidden" name="position_id" value="<c:out value="${positionId}"></c:out>" />
 						<table border="0">
 							<tr>
 								<td><label>Position Name</label><font color="red">*</font></td>

@@ -11,6 +11,7 @@
 		<class>edu.msg.jthr.backend.model.Department</class>
 		<class>edu.msg.jthr.backend.model.Interview</class>
 		<class>edu.msg.jthr.backend.model.Position</class>
+		<class>edu.msg.jthr.backend.model.Project</class>
 		<class>edu.msg.jthr.backend.model.Role</class>
 		<class>edu.msg.jthr.backend.model.User</class>
 		<properties>
