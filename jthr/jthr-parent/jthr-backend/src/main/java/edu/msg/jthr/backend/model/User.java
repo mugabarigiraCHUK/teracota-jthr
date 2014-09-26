@@ -36,12 +36,11 @@ public class User extends BaseEntity {
 	@JoinTable(name = "USER_ROLE", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
 	private List<Role> roles = new ArrayList<Role>();
 
-	public User() {
-	}
+	public User() {}
 
 	public User(Long userID, String firstName, String lastName,
 			String phoneNumber, String mobilePhoneNumber, String email,
-			String jobPozition, String description, String username,
+			String function, String description, String username,
 			String password) {
 
 		super(userID);
@@ -50,7 +49,7 @@ public class User extends BaseEntity {
 		this.phoneNumber = phoneNumber;
 		this.mobilePhoneNumber = mobilePhoneNumber;
 		this.email = email;
-		this.function = jobPozition;
+		this.function = function;
 		this.description = description;
 		this.username = username;
 		this.password = password;
@@ -129,10 +128,6 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
-	public void addRole(Role role) {
-		roles.add(role);
-	}
-
 	public List<Role> getRoles() {
 		return roles;
 	}
@@ -141,16 +136,12 @@ public class User extends BaseEntity {
 		this.roles = roles;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "User [id= " + getId() + " firstName=" + firstName
 				+ ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
 				+ ", mobilePhoneNumber=" + mobilePhoneNumber + ", email="
-				+ email + ", jobPozition=" + function + ", description="
+				+ email + ", function=" + function + ", description="
 				+ description + ", username=" + username + ", password="
 				+ password + ", roles=" + roles + "]";
 	}

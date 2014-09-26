@@ -19,26 +19,25 @@ public class UserServiceBean implements UserService {
 	
 	@Override
 	public void addUser(User user) {
+		
 		repository.save(user);
 		
 	}
 
 	@Override
 	public void editUser(User user) {
-		// TODO Auto-generated method stub
-		
+		repository.merge(user);
 	}
 
 	@Override
-	public void deleteUser(Long id) {
-		// TODO Auto-generated method stub
+	public void deleteUser(User user) {
 		
+			repository.delete(user);
 	}
 
 	@Override
 	public User getUserById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getById(id);
 	}
 
 	@Override

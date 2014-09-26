@@ -21,5 +21,3 @@ public class UserRepositoryBean extends BaseRepositoryBean<User, Long> implement
 	}
 
 }
-
-//stateless ejb, si e injectata in service

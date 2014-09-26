@@ -16,7 +16,7 @@
 		<div id="site_content">
 			<div id="table_container">
 				<div class="form">
-					<form action="register" method="POST">
+					<form action="userAdd" method="POST">
 						<table border="0">
 
 							<tr>
@@ -51,10 +51,10 @@
 
 							<tr>
 								<td><label>Job Position</label><font color="red">*</font></td>
-								<td><select>
-										<option value="programmer">Programmer</option>
-										<option value="teamleader">Team Leader</option>
-										<option value="departmenthead">Department Head</option>
+								<td><select name="function">
+										<option value="Programmer">Programmer</option>
+										<option value="Team-Leader">Team Leader</option>
+										<option value="Department-Head">Department Head</option>
 								</select></td>
 							</tr>
 
@@ -65,9 +65,9 @@
 
 							<tr>
 								<td><label>Username</label><font color="red">*</font></td>
-								<td><input type="text" id="userTextField" name="username" disabled></td>
+								<td><input type="text" id="userTextField" name="username" readonly></td>
 								<td><div class="addGenBTN">
-										<button type="button" onclick="generateUsername()">
+										<button type="button" title="Generate" onclick="generateUsername()">
 											<img alt="generate" src="resources/refresh.png">
 										</button>
 									</div></td>
@@ -78,7 +78,7 @@
 								<td><label>Password</label><font color="red">*</font></td>
 								<td><input type="text" id="passTextField" name="password"></td>
 								<td><div class="addGenBTN">
-										<button type="button" onclick="generatePassword()">
+										<button type="button" title="Generate" onclick="generatePassword()">
 											<img alt="generate" src="resources/refresh.png">
 										</button>
 									</div></td>
@@ -96,10 +96,10 @@
 										<option value="viewer">Viewer</option>
 								</select></td>
 								<td><div class="addGenBTN">
-										<button type="button" onclick="getFromCombo()">
+										<button type="button" title="Add" onclick="getFromCombo()">
 											<img alt="add" src="resources/plus.png">
 										</button>
-										<button type="button" onclick="removeLastRole()">
+										<button type="button" title="Remove Last" onclick="removeLastRole()">
 											<img alt="remove" src="resources/minus.png">
 										</button>
 									</div></td>
@@ -161,9 +161,8 @@
 				var laux = lname.toLowerCase();
 				var username = laux.substring(0, 5) + faux.substring(0, 1);
 				document.getElementById("userTextField").value = username;
+				
 			}
-
-			alert("Este : " + username + " " + username.length);
 
 		}
 
@@ -171,7 +170,7 @@
 
 			var password = document.getElementById("lnameTextField").value
 					.toLowerCase();
-			document.getElementById("passTextField").value = password;
+			document.getElementById("passTextField").value = password ;
 
 		}
 	</script>
