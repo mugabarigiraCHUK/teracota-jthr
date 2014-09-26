@@ -29,10 +29,10 @@ public class Candidate extends BaseEntity {
 	private Boolean relocation;
 	@Column
 	private String CV;
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
 	private List<Interview> interviews;
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name = "CANDIDATE_COMMENT", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
 	private List<Comment> comments;
 

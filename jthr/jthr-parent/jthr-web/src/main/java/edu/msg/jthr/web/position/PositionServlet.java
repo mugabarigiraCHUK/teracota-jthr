@@ -3,6 +3,7 @@ package edu.msg.jthr.web.position;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,12 +16,15 @@ import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.service.PositionService;
 
 /**
  * Servlet implementation class PositionServlet
  */
 @WebServlet("/PositionServlet")
 public class PositionServlet extends HttpServlet {
+	@EJB private PositionService positionService;
+	
 	private static final long serialVersionUID = 1L;
 
 	/**

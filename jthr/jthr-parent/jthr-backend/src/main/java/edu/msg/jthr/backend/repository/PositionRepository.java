@@ -5,11 +5,11 @@ import java.util.List;
 import javax.ejb.Local;
 
 import edu.msg.jthr.backend.model.Position;
+import edu.msg.jthr.backend.model.User;
 
 @Local
 public interface PositionRepository extends BaseRepository<Position, Long> {
-	List<Position> getPositionByApproval() throws RepositoryException;
-
-	List<Position> getPositionByName(String positionName)
-			throws RepositoryException;
+	
+	List<User> getPositionbyFilter(String pattern);
+	
 }

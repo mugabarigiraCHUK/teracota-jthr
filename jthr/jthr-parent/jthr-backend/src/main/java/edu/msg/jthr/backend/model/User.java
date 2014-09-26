@@ -32,7 +32,7 @@ public class User extends BaseEntity {
 	private String username;
 	@Column
 	private String password;
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade={CascadeType.PERSIST})
 	@JoinTable(name = "USER_ROLE", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
 	private List<Role> roles = new ArrayList<Role>();
 
