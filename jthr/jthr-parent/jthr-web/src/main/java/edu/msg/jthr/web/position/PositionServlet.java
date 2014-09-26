@@ -1,7 +1,7 @@
 package edu.msg.jthr.web.position;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletContext;
@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.msg.jthr.backend.model.Candidate;
-import edu.msg.jthr.backend.model.Comment;
-import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.model.Position;
-import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.service.PositionService;
 
 /**
@@ -41,14 +37,8 @@ public class PositionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Position> poz = new ArrayList<Position>();
-		for (int i = 0; i < 100; i++) {
-			Position p = new Position("name", 2, new Department("dep"), "project", "reqs", "resps", false, new ArrayList<Comment>(), new ArrayList<Candidate>(), new User(), true);
-			p.setId(new Long(i));
-			poz.add(p);
-		}
+		List<Position> poz = positionService.getAllPositions();
 		request.getSession().setAttribute("poz", poz);
-
 		request.getRequestDispatcher("/WEB-INF/jsp/position.jsp").forward(request, response);
 	}
 

@@ -34,12 +34,11 @@ public class Position extends BaseEntity {
 	private Boolean isApproved;
 	
 	@OneToMany(cascade={CascadeType.PERSIST}) 
-	@JoinTable(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+	@JoinTable//(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	private List<Comment> comments;
 	
-//	@OneToMany(cascade={CascadeType.ALL}) 
-	//@JoinTable(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
-	@Transient
+	@OneToMany(cascade={CascadeType.ALL}) 
+	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
 	private List<Candidate> candidates;
 
 	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
