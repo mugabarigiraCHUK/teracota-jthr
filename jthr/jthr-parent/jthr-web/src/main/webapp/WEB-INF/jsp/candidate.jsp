@@ -43,23 +43,6 @@
 	opacity: 0.3;
 }
 
-.clone {
-	background:
-		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZklEQVRYR+1Xy23CQBC1SyCB5EYTSSGcOdEAElEKwGkgkAJypxegET6WUkHyxtqR7JW9M7OxMUhYGiGxb96++ex4nSZJMoWtYSOY5Uk9MPGsYE9KkgNwb0RyhA2VTmWYLyDH4sDIkxPJb4OTv4HE7fOE/F9AtiPCvgTQ3oVgjQCOTMqIJQO3JUCqPa93loHeBdx7ILYEKj/NMVQRBQZa0F8jwNoDPC8kv84G0StC3pcyUjfACLPVTkJtCc4APmjBDtfqyyjmdbxoswf84KUeKPBdCsicIv6trY5GgLGsNvhVC7CF0owO3iNCGbi4AOnGYxVkPgW9C3hEiHS15uc/t2X6xqB7Px/1xuyVe+AbqHfYj0PHChjD/ws20QqImeHafqAsPIfAlIEZ7BNm/aqRRJwAmMM2koCm9dgSSMIq66HOZwEfzmOpqalpd4AlAbR55kjpl0S0elxDZLQhb86B1f1nDbqC/wMQHVui0whUHAAAAABJRU5ErkJggg==);
-	width: 32px;
-	height: 32px;
-	border: none;
-	margin-left: 5px;
-}
-
-.clone:hover {
-	opacity: 0.5;
-}
-
-.clone:active {
-	opacity: 0.3;
-}
-
 .delete {
 	background:
 		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAgCAYAAAAMq2gFAAADNklEQVRIS72WWahPURTG75UxM5mSKSQKyfhA7oMp8wNXSkJ4IEWGRGQIkcgcxQMpQzLEAx4MUeauMl7JFV1kuIZryvj7TmdrW+3TVv+y6uuctfZa+zt7n7XW3vl5/0ny/5GnPn4bQSPj/wR9OvgUm0dEvUDLiGN/xidl+KzDfjUS/0hEZaBO7ItyHC8T0QdQI8eJYuHlIhoC2sY8cxwvdsnQnIlqmck+or9ME6CaN3aX98qgtWd7z/sb0BRUMvPIXuqIdqBMMQ730NuDy6CHN6bEaAz2eLYTvA8Fb0FtM89K9IWOaDHKUuPwHL0JOAU0uZMQ0V4Gx4PvwJbMNGzbnFGpu9MQfUHXlh0AoyNEWxlfkK7ITJM3DMNxRzQA5aT1QK8KNoPJESJtj7a/JDBHF2xFjqgDyu2AkzrBXDAnQjQv/dCbgTkaYHvliJRx7wJO7bAVguURoqmM3wfnzBxf0bX9v/wfpxStaRx7oivjNkWIxjD+GRwz8Q/R28jmE91BVzr7on+n7fNTOZR1A1O/3SZeKyywRDaNNa5tU/b5Xxoi0soFdXhflPbjLNEuDBONo/ZehXves4eIQv9SIavBfEu0DMMiQxTKphCROoWyc7aJn4Gu8vjrH+nrtxvHFeiqj8eRFSmzlDB+vSlkJDhqiQZjUM/yZQuKKt5Pfbsi10EO4jfKxHdDv26JOmGwBRfqYZbI9cTTxPczRNrSF5aoHobXxtF1Zf8UtkSuy18htrsX/413tbCflkg1pUuGBp1c5KU3KAEtUqMl0jGie0cx8A9QxbRyE9mW/oCBpJJTucWzIygCnTOI1IwHAW1RQy/2Au99sojOMFDgOT/lvRk4C/pmEO3HPhYoKXTyOtmX2hPdrkitJqnkVMp5qv8pRYdnEKkkZgF7t1uLTbUVJFqFNalkT3QH0KGoE1Ri/9EabOvBMxM3E31DFpFunUkle6Jb6hKgKg8Rqc4OA11afFFNHcoiGsHAEROg284E4NqTXZHuBDfAJROnJquUT8T+o67YrpkAXZeqgOqpXTedCsBdz3QB1aWkronT1as0i0hnjyo9V/mRfpyewRXpS1V4FXNk0seqiP/Ib2ixrINP9B7SAAAAAElFTkSuQmCC);
@@ -126,9 +109,8 @@ tr:hover {
 												type="submit" name="viewCandidate" value="" class="view"
 												title="View" /> <input type="submit" name="editCandidate"
 												value="" class="edit" title="Edit" /> <input type="submit"
-												name="cloneCandidate" value="" class="clone" title="Reuse" />
-											<input type="submit" name="deleteCandidate" value=""
-												class="delete" title="Delete"
+												name="deleteCandidate" value="" class="delete"
+												title="Delete"
 												onclick="return confirm('Are you sure you want to delete?')" />
 										</form>
 									</div>

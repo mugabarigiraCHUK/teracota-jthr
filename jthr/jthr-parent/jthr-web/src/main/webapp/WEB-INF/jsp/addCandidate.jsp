@@ -64,6 +64,7 @@
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
+								<td><input type="text" name="cv" value="${cv}" disabled></td>
 								<td><input type="submit" name="cv" value="Add File"></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
