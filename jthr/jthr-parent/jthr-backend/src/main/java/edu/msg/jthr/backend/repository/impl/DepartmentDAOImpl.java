@@ -2,42 +2,41 @@ package edu.msg.jthr.backend.repository.impl;
 
 import java.util.List;
 
-import edu.msg.jthr.backend.model.Candidate;
+import edu.msg.jthr.backend.model.Department;
 import edu.msg.jthr.backend.repository.BaseRepository;
-import edu.msg.jthr.backend.repository.CandidateDAO;
 
-public class CandidateDAOImpl implements BaseRepository<Candidate, Long> {
+public class DepartmentDAOImpl implements BaseRepository<Department, Long>{
 
 	@Override
-	public Candidate save(Candidate e) {
+	public Department save(Department e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Candidate merge(Candidate e) {
+	public Department merge(Department e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Candidate delete(Candidate e) {
+	public Department delete(Department e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Candidate> getAll() {
+	public List<Department> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Candidate getById(Long id) {
+	public Department getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
 
 }

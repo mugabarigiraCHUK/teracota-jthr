@@ -2,40 +2,42 @@ package edu.msg.jthr.backend.repository.impl;
 
 import java.util.List;
 
-import edu.msg.jthr.backend.repository.AbstractRepository;
-import edu.msg.jthr.backend.repository.UserDAO;
+import edu.msg.jthr.backend.model.User;
+import edu.msg.jthr.backend.repository.BaseRepository;
 
-public class UserDAOImpl implements AbstractRepository<UserDAO> {
+public class UserDAOImpl implements BaseRepository<User, Long> {
 
 	@Override
-	public UserDAO add(UserDAO e) {
+	public User save(User e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UserDAO update(UserDAO e) {
+	public User merge(User e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UserDAO delete(UserDAO e) {
+	public User delete(User e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<UserDAO> getAll() {
+	public List<User> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public UserDAO get(Long id) {
+	public User getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }
 

@@ -5,19 +5,19 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 import edu.msg.jthr.backend.model.Position;
-import edu.msg.jthr.backend.repository.AbstractRepository;
+import edu.msg.jthr.backend.repository.BaseRepository;
 
 @Stateless
-public class PositionDAOImpl implements AbstractRepository<Position> {
+public class PositionDAOImpl implements BaseRepository<Position, Long> {
 
 	@Override
-	public Position add(Position e) {
+	public Position save(Position e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Position update(Position e) {
+	public Position merge(Position e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -35,8 +35,9 @@ public class PositionDAOImpl implements AbstractRepository<Position> {
 	}
 
 	@Override
-	public Position get(Long id) {
+	public Position getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
