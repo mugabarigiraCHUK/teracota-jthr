@@ -1,6 +1,7 @@
 package edu.msg.jthr.backend.service.bean;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.DependsOn;
@@ -56,7 +57,17 @@ public class UserServiceBean implements UserService {
 
 	@Override
 	public List<User> getAllUsers() {
-		return repository.getAll();
+
+		List<User> list = repository.getAll();
+
+		Iterator<User> it = list.iterator();
+		while (it.hasNext()) {
+			User u = it.next();
+			if (u.isActive() == false)
+				it.remove();
+		}
+
+		return list;
 	}
 
 	@Override

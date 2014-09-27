@@ -82,15 +82,12 @@ public class UserAddServlet extends HttpServlet {
 		String[] str2 = str.split(",");
 
 		List<String> rolesSelected = Arrays.asList(str2);
-		//request.getServletContext().log("Roles selected : " + rolesSelected);
 		List<Role> roles = roleService.getAllRoles();
-		//request.getServletContext().log("Roles in DB : " + roles);
 
 
 		for (String s : rolesSelected) {
 			for (Role r : roles) {
 				if (s.equals(r.getRoleName())) {
-				//	request.getServletContext().log(s + " == " + r.getRoleName());
 
 					newUser.getRoles().add(roleService.getRoleById(r.getId()));
 				}
