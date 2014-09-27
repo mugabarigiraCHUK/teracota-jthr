@@ -28,12 +28,11 @@ public class CandidateServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		request.getSession().setAttribute("user_id", new Long(1));// TODO change
+																	// this
+																	// after
 		List<Candidate> candidateList = service.getAllCandidates();
-		for (Candidate c : candidateList) {
-			request.getServletContext().log("candidatiu: " + c.toString());
-
-		}
+		
 		request.getSession().setAttribute("candidateList", candidateList);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/candidate.jsp").forward(

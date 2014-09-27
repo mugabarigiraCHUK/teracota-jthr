@@ -79,16 +79,8 @@
 								<td><input type="text" name="comment"></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 
-								<td><div class="round-button">
-										<a href="login333333333"> <img src="resources/plus.png" />
-										</a>
-									</div></td>
 							</tr>
 
-							<tr>
-								<td><label> </label></td>
-								<td><input type="text" name="commentlist" disabled></td>
-							</tr>
 
 							<tr>
 								<td colspan="2"><center>

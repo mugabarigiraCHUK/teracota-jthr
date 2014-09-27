@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import edu.msg.jthr.backend.model.Candidate;
+import edu.msg.jthr.backend.model.Comment;
 
 @Local
 public interface CandidateService {
@@ -17,4 +18,10 @@ public interface CandidateService {
 	Candidate getCandidateById(Long id);
 
 	List<Candidate> getAllCandidates();
+
+	void addCandidateComment(Comment comment, Long candidateId);
+
+	void editCandidateComment(Comment com, long parseLong);
+
+	void deleteCandidateComment(Comment com, long parseLong);
 }

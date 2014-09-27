@@ -84,8 +84,6 @@ tr:hover {
 							<td>Address</td>
 							<td>Relocation</td>
 							<td>CV</td>
-							<td>Interviews</td>
-							<td>Comments</td>
 							<td>Operations</td>
 						</tr>
 						<c:forEach items="${candidateList}" var="candidate">
@@ -98,8 +96,7 @@ tr:hover {
 								<td><c:out value="${candidate.address}"></c:out></td>
 								<td><c:out value="${candidate.relocation}"></c:out></td>
 								<td><c:out value="${candidate.CV}"></c:out></td>
-								<td><c:out value="${candidate.interviews}"></c:out></td>
-								<td><c:out value="${candidate.comments}"></c:out></td>
+								
 
 								<td>
 									<div style="text-align: center;">

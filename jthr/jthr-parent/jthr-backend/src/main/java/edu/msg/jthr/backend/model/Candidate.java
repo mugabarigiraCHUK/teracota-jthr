@@ -30,11 +30,13 @@ public class Candidate extends BaseEntity {
 	private Boolean relocation;
 	@Column
 	private String CV;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+	@OneToMany//(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
 	private List<Interview> interviews;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JoinTable(name = "CANDIDATE_COMMENT", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
+//	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+//	@JoinTable//(name = "CANDIDATE_COMMENT", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
+	@OneToMany(cascade={CascadeType.PERSIST}) 
+	@JoinTable
 	private List<Comment> comments;
 
 	public List<Interview> getInterviews() {

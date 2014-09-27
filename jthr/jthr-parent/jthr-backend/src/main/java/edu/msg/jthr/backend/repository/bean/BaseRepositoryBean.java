@@ -38,16 +38,14 @@ public abstract class BaseRepositoryBean<T extends AbstractModel, I> implements
 
 		e = entityManager.merge(e);
 		entityManager.flush();
-
 		return e;
 	}
 
 	@Override
 	public void delete(T e) {
 		e = entityManager.merge(e);
-		e = entityManager.merge(e);
 		entityManager.remove(e);
-
+		entityManager.flush();
 	}
 
 	@Override
@@ -66,7 +64,7 @@ public abstract class BaseRepositoryBean<T extends AbstractModel, I> implements
 	public T getById(I id) {
 
 		return entityManager.find(clazz, id);
-		
+
 	}
 
 	protected EntityManager getEntityManager() {
