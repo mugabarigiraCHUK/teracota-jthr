@@ -5,21 +5,19 @@
 			<ul>
 				<li><a data-icon="&#xF00A;" href="/jthr-web/addposition">Add
 						Position</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Update Position</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Delete Position</a></li>
 			</ul></li>
 		<li><a data-icon="&#xf0c0;" href="/jthr-web/candidate">Candidates</a>
 			<ul>
 				<li><a data-icon="&#xF00A;" href="/jthr-web/addcandidate">Add
 						Candidate</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Update Candidate</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Delete Candidate</a></li>
 			</ul></li>
 		<li><a data-icon="&#xf007;" href="/jthr-web/user">Users</a>
 			<ul>
 				<li><a data-icon="&#xF00A;" href="/jthr-web/userAdd">Add User</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Update User</a></li>
-				<li><a data-icon="&#xF00A;" href="http://">Delete User</a></li>
+			</ul></li>
+			<li><a data-icon="&#xf044;" href="/jthr-web/interview">Interviews</a>
+			<ul>
+				<li><a data-icon="&#xF00A;" href="/jthr-web/*">Add Interview</a></li>
 			</ul></li>
 	</ul>
 	<canvas>
