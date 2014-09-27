@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.service.PositionService;
@@ -83,6 +84,24 @@ public class ViewPositionServlet extends HttpServlet {
 			if (com != null) {
 				positionService.deletePositionComment(com, Long.parseLong(positionId));
 			}
+		} else if (request.getParameter("closePosition") != null){
+			getServletContext().log("close position with id: " + request.getParameter("position_id"));
+			positionService.closePosition(Long.parseLong(request.getParameter("position_id")));
+			
+		} else if (request.getParameter("approvePosition") != null){
+			getServletContext().log("approve position with id: " + request.getParameter("position_id"));
+			positionService.approvePosition(Long.parseLong(request.getParameter("position_id")));
+			
+			/* --------------------------------CANDIDATE------------------------------------- */
+		} else if (request.getParameter("viewCandidate") != null){
+			getServletContext().log("view candidate with id: " + request.getParameter("candidate_id"));
+			getServletConfig().getServletContext().getRequestDispatcher("/viewcandidate").forward(request, response);
+		}else if (request.getParameter("removeCandidate") != null){
+			getServletContext().log("remove candidate with id: " + request.getParameter("candidate_id"));
+			positionService.removeCandidateFromPosition(Long.parseLong(request.getParameter("candidate_id")), Long.parseLong(request.getParameter("position_id")));
+		}else if (request.getParameter("acceptCandidate") != null){
+			getServletContext().log("accept candidate with id: " + request.getParameter("candidate_id"));
+			positionService.acceptCandidateToPosition(Long.parseLong(request.getParameter("candidate_id")), Long.parseLong(request.getParameter("position_id")));
 		}
 		
 		getServletContext().log("view position with id: " + request.getParameter("position_id"));
@@ -100,6 +119,8 @@ public class ViewPositionServlet extends HttpServlet {
 		request.setAttribute("positionCandidates", p.getCandidates());
 		request.setAttribute("positionAcceptedCandidates", p.getAcceptedCandidates());
 		request.setAttribute("comments", p.getComments());
+		request.setAttribute("isApproved", p.getIsApproved());
+		request.setAttribute("isClosed", p.getIsClosed());
 
 		// TODO - redirect to editPosition.jsp
 		request.getRequestDispatcher("/WEB-INF/jsp/viewPosition.jsp").forward(request, response);

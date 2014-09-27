@@ -82,10 +82,10 @@ public class AddPositionServlet extends HttpServlet {
 		p.setProject(projectService.getProjectById(Long.parseLong(request.getParameter("project"))));
 		p.setRequirements(request.getParameter("requirements"));
 		p.setResponsibilities(request.getParameter("responsibilities"));
-		p.setCreator(userService.getUserById(new Long(1))); // TODO - get creator user id from session
+		p.setCreator(userService.getUserById((Long) request.getSession().getAttribute("user_id"))); // TODO - get creator user id from session
 		
 		positionService.addPosition(p);
-		
+
 		response.sendRedirect(request.getContextPath() + "/position");
 	}
 

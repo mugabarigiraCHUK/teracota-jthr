@@ -76,6 +76,22 @@
 	opacity: 0.3;
 }
 
+.addCandidate {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABGElEQVRIS2NkoDFgpLH5DCPTAm1gsHYBsSMQ/wfifUBcBsTXsQU3qUEEMvw4EPOiGfYJyLfAZgmpFmwFGuKFI2FsBor7octhswDkbRDAJvcNKM6Jw4KvQHEeSi0AGcJFSwtAweCDw4KNQPEAXD6ABQuufAcLLk2gghNAzIem8AM0km9SagFIP8iSTiB2ghq2B0iXAzGG4bgiEl8k4/IhTnFSUxFNLZAFmh4LxC5ArAXEwlDb3gDpa0AMCqrFQPwE2RXEZDQOoIY2IM4BYlYCXvgFlJ8ExDVA/BNXHCCbAUotO4EYVAyQAo4BFXsA8WdCPtgAVORPislIatcB2cGELCCUPwjZzTjgFhByIUF5Qj4gaAAhBUPfAgAlpS0ZnHrj5QAAAABJRU5ErkJggg==);
+	width: 24px;
+	height: 24px;
+	border: none;
+	margin-left: 5px;
+}
+
+.addCandidate:hover{
+	opacity: 0.5;
+}
+
+.addCandidate:active{
+	opacity: 0.3;
+}
+
 tr:hover {
     background-color: #8b2d4b;   
 }
@@ -120,9 +136,16 @@ tr:hover {
 									<form action="position" method="POST">
 										<input type="hidden" name="position_id" value="<c:out value="${position.id}" />"/>
 										<input type="submit" name="viewPosition" value="" class="view" title="View" />
-	 									<input type="submit" name="editPosition" value="" class="edit" title="Edit" />
-										<input type="submit" name="clonePosition" value="" class="clone" title="Reuse" />
-										<input type="submit" name="deletePosition" value="" class="delete" title="Delete" onclick="return confirm('Are you sure you want to delete?')"/>
+										
+										<c:if test="${position.isClosed == false and position.isApproved == true}">
+	 										<input type="submit" name="editPosition" value="" class="edit" title="Edit" />
+	 										<input type="submit" name="addCandidate" value="" class="addCandidate" title="Add Candidate" />
+	 									</c:if>
+	 									<c:if test="${position.isClosed == true}">
+											<input type="submit" name="clonePosition" value="" class="clone" title="Reuse" />
+										</c:if>
+										
+										<!-- <input type="submit" name="deletePosition" value="" class="delete" title="Delete" onclick="return confirm('Are you sure you want to delete?')"/> -->
 									</form>
 									</div>
 								</td>

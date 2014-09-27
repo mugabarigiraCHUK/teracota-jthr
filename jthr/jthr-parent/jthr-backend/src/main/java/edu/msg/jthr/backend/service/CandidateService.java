@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
+import edu.msg.jthr.backend.model.Position;
 
 @Local
 public interface CandidateService {
@@ -24,4 +25,6 @@ public interface CandidateService {
 	void editCandidateComment(Comment com, long parseLong);
 
 	void deleteCandidateComment(Comment com, long parseLong);
+	
+	List<Candidate> getNonCandidates(Position p);
 }

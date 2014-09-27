@@ -27,5 +27,15 @@ public interface PositionService {
 	void editPositionComment(Comment comment, Long positionId);
 	
 	void deletePositionComment(Comment comment, Long positionId);
+	
+	void closePosition(Long id);
+	
+	void approvePosition(Long id);
+
+	void addCandidateToPosition(Long candidateId, Long positionId);
+
+	void removeCandidateFromPosition(Long parseLong, Long parseLong2);
+
+	void acceptCandidateToPosition(Long parseLong, Long parseLong2);
 
 }

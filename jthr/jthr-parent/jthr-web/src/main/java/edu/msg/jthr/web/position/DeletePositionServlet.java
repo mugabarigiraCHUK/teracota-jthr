@@ -1,11 +1,15 @@
 package edu.msg.jthr.web.position;
 
 import java.io.IOException;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import edu.msg.jthr.backend.service.PositionService;
 
 /**
  * Servlet implementation class DeletePositionServlet
@@ -13,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DeletePositionServlet")
 public class DeletePositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@EJB private PositionService positionService;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,9 +38,9 @@ public class DeletePositionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().log("deleting position with id: " + request.getParameter("position_id"));
+		String id = request.getParameter("position_id");
 		
-		// TODO - delete position with the given id
+		positionService.deletePosition(positionService.getPositionById(Long.parseLong(id)));
 		
 		response.sendRedirect(request.getContextPath() + "/position");
 	}

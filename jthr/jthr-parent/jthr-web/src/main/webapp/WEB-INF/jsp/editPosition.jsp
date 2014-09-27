@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
+<style>
+.forma {
+	width: 50%;
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
 	<div id="main">
@@ -18,7 +24,7 @@
 
 		<div id="site_content">
 			<div id="table_container">
-				<div class="form">
+				<div class="forma form">
 					<form action="editposition" method="POST">
 <%-- 						<input type="hidden" name="position_id" value="<c:out value="${positionId}"></c:out>" /> --%>
 							<input type="hidden" name="position_id" value="${positionId}" />

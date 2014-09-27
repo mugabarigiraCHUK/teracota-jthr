@@ -33,7 +33,6 @@ public class UserServiceBean implements UserService {
 		}
 		
 		repository.save(user);
-
 	}
 
 	@Override
