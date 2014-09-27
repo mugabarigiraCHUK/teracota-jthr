@@ -133,18 +133,22 @@
 					<c:forEach items="${comments}" var="comm">
 						<div class="comment">
 							<div class="comment-username"><c:out value="${comm.user.firstName}" /> <c:out value="${comm.user.lastName}" /></div>
-<%-- 						<div class="comment-username">"${comm.user.firstName comm.user.lastName}"</div> --%>
-							
-							<c:if test="${comm.user.id == user_id}"> <!-- userId should be obtained from session -->
-								<div class="comment-buttons">
-									<form action="viewposition" method="POST">
-										<input type="hidden" name="comment_id" value="<c:out value="${comm.id}" />"/>
-										<input type="submit" value="" name="editComment" title="Edit" class="edit"/>
-										<input type="submit" value="" name="deleteComment" title="Delete" class="delete"/>
-									</form>
+							<form action="viewposition" method="POST" id="comment__${comm.id}">
+								<c:if test="${comm.user.id == user_id}"> <!-- userId should be obtained from session -->
+									<div class="comment-buttons">
+										
+											<input type="hidden" name="comment_id" value="<c:out value="${comm.id}" />"/>
+											<input type="hidden" name="position_id" value="${positionId}" />
+											<input type="button" value="" class="edit" onclick="toggle_visibility('comment_${comm.id}')"/>
+											<input type="submit" value="" name="deleteComment" title="Delete" class="delete"/>
+										
+									</div>
+								</c:if>
+								<div class="comment-text">
+									<textarea id="comment_${comm.id}_text" name="comment_text" form="comment__${comm.id}" rows="4" cols="65" readonly>${comm.text}</textarea><br>
+									<input id="comment_${comm.id}_editbutton" type="submit" value="Submit" name="editComment" title="Edit" disabled/>
 								</div>
-							</c:if>
-							<div class="comment-text">${comm.text}</div>
+							</form>
 						</div>
 					</c:forEach>
 					
@@ -163,6 +167,14 @@
 			</div>
 		</div>
 	</div>
+
+<script type="text/javascript">
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    document.getElementById(id + "_text").readOnly = false;
+    document.getElementById(id + "_editbutton").disabled = false;
+}
+</script>
 
 </body>
 </html>
