@@ -67,7 +67,8 @@
 
 							<tr>
 								<td><label>Role</label><font color="red"></font></td>
-								<td><input type="text" value="${userVRoles}" name="userRoleList" disabled></input></td>
+								<%-- <td><input type="text" value="${userVRoles}" name="userRoleList" disabled></input></td> --%>
+								<td><textarea readonly name="userRoleList"  rows=3 cols=30>${userVRoles}</textarea></td>
 							</tr>
 						</table>
 					</form>
