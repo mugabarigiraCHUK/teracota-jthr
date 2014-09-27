@@ -20,6 +20,10 @@ public class Comment extends BaseEntity implements Serializable {
 		super();
 	}
 
+	public Comment(String text) {
+		this.text = text;
+	}
+
 	public String getText() {
 		return this.text;
 	}
@@ -34,6 +38,11 @@ public class Comment extends BaseEntity implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return text;
 	}
 
 }

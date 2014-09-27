@@ -93,6 +93,14 @@ public class Candidate extends BaseEntity {
 		return email;
 	}
 
+	public void addInterview(Interview interview) {
+		this.getInterviews().add(interview);
+	}
+
+	public void addComment(Comment comment) {
+		this.getComments().add(comment);
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
