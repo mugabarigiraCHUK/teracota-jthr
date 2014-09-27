@@ -1,5 +1,6 @@
 package edu.msg.jthr.backend.service.bean;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.DependsOn;
@@ -71,5 +72,20 @@ public class CandidateServiceBean implements CandidateService {
 		commentRepository.delete(com);
 		editCandidate(c);
 
+	}
+
+	@Override
+	public List<Candidate> getNonCandidates(Position p) {
+		List<Candidate> candidates = repository.getAll();
+		
+		Iterator<Candidate> it = candidates.iterator();
+		while(it.hasNext()){
+			Candidate c = it.next();
+			if (p.getCandidates().contains(c) || p.getAcceptedCandidates().contains(c)){
+				it.remove();
+			}
+		}
+		
+		return candidates;
 	}
 }

@@ -44,12 +44,12 @@ public class Position extends BaseEntity {
 	@JoinTable//(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
 	private List<Comment> comments = new ArrayList<>();
 	
-	@OneToMany(cascade={CascadeType.ALL}) 
+	@OneToMany(cascade={CascadeType.PERSIST}) 
 	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
 	private List<Candidate> candidates = new ArrayList<>();
 
-	@OneToMany(cascade={CascadeType.ALL}) 
-	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	@OneToMany(cascade={CascadeType.PERSIST}) 
+	@JoinTable(name="POSITION_ACCEPTEDCANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
 	private List<Candidate> acceptedCandidates = new ArrayList<>();
 
 	public Position() {

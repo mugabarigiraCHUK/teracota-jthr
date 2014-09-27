@@ -76,6 +76,12 @@ public class PositionServlet extends HttpServlet {
 
 			getServletConfig().getServletContext().getRequestDispatcher("/viewposition").forward(request, response);
 			return;
+		} else if (request.getParameter("addCandidate") != null){
+			String positionId = request.getParameter("position_id");
+			context.log("addCandidate, id: " + positionId);
+
+			getServletConfig().getServletContext().getRequestDispatcher("/addcandidatetoposition").forward(request, response);
+			return;
 		}
 	}
 
