@@ -75,8 +75,8 @@
 							</tr>
 
 							<tr>
-								<td><label>Comments</label></td>
-								<td><input type="text" name="comments"></td>
+								<td><label>Comment</label></td>
+								<td><input type="text" name="comment"></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 
 								<td><div class="round-button">

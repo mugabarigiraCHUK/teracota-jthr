@@ -1,7 +1,6 @@
 package edu.msg.jthr.web.candidate;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
+import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
 
 /**
@@ -79,11 +79,15 @@ public class EditCandidateServlet extends HttpServlet {
 			else
 				candidate.setRelocation(true);
 			candidate.setCV(request.getParameter("cv"));
-			// List<Interview> interviews = new ArrayList<Interview>();
-			// interviews.add(new
-			// Interview(request.getParameter("interviews")));
-			// candidate.setInterviews(request.getParameter("interviews"));
-			candidate.setComments(new ArrayList<Comment>());
+
+			Interview interview = new Interview(
+					request.getParameter("interviews"));
+			candidate.addInterview(interview);
+
+			String commentText = request.getParameter("comments");
+			Comment comment = new Comment(commentText);
+			candidate.addComment(comment);
+
 			service.editCandidate(candidate);
 
 			response.sendRedirect("candidate");

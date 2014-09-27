@@ -51,10 +51,15 @@ public class AddCandidateServlet extends HttpServlet {
 		else
 			relocation = true;
 		String cv = "myCV";
+
 		List<Interview> interviews = new ArrayList<Interview>();
 		Interview interview = new Interview(request.getParameter("interview"));
 		interviews.add(interview);
+
 		List<Comment> comments = new ArrayList<Comment>();
+		Comment comment = new Comment(request.getParameter("comment"));
+		comments.add(comment);
+
 		Candidate candidate = new Candidate(lastName, firstName, telephone,
 				mobileTelephone, email, address, relocation, cv, interviews,
 				comments);

@@ -74,7 +74,7 @@ public class Interview extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "Interview [date=" + date + "]";
+		return date;
 	}
 
 }
