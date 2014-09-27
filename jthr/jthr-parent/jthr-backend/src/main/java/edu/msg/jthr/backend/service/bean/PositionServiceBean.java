@@ -63,13 +63,14 @@ public class PositionServiceBean implements PositionService {
 
 	@Override
 	public void editPositionComment(Comment comment, Long positionId) {
-		// TODO Auto-generated method stub
-
+		commentRepository.merge(comment);
 	}
 
 	@Override
 	public void deletePositionComment(Comment comment, Long positionId) {
-		// TODO Auto-generated method stub
-
+		Position p = repository.getById(positionId);
+		p.getComments().remove(comment);
+		commentRepository.delete(comment);
+		editPosition(p);
 	}
 }
