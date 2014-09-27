@@ -7,7 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
@@ -33,12 +32,13 @@ public class User extends BaseEntity {
 	private String username;
 	@Column
 	private String password;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JoinTable(name = "USER_ROLE", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") })
+	@Column
+	private boolean isActive=true;
+	@OneToMany(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER) 
+	@JoinTable
 	private List<Role> roles = new ArrayList<Role>();
 
-	public User() {
-	}
+	public User() {}
 
 	public User(Long userID, String firstName, String lastName,
 			String phoneNumber, String mobilePhoneNumber, String email,
@@ -136,6 +136,14 @@ public class User extends BaseEntity {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	@Override

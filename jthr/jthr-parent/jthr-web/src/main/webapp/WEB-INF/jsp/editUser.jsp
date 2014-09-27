@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,14 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
 </head>
-<body onload="populateRoles()">
+<body>
 	<div id="main">
 		<%@ include file="header.jsp"%>
 		<%@ include file="menu.jsp"%>
 		<div id="site_content">
 			<div id="table_container">
 				<div class="form">
-					<form action="register" method="POST">
+					<form action="updateuser" method="POST">
+					<input type="hidden" name="user_id" value="${id}" />
 						<table border="0">
 
 							<tr>
@@ -47,10 +49,10 @@
 
 							<tr>
 								<td><label>Job Position</label><font color="red"></font></td>
-								<td><select>
-										<option value="programmer">Programmer</option>
-										<option value="teamleader">Team Leader</option>
-										<option value="departmenthead">Department Head</option>
+								<td><select name="function">
+										<option value="Programmer">Programmer</option>
+										<option value="Team-Leader">Team Leader</option>
+										<option value="Department-Head">Department Head</option>
 								</select></td>
 							</tr>
 
@@ -61,7 +63,7 @@
 
 							<tr>
 								<td><label>Username</label><font color="red"></font></td>
-								<td><input type="text" name="userUsername" value="${userUUsername}" disabled></td>
+								<td><input type="text" name="userUsername" value="${userUUsername}" readonly></td>
 							</tr>
 
 							<tr>
@@ -71,19 +73,16 @@
 
 							<tr>
 								<td><label>Role</label><font color="red">*</font></td>
-								<td><select id="rolecombobox">
-										<option value="generaldirector">General-Director</option>
-										<option value="departmentdirector">Department-Director</option>
-										<option value="hrdirector">HR-Director</option>
-										<option value="recruiter">Recruiter</option>
-										<option value="admin">Application-Admin</option>
-										<option value="viewer">Viewer</option>
+								<td><select name="roleCB" id="rolecombobox">
+									<c:forEach items="${rolList2}" var="rol">
+												<option value="${rol.key}">${rol.value}</option>
+											</c:forEach>
 								</select></td>
 								<td><div class="addGenBTN">
-										<button type="button" onclick="getFromCombo()">
+										<button type="button" title="Add" onclick="getFromCombo()">
 											<img alt="add" src="resources/plus.png">
 										</button>
-										<button type="button" onclick="removeLastRole()">
+										<button type="button" title="Clear" onclick="removeLastRole()">
 											<img alt="remove" src="resources/minus.png">
 										</button>
 									</div></td>
@@ -91,7 +90,7 @@
 
 							<tr>
 								<td><label> </label></td>
-								<td><textarea disabled name="Address" id="result" rows=3 cols=30></textarea></td>
+								<td><textarea readonly name="roleResult" id="result" rows=3 cols=30></textarea></td>
 							</tr>
 
 							<tr>
@@ -103,40 +102,28 @@
 			</div>
 		</div>
 	</div>
-<script>
 
-	function populateRoles() {
-		
-		document.getElementById("result").value = "${userURoles}";
-		
-	}
+	<script>
+	
+		var arr = [];
 
-	function getFromCombo() {
+		function getFromCombo() {
 
-		var e = document.getElementById("rolecombobox");
-		var strUser = e.options[e.selectedIndex].text;
-		var txt = document.getElementById("result").value;
-		if (txt.length == 0)
-			txt = txt + "[" + strUser + "]";
-		else
-			txt = txt + " [" + strUser + "]";
-		document.getElementById("result").value = txt;
-	}
+			var e = document.getElementById("rolecombobox");
+			var strUser = e.options[e.selectedIndex].text;
+			var txt = document.getElementById("result").value;
+			
+			arr.push(strUser);
+			
+			document.getElementById("result").value = arr;
+		}
 
-	function removeLastRole() {
+		function removeLastRole() {
 
-		var aux = "";
-		var roles = document.getElementById("result").value;
-		var rolesArray = roles.split(" ");
-		rolesArray.pop();
-		for (i = 0; i < rolesArray.length; i++)
-			if (aux.length == 0) {
-				aux = aux + rolesArray[i];
-			} else {
-				aux = aux + " " + rolesArray[i];
-			}
-		document.getElementById("result").value = aux;
-	}
-</script>
+				arr.pop();
+			document.getElementById("result").value = arr;
+
+		}
+	</script>
 </body>
 </html>

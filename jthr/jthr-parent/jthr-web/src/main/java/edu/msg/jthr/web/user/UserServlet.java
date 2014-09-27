@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.User;
-import edu.msg.jthr.backend.service.RoleService;
 import edu.msg.jthr.backend.service.UserService;
 
 /**
@@ -24,8 +23,7 @@ public class UserServlet extends HttpServlet {
 	
 	@EJB
 	private UserService userService;
-	@EJB
-	private RoleService roleService;
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,7 +40,9 @@ public class UserServlet extends HttpServlet {
 		
 		List<User> list = userService.getAllUsers();
 		
+		
 		request.getSession().setAttribute("list", list);
+		
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request,response);
 
@@ -67,8 +67,16 @@ public class UserServlet extends HttpServlet {
 
 			getServletConfig().getServletContext().getRequestDispatcher("/viewuser").forward(request, response);
 			return;
-		}
+		} else if(request.getParameter("deleteUser") != null) {
+			String userId = request.getParameter("user_id");
+			context.log("deleteUser , id: "+ userId);
+			
+			userService.deleteUser(userService.getUserById(Long.parseLong(userId)));
 
+			response.sendRedirect(request.getContextPath()+ "/user");
+			return;
+
+	}
 	}
 
 }
