@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
-import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
 
 /**
@@ -31,10 +30,13 @@ public class EditCandidateServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/jsp/editCandidate.jsp").forward(
-				request, response);
-		response.sendRedirect("/WEB-INF/jsp/editCandidate.jsp");
 
+		/*
+		 * request.getRequestDispatcher("/WEB-INF/jsp/editCandidate.jsp").forward
+		 * ( request, response);
+		 */
+
+		// response.sendRedirect("/WEB-INF/jsp/viewCandidate.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request,
@@ -42,8 +44,10 @@ public class EditCandidateServlet extends HttpServlet {
 
 		if (request.getParameter("submit") == null) {
 			Long id = Long.valueOf(request.getParameter("candidate_id"));
-			Candidate candidate = service.getCandidateById(id);
+			request.getServletContext().log("EDITinResponse ID: " + id);
 
+			Candidate candidate = service.getCandidateById(id);
+			request.setAttribute("id", candidate.getId());
 			request.setAttribute("lastName", candidate.getLastName());
 			request.setAttribute("firstName", candidate.getFirstName());
 			request.setAttribute("telephone", candidate.getTelephone());
@@ -57,28 +61,33 @@ public class EditCandidateServlet extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/jsp/editCandidate.jsp")
 					.forward(request, response);
 			return;
+		} else {
+			Long id = Long.valueOf(request.getParameter("candidate_id"));
+			request.getServletContext().log("EDIT2 ID: " + id);
+			Candidate candidate = service.getCandidateById(id);
+			request.getServletContext()
+					.log("EDIT2 ID: " + candidate.toString());
+
+			candidate.setLastName(request.getParameter("lastName"));
+			candidate.setFirstName(request.getParameter("firstName"));
+			candidate.setTelephone(request.getParameter("telephone"));
+			candidate.setMobTelephone(request.getParameter("mobTelephone"));
+			candidate.setEmail(request.getParameter("email"));
+			candidate.setAddress(request.getParameter("address"));
+			if (request.getParameter("relocation") == null)
+				candidate.setRelocation(false);
+			else
+				candidate.setRelocation(true);
+			candidate.setCV(request.getParameter("cv"));
+			// List<Interview> interviews = new ArrayList<Interview>();
+			// interviews.add(new
+			// Interview(request.getParameter("interviews")));
+			// candidate.setInterviews(request.getParameter("interviews"));
+			candidate.setComments(new ArrayList<Comment>());
+			service.editCandidate(candidate);
+
+			response.sendRedirect("candidate");
+
 		}
-
-		Long id = Long.valueOf(request.getParameter("candidate_id"));
-		Candidate candidate = service.getCandidateById(id);
-
-		candidate.setLastName(request.getParameter("lastName"));
-		candidate.setFirstName(request.getParameter("firstName"));
-		candidate.setTelephone(request.getParameter("telephone"));
-		candidate.setMobTelephone(request.getParameter("mobTelephone"));
-		candidate.setEmail(request.getParameter("email"));
-		candidate.setAddress(request.getParameter("address"));
-		if (request.getParameter("relocation") == null)
-			candidate.setRelocation(false);
-		else
-			candidate.setRelocation(true);
-		candidate.setCV(request.getParameter("cv"));
-		candidate.setInterviews(new ArrayList<Interview>());
-		candidate.setComments(new ArrayList<Comment>());
-		service.editCandidate(candidate);
-
-		request.getRequestDispatcher("/WEB-INF/jsp/editCandidate.jsp").forward(
-				request, response);
-		return;
 	}
 }
