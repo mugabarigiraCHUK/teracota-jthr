@@ -53,6 +53,14 @@
 		<url-pattern>/updateuser</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>InterviewServlet</servlet-name>
+		<servlet-class>edu.msg.jthr.web.interview.InterviewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InterviewServlet</servlet-name>
+		<url-pattern>/interview</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>PositionServlet</servlet-name>
 		<servlet-class>edu.msg.jthr.web.position.PositionServlet</servlet-class>
 	</servlet>
@@ -148,7 +156,6 @@
 		<servlet-name>DeleteCandidateServlet</servlet-name>
 		<url-pattern>/deletecandidate</url-pattern>
 	</servlet-mapping>
-
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
