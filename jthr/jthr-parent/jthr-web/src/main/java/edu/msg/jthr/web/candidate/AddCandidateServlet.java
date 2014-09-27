@@ -15,13 +15,16 @@ import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
+import edu.msg.jthr.backend.service.InterviewService;
 
 @WebServlet("/AddCandidateServlet")
 public class AddCandidateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private CandidateService service;
+	private CandidateService candidateService;
+	@EJB
+	private InterviewService interviewService;
 
 	public AddCandidateServlet() {
 		super();
@@ -49,12 +52,15 @@ public class AddCandidateServlet extends HttpServlet {
 			relocation = true;
 		String cv = "myCV";
 		List<Interview> interviews = new ArrayList<Interview>();
+		Interview interview = new Interview(request.getParameter("interview"));
+		interviews.add(interview);
 		List<Comment> comments = new ArrayList<Comment>();
 		Candidate candidate = new Candidate(lastName, firstName, telephone,
 				mobileTelephone, email, address, relocation, cv, interviews,
 				comments);
-		service.addCandidate(candidate);
+		request.getServletContext().log(candidate.toString());
+
+		candidateService.addCandidate(candidate);
 		response.sendRedirect(request.getContextPath() + "/candidate");
 	}
-
 }

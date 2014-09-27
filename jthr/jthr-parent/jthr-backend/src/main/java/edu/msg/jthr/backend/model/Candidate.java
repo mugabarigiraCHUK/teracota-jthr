@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -29,10 +30,10 @@ public class Candidate extends BaseEntity {
 	private Boolean relocation;
 	@Column
 	private String CV;
-	@OneToMany(cascade={CascadeType.PERSIST})
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
 	private List<Interview> interviews;
-	@OneToMany(cascade={CascadeType.PERSIST})
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable(name = "CANDIDATE_COMMENT", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
 	private List<Comment> comments;
 
@@ -54,7 +55,6 @@ public class Candidate extends BaseEntity {
 
 	public Candidate() {
 	}
-
 
 	public Candidate(String lastName, String firstName, String telephone,
 			String mobTelephone, String email, String address,
@@ -151,6 +151,15 @@ public class Candidate extends BaseEntity {
 
 	public void setCV(String cV) {
 		CV = cV;
+	}
+
+	@Override
+	public String toString() {
+		return "Candidate [lastName=" + lastName + ", firstName=" + firstName
+				+ ", telephone=" + telephone + ", mobTelephone=" + mobTelephone
+				+ ", email=" + email + ", address=" + address + ", relocation="
+				+ relocation + ", CV=" + CV + ", interviews=" + interviews
+				+ ", comments=" + comments + "]";
 	}
 
 }

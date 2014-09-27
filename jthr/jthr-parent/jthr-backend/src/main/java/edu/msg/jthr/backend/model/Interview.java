@@ -1,10 +1,12 @@
 package edu.msg.jthr.backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -15,12 +17,18 @@ public class Interview extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	@Column
 	String date;
-	@OneToMany(cascade={CascadeType.PERSIST})
-	@JoinTable(name="INTERVIEW_USER", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="USER_ID")})
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+	@JoinTable(name = "INTERVIEW_USER", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "USER_ID") })
 	List<User> interviewers;
-	@OneToMany(cascade={CascadeType.PERSIST})
-	@JoinTable(name="INTERVIEW_COMMENT", joinColumns={@JoinColumn(name="INTERVIEW_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+	@JoinTable(name = "INTERVIEW_COMMENT", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
 	List<Comment> comments;
+
+	public Interview(String date) {
+		this.date = date;
+		this.interviewers = new ArrayList<User>();
+		this.comments = new ArrayList<Comment>();
+	}
 
 	public Interview(String date, List<User> interviewers,
 			List<Comment> comments) {
@@ -62,6 +70,11 @@ public class Interview extends BaseEntity {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	@Override
+	public String toString() {
+		return "Interview [date=" + date + "]";
 	}
 
 }

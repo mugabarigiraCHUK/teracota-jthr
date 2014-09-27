@@ -1,7 +1,6 @@
 package edu.msg.jthr.web.candidate;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.msg.jthr.backend.model.Candidate;
-import edu.msg.jthr.backend.model.Comment;
-import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
 
 @WebServlet("/CandidateServlet")
@@ -33,6 +30,10 @@ public class CandidateServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		List<Candidate> candidateList = service.getAllCandidates();
+		for (Candidate c : candidateList) {
+			request.getServletContext().log("candidatiu: " + c.toString());
+
+		}
 		request.getSession().setAttribute("candidateList", candidateList);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/candidate.jsp").forward(

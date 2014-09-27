@@ -70,8 +70,8 @@
 							</tr>
 
 							<tr>
-								<td><label>Interviews</label></td>
-								<td><input type="date" name="interviews"></td>
+								<td><label>Interview</label></td>
+								<td><input type="date" name="interview"></td>
 							</tr>
 
 							<tr>
