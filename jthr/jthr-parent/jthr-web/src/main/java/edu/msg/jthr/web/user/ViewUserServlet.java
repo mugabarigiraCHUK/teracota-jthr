@@ -1,7 +1,6 @@
 package edu.msg.jthr.web.user;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.msg.jthr.backend.model.Role;
 import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.service.UserService;
 
@@ -50,7 +48,7 @@ public class ViewUserServlet extends HttpServlet {
 		// TODO - get position with id from request and put it in session
 	
 		User u = service.getUserById(Long.parseLong(id));
-		getServletContext().log("USER u :"+u);
+		getServletContext().log("Viewe User :"+u);
 		
 		request.setAttribute("userVid", u.getId());
 		request.setAttribute("userVFirstName", u.getFirstName());

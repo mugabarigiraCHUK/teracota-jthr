@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,7 +77,7 @@
 
 							<tr>
 								<td><label>Password</label><font color="red">*</font></td>
-								<td><input type="text" id="passTextField" name="password"></td>
+								<td><input type="text" id="passTextField" name="password" readonly></td>
 								<td><div class="addGenBTN">
 										<button type="button" title="Generate" onclick="generatePassword()">
 											<img alt="generate" src="resources/refresh.png">
@@ -87,13 +88,10 @@
 
 							<tr>
 								<td><label>Role</label><font color="red">*</font></td>
-								<td><select id="rolecombobox">
-										<option value="generaldirector">General-Director</option>
-										<option value="departmentdirector">Department-Director</option>
-										<option value="hrdirector">HR-Director</option>
-										<option value="recruiter">Recruiter</option>
-										<option value="admin">Application-Admin</option>
-										<option value="viewer">Viewer</option>
+								<td><select name="roleCB" id="rolecombobox">
+									<c:forEach items="${rolList}" var="dep">
+												<option value="${dep.key}">${dep.value}</option>
+											</c:forEach>
 								</select></td>
 								<td><div class="addGenBTN">
 										<button type="button" title="Add" onclick="getFromCombo()">
@@ -107,7 +105,7 @@
 
 							<tr>
 								<td><label> </label></td>
-								<td><textarea disabled name="Address" id="result" rows=3 cols=30></textarea></td>
+								<td><textarea readonly name="roleResult" id="result" rows=3 cols=30></textarea></td>
 							</tr>
 
 							<tr>
@@ -122,31 +120,24 @@
 	</div>
 
 	<script>
+	
+		var arr = [];
+
 		function getFromCombo() {
 
 			var e = document.getElementById("rolecombobox");
 			var strUser = e.options[e.selectedIndex].text;
 			var txt = document.getElementById("result").value;
-			if (txt.length == 0)
-				txt = txt + "[" + strUser + "]";
-			else
-				txt = txt + " [" + strUser + "]";
-			document.getElementById("result").value = txt;
+			
+			arr.push(strUser);
+			
+			document.getElementById("result").value = arr;
 		}
 
 		function removeLastRole() {
 
-			var aux = "";
-			var roles = document.getElementById("result").value;
-			var rolesArray = roles.split(" ");
-			rolesArray.pop();
-			for (i = 0; i < rolesArray.length; i++)
-				if (aux.length == 0) {
-					aux = aux + rolesArray[i];
-				} else {
-					aux = aux + " " + rolesArray[i];
-				}
-			document.getElementById("result").value = aux;
+				arr.pop();
+			document.getElementById("result").value = arr;
 
 		}
 

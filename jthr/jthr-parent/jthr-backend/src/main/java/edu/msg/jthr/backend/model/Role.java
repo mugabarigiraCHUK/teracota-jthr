@@ -10,7 +10,7 @@ public class Role extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column
+	@Column(unique = true)
 	private String roleName;
 	
 	public Role() {}
