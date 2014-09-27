@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
+<style>
+
+</style>
 </head>
 <body>
 	<div id="main">
@@ -70,13 +73,21 @@
 							</tr>
 							<tr>
 								<td><label>Interviews</label><font color="red">*</font></td>
-								<td><input type="text" name="interviews"
-									value="${interviews}"></td>
+								<td><input type="date" name="interview" id="interview"></td>
+								<td><div class="round-button">
+										<button type="button" title="Add" onclick="addInterview()">
+											<img alt="add" src="resources/plus.png">
+										</button>
+									</div></td>
 							</tr>
 							<tr>
-								<td><label>Comments</label><font color="red">*</font></td>
-								<td><input type="text" name="comments" value="${comments}"></td>
+								<td><label> </label></td>
+								<td><input type="text" name="interviews"
+									id="
+									interviews" value="${interviews}"></td>
 							</tr>
+
+
 							<tr>
 								<td colspan="2"><center>
 										<input type="submit" value="Add" name="submit">
@@ -86,8 +97,22 @@
 					</form>
 				</div>
 			</div>
+			
 		</div>
 	</div>
-
+	<script>
+		function addInterview() {
+			var txt = document.getElementById("interviews").value;
+			alert(txt);
+			txt = txt + document.getElementById("interview").value;
+			document.getElementByName("interviews").value = txt;
+		}
+		function addComment() {
+			var txt = document.getElementById("comments").value;
+			alert(txt);
+			txt = txt + document.getElementById("comment").value;
+			document.getElementByName("comments").value = txt;
+		}
+	</script>
 </body>
 </html>
