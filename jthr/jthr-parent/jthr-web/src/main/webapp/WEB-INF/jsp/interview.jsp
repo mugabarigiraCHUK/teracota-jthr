@@ -83,11 +83,7 @@ tr:hover {
 								<tr>
 									<td><c:out value="${inter.interviewers}"></c:out></td>
 									<td><c:out value="${inter.date}" /></td>
-									<td><c:out value="${user.phoneNumber}" /></td>
-									<td><c:out value="${user.mobilePhoneNumber}"></c:out></td>
-									<td><c:out value="${user.email}"></c:out></td>
-									<td><c:out value="${user.function}"></c:out></td>
-									<td><c:out value="${user.description}"></c:out></td>
+									<td>${candidate.firstName} ${candidate.lastName}</td>
 									<td>
 										<div style="text-align:center;">
 										<form action="user" method="POST">
