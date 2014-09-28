@@ -159,7 +159,7 @@
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
-								<td><input type="text" name="cv" value="${cv}" disabled></td>
+								<td><input type="file" name="cv" value="${cv}" required></td>
 							</tr>
 
 							<tr>

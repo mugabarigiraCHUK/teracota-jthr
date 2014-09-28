@@ -13,6 +13,7 @@ import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
+import edu.msg.jthr.backend.service.UserService;
 
 /**
  * Servlet implementation class EditCandidateServlet
@@ -22,7 +23,9 @@ public class EditCandidateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private CandidateService service;
+	private CandidateService candidateService;
+	@EJB
+	private UserService userService;
 
 	public EditCandidateServlet() {
 		super();
@@ -43,11 +46,59 @@ public class EditCandidateServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		if (request.getParameter("submit") == null) {
+			if (request.getParameter("submitComment") != null) {
+
+				Comment c = new Comment();
+				c.setText(request.getParameter("comment_text"));
+				c.setUser(userService.getUserById((Long) request.getSession()
+						.getAttribute("user_id")));
+				candidateService.addCandidateComment(c,
+						Long.valueOf(request.getParameter("candidate_id")));
+				request.setAttribute("submitComment", null);
+			} else if (request.getParameter("editComment") != null) {
+
+				getServletContext().log(
+						"text to be saved: "
+								+ request.getParameter("comment_text"));
+
+				String commentId = request.getParameter("comment_id");
+				String candidateId = request.getParameter("candidate_id");
+				Candidate candidate = candidateService.getCandidateById(Long
+						.parseLong(candidateId));
+
+				Comment com = null;
+				for (Comment comment : candidate.getComments()) {
+					if (comment.getId().equals(Long.parseLong(commentId))) {
+						com = comment;
+					}
+				}
+				if (com != null) {
+					com.setText(request.getParameter("comment_text"));
+					candidateService.editCandidateComment(com,
+							Long.parseLong(candidateId));
+				}
+			} else if (request.getParameter("deleteComment") != null) {
+				String commentId = request.getParameter("comment_id");
+				Long candidateId = Long.valueOf(request
+						.getParameter("candidate_id"));
+				Candidate candidate = candidateService
+						.getCandidateById(candidateId);
+
+				Comment com = null;
+				for (Comment comment : candidate.getComments()) {
+					if (comment.getId().equals(Long.parseLong(commentId))) {
+						com = comment;
+					}
+				}
+				if (com != null) {
+					candidateService.deleteCandidateComment(com, candidateId);
+				}
+			}
 			Long id = Long.valueOf(request.getParameter("candidate_id"));
 			request.getServletContext().log("EDITinResponse ID: " + id);
 
-			Candidate candidate = service.getCandidateById(id);
-			request.setAttribute("id", candidate.getId());
+			Candidate candidate = candidateService.getCandidateById(id);
+			request.setAttribute("candidateId", candidate.getId());
 			request.setAttribute("lastName", candidate.getLastName());
 			request.setAttribute("firstName", candidate.getFirstName());
 			request.setAttribute("telephone", candidate.getTelephone());
@@ -64,7 +115,7 @@ public class EditCandidateServlet extends HttpServlet {
 		} else {
 			Long id = Long.valueOf(request.getParameter("candidate_id"));
 			request.getServletContext().log("EDIT2 ID: " + id);
-			Candidate candidate = service.getCandidateById(id);
+			Candidate candidate = candidateService.getCandidateById(id);
 			request.getServletContext()
 					.log("EDIT2 ID: " + candidate.toString());
 
@@ -88,7 +139,7 @@ public class EditCandidateServlet extends HttpServlet {
 			Comment comment = new Comment(commentText);
 			candidate.addComment(comment);
 
-			service.editCandidate(candidate);
+			candidateService.editCandidate(candidate);
 
 			response.sendRedirect("candidate");
 

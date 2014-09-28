@@ -11,7 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
 <style>
-
 </style>
 </head>
 <body>
@@ -23,7 +22,7 @@
 			<div id="table_container">
 				<div class="form">
 					<form action="editcandidate" method="POST">
-						<input type="hidden" name="candidate_id" value="${id}" />
+						<input type="hidden" name="candidate_id" value="${candidateId}" />
 						<table border="0">
 
 							<tr>
@@ -68,8 +67,7 @@
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
-								<td><input type="text" name="cv" value="${cv}" readonly></td>
-								<td><input type="submit" name="cvButton" value="Add File"></td>
+								<td><input type="file" name="cv" value="${cv}" required></td>
 							</tr>
 							<tr>
 								<td><label>Interviews</label><font color="red">*</font></td>
@@ -97,7 +95,54 @@
 					</form>
 				</div>
 			</div>
-			
+			<div id="comments-container">
+				<c:forEach items="${comments}" var="comm">
+					<div class="comment">
+						<div class="comment-username">
+							<c:out value="${comm.user.firstName}" />
+							<c:out value="${comm.user.lastName}" />
+						</div>
+						<form action="editcandidate" method="POST"
+							id="comment__${comm.id}">
+							<c:if test="${comm.user.id == user_id}">
+								<!-- userId should be obtained from session -->
+								<div class="comment-buttons">
+
+									<input type="hidden" name="comment_id"
+										value="<c:out value="${comm.id}" />" /> <input type="hidden"
+										name="candidate_id" value="${candidateId}" /> <input
+										type="button" value="" class="edit"
+										onclick="toggle_visibility('comment_${comm.id}')" /> <input
+										type="submit" value="" name="deleteComment" title="Delete"
+										class="delete" />
+
+								</div>
+							</c:if>
+							<div class="comment-text">
+								<textarea id="comment_${comm.id}_text" name="comment_text"
+									form="comment__${comm.id}" rows="4" cols="65" readonly>${comm.text}</textarea>
+								<br> <input id="comment_${comm.id}_editbutton"
+									type="submit" value="Submit" name="editComment" title="Edit"
+									disabled />
+							</div>
+						</form>
+					</div>
+				</c:forEach>
+
+				<div class="comment">
+					<div class="comment-username">Post Comment:</div>
+					<form id="postcomment" action="editcandidate" method="POST">
+						<input type="hidden" name="candidate_id" value="${candidateId}" />
+						<div class="comment-text">
+							<textarea name="comment_text" form="postcomment" rows="4"
+								cols="65"></textarea>
+							<br> <input type="submit" value="Post Comment"
+								name="submitComment" />
+						</div>
+
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script>
