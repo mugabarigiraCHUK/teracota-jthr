@@ -29,7 +29,7 @@
 				<div class="sidebar">
 					<h3>Latest News</h3>
 					<h4>New Website Launched</h4>
-					<h5>July 1st, 2013</h5>
+					<h5>September 29, 2014</h5>
 
 				</div>
 			</div>
