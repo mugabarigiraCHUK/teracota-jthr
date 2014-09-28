@@ -9,6 +9,18 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.logout.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <servlet>
     <servlet-name>HomeServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.main.HomeServlet</servlet-class>
@@ -172,4 +184,16 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>edu.msg.jthr.web.login.LoginFilter</filter-class>
+    <init-param>
+      <param-name>avoid-urls</param-name>
+      <param-value>/header/msg2.gif,/login.jsp,/login</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

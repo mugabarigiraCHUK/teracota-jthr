@@ -13,16 +13,20 @@
 			</ul></li>
 		<li><a data-icon="&#xf007;" href="/jthr-web/user">Users</a>
 			<ul>
-				<li><a data-icon="&#xF00A;" href="/jthr-web/userAdd">Add User</a></li>
+				<li><a data-icon="&#xF00A;" href="/jthr-web/userAdd">Add
+						User</a></li>
 			</ul></li>
-			<li><a data-icon="&#xf044;" href="/jthr-web/interview">Interviews</a>
-<!-- 			<ul>
-				<li><a data-icon="&#xF00A;" href="/jthr-web/*">Add Interview</a></li>
-			</ul> --></li>
+		<li><a data-icon="&#xf044;" href="/jthr-web/interview">Interviews</a>
+		</li>
+		
+		<li><a data-icon="&#xf08b;" href="/jthr-web/logout">Logout</a>
+		</li>
 	</ul>
 	<canvas>
 		<noscript>
-			<a href="//swimbi.com">The SWIMBI drop menu down how to</a> software of swimbi.com. All Rights Reserved</noscript></canvas>
+			<a href="//swimbi.com">The SWIMBI drop menu down how to</a> software of swimbi.com. All Rights Reserved
+		</noscript>
+	</canvas>
 	<div id="ie_message">
 		<noscript>
 			Local test in IE is better if you "<a
