@@ -26,4 +26,10 @@ public class InterviewServiceBean implements InterviewService {
 		return repository.getAll();
 	}
 
+	@Override
+	public void addInterview(Interview interview) {
+		repository.save(interview);
+		
+	}
+
 }

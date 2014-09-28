@@ -9,9 +9,9 @@ import edu.msg.jthr.backend.model.Role;
 @Local
 public interface RoleService {
 
-	void addUser(Role role);
-	void editUser(Role role);
-	void deleteUser(Role role);
+	void addRole(Role role);
+	void editRole(Role role);
+	void deleteRole(Role role);
 	Role getRoleById(Long id);
 	List<Role> getAllRoles();
 	

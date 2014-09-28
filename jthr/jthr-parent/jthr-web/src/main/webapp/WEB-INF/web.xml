@@ -50,14 +50,22 @@
     <url-pattern>/updateuser</url-pattern>
   </servlet-mapping>
   <servlet>
-		<servlet-name>InterviewServlet</servlet-name>
-		<servlet-class>edu.msg.jthr.web.interview.InterviewServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>InterviewServlet</servlet-name>
-		<url-pattern>/interview</url-pattern>
-	</servlet-mapping>
-	<servlet>
+    <servlet-name>InterviewServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.interview.InterviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InterviewServlet</servlet-name>
+    <url-pattern>/interview</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddInterviewServlet</servlet-name>
+    <servlet-class>edu.msg.jthr.web.interview.AddInterviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddInterviewServlet</servlet-name>
+    <url-pattern>/addinterview</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>PositionServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.position.PositionServlet</servlet-class>
   </servlet>
@@ -113,8 +121,7 @@
     <servlet-name>ViewPositionServlet</servlet-name>
     <url-pattern>/viewposition</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>AddCandidateToPositionServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.position.AddCandidateToPositionServlet</servlet-class>
   </servlet>
@@ -122,10 +129,6 @@
     <servlet-name>AddCandidateToPositionServlet</servlet-name>
     <url-pattern>/addcandidatetoposition</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
   <servlet>
     <servlet-name>CandidateServlet</servlet-name>
     <servlet-class>edu.msg.jthr.web.candidate.CandidateServlet</servlet-class>

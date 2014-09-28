@@ -39,7 +39,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<User> list = userService.getAllUsers();
-		request.getSession().setAttribute("list", list);
+		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/user.jsp").forward(request,response);
 

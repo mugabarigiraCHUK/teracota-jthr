@@ -60,11 +60,26 @@
 	opacity: 0.3;
 }
 
+.interview {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACS0lEQVRYR9WXz0tVQRTH3wPFNibiJvoDighBIakW1SJEBG3Xc+emoIKsCKIoWlWiBmkugiJX7tSlaJnoK1AUd8LLtW2Cgn4sip4u6vOFuTDvMfe9O/cNiQNfZu7MOef7nTP3zuFmM3vcshb/ccZXwLGUmp7gl3f4NjP3FHw36+/odyK7SEArExugISX5A/wGHb5NzImww1orMO4D6jORgDHGNwOTK5yyOQ2UXbtt8dAOipGAKR4uphAQt/NGYtWDb+AAeAn6y+L38jwbJ+ARix+qCPrN+qrD5iBzb8ARcBdMmEw/pr9v2Q8zvhcnIGdS55uUiPy05fiK8XWwC16DS2ZNWbkaUkALARdBm0P1pDmCOvoVoOz1gF+hBLh2Xq7jsjkOHc0X8EMGIQRU2rktQvfAUfDVnqxVgL5zvXCnErws69h0gZ+hBCTdufiWzZnr7Eta2gwEIU/7Dijtb8HJtGk3fufo3/tmIMTOxTkKDoOcj4CQ5Ko7qhFeAkZwuFNj2ofw1/Ws5i1A2boBVNtVaFzN+akZw276OcspsYB5nPJAJbsIOsEM0O1nt0rkslO1VdWNWmIBf43HJv0FsA3OgAWgUqsW+51bhDULUKxPQLfeZ3ANvADVdh5pCCJAwUR4Fqi8qsbr5Sy5Xq1d28NgAhT0oSGP4XJOBxWwBMV5H3ZsUwvw5Ik1318CnrGPtVBbN3H09dy2Yla8BwJzO8OVCBjHZOB/sFoczxnfCvVr5qv9Dw4nQMH1c3rIN5qnvW5R/RN8lJ8twDNOGPN//K2vIY3a8dcAAAAASUVORK5CYII=);
+	width: 32px;
+	height: 32px;
+	border: none;
+	margin-left: 5px;
+}
+
+.interview:hover {
+	opacity: 0.5;
+}
+
+.delete:active {
+	opacity: 0.3;
+}
+
 tr:hover {
 	background-color: #8b2d4b;
 }
 </style>
-
 </head>
 <body>
 	<div id="main">
@@ -101,14 +116,11 @@ tr:hover {
 								<td>
 									<div style="text-align: center;">
 										<form action="candidate" method="POST">
-											<input type="hidden" name="candidate_id"
-												value="<c:out value="${candidate.id}" />" /> <input
-												type="submit" name="viewCandidate" value="" class="view"
-												title="View" /> <input type="submit" name="editCandidate"
-												value="" class="edit" title="Edit" /> <input type="submit"
-												name="deleteCandidate" value="" class="delete"
-												title="Delete"
-												onclick="return confirm('Are you sure you want to delete?')" />
+											<input type="hidden" name="candidate_id" value="<c:out value="${candidate.id}" />" /> 
+											<input type="submit" name="viewCandidate" value="" class="view" title="View" /> 
+											<input type="submit" name="editCandidate" value="" class="edit" title="Edit" /> 
+											<input type="submit" name="deleteCandidate" value="" class="delete" title="Delete" onclick="return confirm('Are you sure you want to delete?')" />
+											<input type="submit" name="addInterview" value="" class="interview" title="Create Interview"/>
 										</form>
 									</div>
 								</td>

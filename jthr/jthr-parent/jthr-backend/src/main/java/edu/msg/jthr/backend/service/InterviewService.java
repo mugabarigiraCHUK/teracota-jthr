@@ -9,6 +9,8 @@ import edu.msg.jthr.backend.model.Interview;
 @Local
 public interface InterviewService {
 
+	void addInterview(Interview interview);
+	
 	Interview getInterviewById(Long id);
 
 	List<Interview> getAllInterviews();

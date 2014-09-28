@@ -1,5 +1,6 @@
 package edu.msg.jthr.backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Candidate extends BaseEntity {
 	private String CV;
 	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
-	private List<Interview> interviews;
+	private List<Interview> interviews = new ArrayList<Interview>();
 	@OneToMany(cascade = { CascadeType.PERSIST })
 	@JoinTable
 	private List<Comment> comments;
