@@ -1,0 +1,8 @@
+.static_sidebar {
+   width: 150px;
+   height: 145px;
+   position: fixed;
+   left: 0px;
+   top: 210px;
+   /*border: 1px solid black;*/
+}
