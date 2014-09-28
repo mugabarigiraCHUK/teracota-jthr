@@ -61,11 +61,6 @@
 							</tr>
 
 							<tr>
-								<td><label>Password</label><font color="red"></font></td>
-								<td><input type="text" name="userPassword" value="${userVPassword}" disabled></td>
-							</tr>
-
-							<tr>
 								<td><label>Role</label><font color="red"></font></td>
 								<%-- <td><input type="text" value="${userVRoles}" name="userRoleList" disabled></input></td> --%>
 								<td><textarea readonly name="userRoleList"  rows=3 cols=30>${userVRoles}</textarea></td>
