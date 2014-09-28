@@ -1,6 +1,7 @@
 package edu.msg.jthr.web.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,22 @@ public class UserAddServlet extends HttpServlet {
 		for (Role d : deps) {
 			m.put(d.getId(), d.getRoleName());
 		}
-
+		
+		List<User> aux = service.getAllUsers();
+		ArrayList<String> usernames = new ArrayList<String>();
+		
+		for (User user : aux) {
+			
+			usernames.add(user.getUsername());
+		}
+		
+		StringBuilder builder = new StringBuilder();
+		for (String value : usernames) {
+		    builder.append(value+",");
+		}
+		String text = builder.toString();
+		
+		request.setAttribute("listOfUsersForUseranames",text);
 		request.setAttribute("rolList", m);
 
 		request.getRequestDispatcher("/WEB-INF/jsp/userAdd.jsp").forward(
