@@ -169,8 +169,8 @@ body {
 		<form>
 			<select id="language" name="language" onchange="submit()">
 				<option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
-				<option value="de" ${language == 'de' ? 'selected' : ''}>Deautsch</option>
-				<option value="ro" ${language == 'ro' ? 'selected' : ''}>Română</option>
+				<option value="de" ${language == 'de' ? 'selected' : ''}>Deutsch</option>
+				<option value="ro" ${language == 'ro' ? 'selected' : ''}>RomÃ¢nÄƒ</option>
 			</select>
 		</form>
 	</div>
