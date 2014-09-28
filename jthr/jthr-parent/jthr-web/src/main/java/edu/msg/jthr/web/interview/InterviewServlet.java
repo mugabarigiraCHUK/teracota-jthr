@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Interview;
 import edu.msg.jthr.backend.service.CandidateService;
 import edu.msg.jthr.backend.service.InterviewService;
@@ -38,13 +39,15 @@ public class InterviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		List<Interview> list = interviewService.getAllInterviews();
-		request.setAttribute("list", list);
 		
-		String id = (String) request.getSession().getAttribute("candid");
-		getServletContext().log("Inter Servlert cand ID : "+id);
-		request.setAttribute("candidate", candidateService.getCandidateById(Long.valueOf(id)) );
+		List<Candidate> candidates = candidateService.getAllCandidates();
+		
+		for(int i = 0 ; i < candidates.size(); i++) {
+			
+			request.setAttribute("list", candidates.get(i).getInterviews());
+			request.setAttribute("candidate", candidates.get(i));
+			
+		}
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/interview.jsp").forward(request,response);
 		
