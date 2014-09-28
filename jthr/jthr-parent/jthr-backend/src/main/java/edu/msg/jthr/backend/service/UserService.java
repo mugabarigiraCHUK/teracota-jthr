@@ -8,13 +8,17 @@ import edu.msg.jthr.backend.model.User;
 
 @Local
 public interface UserService {
-	
+
 	void addUser(User user);
+
 	void editUser(User user);
+
 	void deleteUser(User user);
+
 	User getUserById(Long id);
+
 	List<User> getAllUsers();
+
 	List<User> getUserbyFilter(String pattern);
-	
 
 }

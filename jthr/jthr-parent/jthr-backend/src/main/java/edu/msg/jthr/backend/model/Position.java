@@ -21,13 +21,12 @@ public class Position extends BaseEntity {
 	private String name;
 	@Column
 	private Integer nrOfPlaces;
-	
 
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
 	private Department department;
-	
-	@OneToOne(fetch=FetchType.EAGER)
+
+	@OneToOne(fetch = FetchType.EAGER)
 	@PrimaryKeyJoinColumn
 	private Project project;
 	@Column
@@ -38,20 +37,20 @@ public class Position extends BaseEntity {
 	private Boolean isApproved = false;
 	@Column
 	private Boolean isClosed = false;
-	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinColumn
 	private User creator;
-	
-	@OneToMany(cascade={CascadeType.PERSIST}) 
+
+	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable
 	private List<Comment> comments = new ArrayList<>();
-	
-	@OneToMany(cascade={CascadeType.PERSIST}) 
+
+	@OneToMany(cascade = { CascadeType.PERSIST })
 	@JoinTable
 	private List<Candidate> candidates = new ArrayList<>();
 
-	@OneToMany(cascade={CascadeType.PERSIST}) 
-	@JoinTable(name="POSITION_ACCEPTEDCANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	@OneToMany(cascade = { CascadeType.PERSIST })
+	@JoinTable(name = "POSITION_ACCEPTEDCANDIDATE", joinColumns = { @JoinColumn(name = "POSITION_ID") }, inverseJoinColumns = { @JoinColumn(name = "CANDIDATE_ID") })
 	private List<Candidate> acceptedCandidates = new ArrayList<>();
 
 	public Position() {
