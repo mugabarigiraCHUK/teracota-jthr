@@ -31,10 +31,10 @@ public class Candidate extends BaseEntity {
 	private Boolean relocation;
 	@Column
 	private String CV;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "CANDIDATE_INTERVIEW", joinColumns = { @JoinColumn(name = "CANDIDATE_ID") }, inverseJoinColumns = { @JoinColumn(name = "INTERVIEW_ID") })
 	private List<Interview> interviews = new ArrayList<Interview>();
-	@OneToMany(cascade = { CascadeType.PERSIST })
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable
 	private List<Comment> comments;
 
