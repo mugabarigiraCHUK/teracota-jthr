@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.msg.jthr.backend.model.Candidate;
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.service.PositionService;
@@ -51,6 +50,9 @@ public class ViewPositionServlet extends HttpServlet {
 			Comment c = new Comment();
 			c.setText(request.getParameter("comment_text"));
 			c.setUser(userService.getUserById((Long) request.getSession().getAttribute("user_id")));
+			
+			getServletContext().log("user id from session: " + request.getSession().getAttribute("user_id"));
+			
 			positionService.addPositionComment(c, Long.parseLong(request.getParameter("position_id")));
 			request.setAttribute("submitComment", null);
 		} else if (request.getParameter("editComment") != null) {

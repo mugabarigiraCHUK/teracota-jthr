@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 			s.setAttribute("username", user.getUsername());
 			s.setAttribute("user_roles", user.getRoles());
 			s.setAttribute("logged_in", true);
+			s.setMaxInactiveInterval(60*60);
 			response.sendRedirect(request.getContextPath() + "/home");
 		} else {
 			s.setAttribute("invalid_credentials", true);
