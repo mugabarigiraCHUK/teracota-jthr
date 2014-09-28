@@ -11,6 +11,7 @@ import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.repository.RoleRepository;
 import edu.msg.jthr.backend.repository.UserRepository;
 import edu.msg.jthr.backend.service.UserService;
+import edu.msg.jthr.backend.util.PasswordEncrypter;
 
 @Stateless(name = "UserService", mappedName = "ejb/UserService")
 @DependsOn({ "UserRepository", "RoleRepository" })
@@ -30,7 +31,7 @@ public class UserServiceBean implements UserService {
 //		for (Role r: roles){
 //			user.getRoles().add(roleRepo.getById(r.getId()));
 //		}
-		
+		user.setPassword(PasswordEncrypter.GenerateHashedPassword(user.getPassword(), ""));
 		repository.save(user);
 	}
 

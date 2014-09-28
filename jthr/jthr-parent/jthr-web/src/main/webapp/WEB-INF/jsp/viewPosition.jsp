@@ -125,17 +125,17 @@ candidateTable {
 <%-- 						<input type="hidden" name="position_id" value="${positionId}" /> --%>
 						<table border="0">
 							<tr>
-								<td><label>Position Name</label><font color="red">*</font></td>
+								<td><label>Position Name</label></td>
 								<td><input type="text" name="positionName" value="${positionName}"  disabled></td>
 							</tr>
 
 							<tr>
-								<td><label>Number of Persons</label><font color="red">*</font></td>
+								<td><label>Number of Persons</label></td>
 								<td><input type="text" name="nrOfPersons" value="${positionNrOfPlaces}" disabled></td>
 							</tr>
 
 							<tr>
-								<td><label>Department</label><font color="red">*</font></td>
+								<td><label>Department</label></td>
 								<td><input type="text" name="department" value="${positionDepartment}" disabled></td>
 							</tr>
 
@@ -145,13 +145,18 @@ candidateTable {
 							</tr>
 
 							<tr>
-								<td><label>Requirements</label><font color="red">*</font></td>
+								<td><label>Requirements</label></td>
 								<td><input type="text" name="requirements" value="${positionRequirements}" disabled></td>
 							</tr>
 
 							<tr>
-								<td><label>Responsibilities</label><font color="red">*</font></td>
+								<td><label>Responsibilities</label></td>
 								<td><input type="text" name="responsibilities" value="${positionResponsibilities}" disabled></td>
+							</tr>
+							
+							<tr>
+								<td><label>Created by</label></td>
+								<td><input type="text" name="responsibilities" value="${positionCreator.firstName} ${positionCreator.lastName}" disabled></td>
 							</tr>
 							
 							<tr>
@@ -161,12 +166,14 @@ candidateTable {
 										<table>
 											<tr>
 												<td>Candidate Name</td>
+												<td>Email</td>
 												<td>Operations</td>
 											</tr>
 											
 											<c:forEach items="${positionCandidates}" var="candid">
 												<tr>
 													<td>${candid.firstName} ${candid.lastName}</td>
+													<td>${candid.email}</td>
 													<td>
 														<div id="candidateForm">											
 															<form action="viewposition" method="POST">
@@ -193,12 +200,21 @@ candidateTable {
 											<tr>
 												<td>Candidate Name</td>
 												<td>Email</td>
+												<td>View</td>
 											</tr>
 											
 											<c:forEach items="${positionAcceptedCandidates}" var="candid">
 												<tr>
 													<td>${candid.firstName} ${candid.lastName}</td>
-													<td>${candid.email }</td>
+													<td>${candid.email}</td>
+													<td>
+														<div id="candidateForm">											
+															<form action="viewposition" method="POST">
+																<input type="hidden" name="candidate_id" value="${candid.id}" />
+																<input type="submit" value="" name="viewCandidate" title="View" class="view" />
+															</form>
+														</div>				
+													</td>
 												</tr>
 											</c:forEach>
 										</table>
