@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,9 +66,11 @@
 
 							<tr>
 								<td><label>Username</label><font color="red">*</font></td>
-								<td><input type="text" id="userTextField" name="username" readonly></td>
+								<td><input type="text" id="userTextField" name="username"
+									readonly></td>
 								<td><div class="addGenBTN">
-										<button type="button" title="Generate" onclick="generateUsername()">
+										<button type="button" title="Generate"
+											onclick="generateUsername()">
 											<img alt="generate" src="resources/refresh.png">
 										</button>
 									</div></td>
@@ -77,9 +79,11 @@
 
 							<tr>
 								<td><label>Password</label><font color="red">*</font></td>
-								<td><input type="text" id="passTextField" name="password" readonly></td>
+								<td><input type="text" id="passTextField" name="password"
+									readonly></td>
 								<td><div class="addGenBTN">
-										<button type="button" title="Generate" onclick="generatePassword()">
+										<button type="button" title="Generate"
+											onclick="generatePassword()">
 											<img alt="generate" src="resources/refresh.png">
 										</button>
 									</div></td>
@@ -89,15 +93,16 @@
 							<tr>
 								<td><label>Role</label><font color="red">*</font></td>
 								<td><select name="roleCB" id="rolecombobox">
-									<c:forEach items="${rolList}" var="dep">
-												<option value="${dep.key}">${dep.value}</option>
-											</c:forEach>
+										<c:forEach items="${rolList}" var="dep">
+											<option value="${dep.key}">${dep.value}</option>
+										</c:forEach>
 								</select></td>
 								<td><div class="addGenBTN">
 										<button type="button" title="Add" onclick="getFromCombo()">
 											<img alt="add" src="resources/plus.png">
 										</button>
-										<button type="button" title="Remove Last" onclick="removeLastRole()">
+										<button type="button" title="Remove Last"
+											onclick="removeLastRole()">
 											<img alt="remove" src="resources/minus.png">
 										</button>
 									</div></td>
@@ -105,7 +110,8 @@
 
 							<tr>
 								<td><label> </label></td>
-								<td><textarea readonly name="roleResult" id="result" rows=3 cols=30></textarea></td>
+								<td><textarea readonly name="roleResult" id="result" rows=3
+										cols=30></textarea></td>
 							</tr>
 
 							<tr>
@@ -120,7 +126,6 @@
 	</div>
 
 	<script>
-	
 		var arr = [];
 
 		function getFromCombo() {
@@ -128,15 +133,15 @@
 			var e = document.getElementById("rolecombobox");
 			var strUser = e.options[e.selectedIndex].text;
 			var txt = document.getElementById("result").value;
-			
+
 			arr.push(strUser);
-			
+
 			document.getElementById("result").value = arr;
 		}
 
 		function removeLastRole() {
 
-				arr.pop();
+			arr.pop();
 			document.getElementById("result").value = arr;
 
 		}
@@ -148,11 +153,27 @@
 			if (fname.length == 0 || lname.length == 0)
 				alert("Please complete First Name and Last Name fields !");
 			else {
+				var array = "${listOfUsersForUseranames}";
 				var faux = fname.toLowerCase();
 				var laux = lname.toLowerCase();
 				var username = laux.substring(0, 5) + faux.substring(0, 1);
+				var strSplit = array.split(",");
+
+				var j = 2;
+
+				for (var i = 0; i < strSplit.length; i++) {
+
+					if (strSplit[i] == username) {
+
+						username = username + faux.substring(j - 1, j);
+						j++;
+
+					}
+
+				}
+
 				document.getElementById("userTextField").value = username;
-				
+
 			}
 
 		}
@@ -161,7 +182,7 @@
 
 			var password = document.getElementById("lnameTextField").value
 					.toLowerCase();
-			document.getElementById("passTextField").value = password ;
+			document.getElementById("passTextField").value = password;
 
 		}
 	</script>
