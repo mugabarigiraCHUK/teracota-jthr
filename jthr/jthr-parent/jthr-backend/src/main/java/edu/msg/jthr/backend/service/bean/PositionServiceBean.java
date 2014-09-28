@@ -117,6 +117,9 @@ public class PositionServiceBean implements PositionService {
 		Position p = repository.getById(positionId);
 		p.getCandidates().remove(candidateRepository.getById(candidateId));
 		p.getAcceptedCandidates().add(candidateRepository.getById(candidateId));
+		if (p.getAcceptedCandidates().size() == p.getNrOfPlaces()){
+			p.setIsClosed(true);
+		}
 		editPosition(p);
 	}
 }

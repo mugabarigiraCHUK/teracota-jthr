@@ -110,6 +110,22 @@ candidateTable {
 .edit:active{
 	opacity: 0.3;
 }
+
+#candidateForm .interview {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbklEQVRIS8WVuy5FQRSG7QeQaBScuL2AmpxGS0jEQ6gPhYIT4pZIJIiOyiuIEBEKDbVKoXNpVDwB35/sJWPsPWZfxCR/Zs3MWv+/ZvZeM0nHH7ck5Z+k3wdDkXrb+C14vm3G8+AebIETrZvAI3ZfBfIBYm9Bj8MxjX1sAh8VyKeIvQCdadYjKdc1/ViWgM3FaG7itJgeywy9TuISjIJ30FVFwMgtkTeMJngFd+AILJUV8MlN5AFjGHSDJ02WEcgjN5FxjHMbFBXYJbAV+DhzrO2560UENnSmAXLVgXb3rcUK7BCl7PKaCky7c5t20ooRKENuMclvAoNkcQPcCnWzXGaw7mWuurCjCgpM4HgF/Ao1vhWMtYwzc2+FoIAcdXH5FSrOPHKtFRJQgF+hh8ytBj54YQFx/ajQugXEpzfjNEBsS9E7iODKdPl/gbKZZ8V9/abPrDbqZIZL13W/++gfMNFbk8gLPLPgrMjzWEr7Eyl8WRkuEPMWAAAAAElFTkSuQmCC);
+	width: 24px;
+	height: 24px;
+	border: none;
+	margin-left: 5px;
+}
+
+#candidateForm .interview:hover {
+	opacity: 0.5;
+}
+
+#candidateForm .interview:active{
+	opacity: 0.3;
+}
 </style>
 </head>
 
@@ -146,12 +162,18 @@ candidateTable {
 
 							<tr>
 								<td><label>Requirements</label></td>
-								<td><input type="text" name="requirements" value="${positionRequirements}" disabled></td>
+								<td>
+<%-- 									<input type="text" name="requirements" value="${positionRequirements}" disabled> --%>
+										<textarea rows="4" cols="50" disabled>${positionRequirements}</textarea>
+								</td>
 							</tr>
 
 							<tr>
 								<td><label>Responsibilities</label></td>
-								<td><input type="text" name="responsibilities" value="${positionResponsibilities}" disabled></td>
+								<td>
+<%-- 									<input type="text" name="responsibilities" value="${positionResponsibilities}" disabled> --%>
+									<textarea rows="4" cols="50" disabled>${positionResponsibilities}</textarea>
+								</td>
 							</tr>
 							
 							<tr>
@@ -181,6 +203,7 @@ candidateTable {
 																<input type="hidden" name="candidate_id" value="${candid.id}" />
 																<input type="submit" value="" name="viewCandidate" title="View" class="view" />
 																<input type="submit" value="" name="acceptCandidate" title="Accept" class="accept" />
+																<input type="submit" value="" name="addInterview" title="Add Interview" class="interview" />
 																<input type="submit" value="" name="removeCandidate" title="Remove" class="remove" />
 															</form>
 														</div>				
@@ -222,6 +245,15 @@ candidateTable {
 								</td>
 							</tr>
 							
+<!-- 							<tr> -->
+<%-- 								<c:if test="${isClosed == false and isApproved == true}"> --%>
+<!-- 									<input type="submit" value="Position Open" name="" title="Close" class="close" disabled/><br /> -->
+<%-- 								</c:if> --%>
+<%-- 								<c:if test="${isClosed == false and isApproved == true}"> --%>
+<!-- 									<input type="submit" value="Position Closed" name="" title="Close" class="close" disabled/><br /> -->
+<%-- 								</c:if> --%>
+<!-- 							</tr> -->
+								
 							<tr>
 								<td colspan="2" align="center">
 									<form action="viewposition" method="POST">
