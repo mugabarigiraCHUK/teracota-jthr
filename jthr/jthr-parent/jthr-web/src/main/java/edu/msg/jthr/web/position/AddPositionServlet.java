@@ -27,7 +27,6 @@ import edu.msg.jthr.backend.service.UserService;
 @WebServlet("/AddPositionServlet")
 public class AddPositionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ServletContext context;
 	@EJB
 	PositionService positionService;
 	@EJB
@@ -49,7 +48,6 @@ public class AddPositionServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		context = getServletContext();
 
 		List<Department> deps = departmentService.getAllDepartments();
 		Map<Long, String> m = new HashMap<>();
@@ -88,5 +86,4 @@ public class AddPositionServlet extends HttpServlet {
 
 		response.sendRedirect(request.getContextPath() + "/position");
 	}
-
 }

@@ -50,14 +50,14 @@ public class ViewPositionServlet extends HttpServlet {
 			Comment c = new Comment();
 			c.setText(request.getParameter("comment_text"));
 			c.setUser(userService.getUserById((Long) request.getSession().getAttribute("user_id")));
-			
+
 			getServletContext().log("user id from session: " + request.getSession().getAttribute("user_id"));
-			
+
 			positionService.addPositionComment(c, Long.parseLong(request.getParameter("position_id")));
 			request.setAttribute("submitComment", null);
 		} else if (request.getParameter("editComment") != null) {
 			getServletContext().log("text to be saved: " + request.getParameter("comment_text"));
-			
+
 			String commentId = request.getParameter("comment_id");
 			String positionId = request.getParameter("position_id");
 			Position p = positionService.getPositionById(Long.parseLong(positionId));
@@ -68,7 +68,7 @@ public class ViewPositionServlet extends HttpServlet {
 					com = c;
 				}
 			}
-			if (com != null) {				
+			if (com != null) {
 				com.setText(request.getParameter("comment_text"));
 				positionService.editPositionComment(com, Long.parseLong(positionId));
 			}
@@ -86,26 +86,37 @@ public class ViewPositionServlet extends HttpServlet {
 			if (com != null) {
 				positionService.deletePositionComment(com, Long.parseLong(positionId));
 			}
-		} else if (request.getParameter("closePosition") != null){
+		} else if (request.getParameter("closePosition") != null) {
 			getServletContext().log("close position with id: " + request.getParameter("position_id"));
 			positionService.closePosition(Long.parseLong(request.getParameter("position_id")));
-			
-		} else if (request.getParameter("approvePosition") != null){
+
+		} else if (request.getParameter("approvePosition") != null) {
 			getServletContext().log("approve position with id: " + request.getParameter("position_id"));
 			positionService.approvePosition(Long.parseLong(request.getParameter("position_id")));
-			
-			/* --------------------------------CANDIDATE------------------------------------- */
-		} else if (request.getParameter("viewCandidate") != null){
+
+			/*
+			 * --------------------------------CANDIDATE--------------------------
+			 * -----------
+			 */
+		} else if (request.getParameter("viewCandidate") != null) {
 			getServletContext().log("view candidate with id: " + request.getParameter("candidate_id"));
 			getServletConfig().getServletContext().getRequestDispatcher("/viewcandidate").forward(request, response);
-		}else if (request.getParameter("removeCandidate") != null){
+		} else if (request.getParameter("removeCandidate") != null) {
 			getServletContext().log("remove candidate with id: " + request.getParameter("candidate_id"));
-			positionService.removeCandidateFromPosition(Long.parseLong(request.getParameter("candidate_id")), Long.parseLong(request.getParameter("position_id")));
-		}else if (request.getParameter("acceptCandidate") != null){
+			positionService.removeCandidateFromPosition(Long.parseLong(request.getParameter("candidate_id")),
+					Long.parseLong(request.getParameter("position_id")));
+		} else if (request.getParameter("acceptCandidate") != null) {
 			getServletContext().log("accept candidate with id: " + request.getParameter("candidate_id"));
-			positionService.acceptCandidateToPosition(Long.parseLong(request.getParameter("candidate_id")), Long.parseLong(request.getParameter("position_id")));
+			positionService
+					.acceptCandidateToPosition(Long.parseLong(request.getParameter("candidate_id")), Long.parseLong(request.getParameter("position_id")));
+		} else if (request.getParameter("addInterview") != null) {
+			getServletContext().log("view candidate with id: " + request.getParameter("candidate_id"));
+			String id = request.getParameter("candidate_id");
+			request.getSession().setAttribute("candid", id);
+			getServletConfig().getServletContext().getRequestDispatcher("/addinterview").forward(request, response);
+			return;
 		}
-		
+
 		getServletContext().log("view position with id: " + request.getParameter("position_id"));
 		String id = request.getParameter("position_id");
 

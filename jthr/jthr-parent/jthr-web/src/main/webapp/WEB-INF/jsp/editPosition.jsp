@@ -25,7 +25,7 @@
 		<div id="site_content">
 			<div id="table_container">
 				<div class="forma form">
-					<form action="editposition" method="POST">
+					<form action="editposition" method="POST" id="editform">
 <%-- 						<input type="hidden" name="position_id" value="<c:out value="${positionId}"></c:out>" /> --%>
 							<input type="hidden" name="position_id" value="${positionId}" />
 						<table border="0">
@@ -59,12 +59,18 @@
 
 							<tr>
 								<td><label>Requirements</label><font color="red">*</font></td>
-								<td><input type="text" name="requirements" value="${positionRequirements}"></td>
+								<td>
+<%-- 									<input type="text" name="requirements" value="${positionRequirements}"> --%>
+										<textarea name="requirements" rows="4" cols="55" form="editform">${positionRequirements}</textarea>
+								</td>
 							</tr>
 
 							<tr>
 								<td><label>Responsibilities</label><font color="red">*</font></td>
-								<td><input type="text" name="responsibilities" value="${positionResponsibilities}"></td>
+								<td>
+<%-- 									<input type="text" name="responsibilities" value="${positionResponsibilities}"> --%>
+									<textarea name="responsibilities" rows="4" cols="55" form="editform">${positionResponsibilities}</textarea>
+								</td>
 							</tr>
 
 							<tr>

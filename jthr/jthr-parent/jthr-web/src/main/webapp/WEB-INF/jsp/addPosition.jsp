@@ -25,7 +25,7 @@
 		<div id="site_content">
 			<div id="table_container">
 				<div class="form">
-					<form action="addposition" method="POST">
+					<form action="addposition" method="POST" id="addposition">
 						<table border="0">
 							<tr>
 								<td><label>Position Name</label><font color="red">*</font></td>
@@ -34,7 +34,7 @@
 
 							<tr>
 								<td><label>Number of Persons</label><font color="red">*</font></td>
-								<td><input type="number" name="nrOfPersons" min="1"></td>
+								<td><input type="number" name="nrOfPersons" min="1" required></td>
 							</tr>
 
 							<tr>
@@ -57,12 +57,18 @@
 
 							<tr>
 								<td><label>Requirements</label><font color="red">*</font></td>
-								<td><input type="text" name="requirements" required></td>
+								<td>
+<!-- 									<input type="text" name="requirements" required> -->
+										<textarea name="requirements" rows="4" cols="50" form="addposition" required></textarea>
+								</td>
 							</tr>
 
 							<tr>
 								<td><label>Responsibilities</label><font color="red">*</font></td>
-								<td><input type="text" name="responsibilities" required></td>
+								<td>
+<!-- 									<input type="text" name="responsibilities" required> -->
+										<textarea name="responsibilities" rows="4" cols="50" form="addposition" required></textarea>
+								</td>
 							</tr>
 
 							<tr>
