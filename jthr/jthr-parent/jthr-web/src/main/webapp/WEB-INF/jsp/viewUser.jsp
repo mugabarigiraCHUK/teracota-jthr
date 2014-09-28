@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="form/form.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
+
+<style>
+.forma {
+	width: 50%;
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
 	<div id="main">
@@ -15,7 +22,7 @@
 		<%@ include file="menu.jsp"%>
 		<div id="site_content">
 			<div id="table_container">
-				<div class="form">
+				<div class="forma form">
 					<form action="register" method="POST">
 					<input type="hidden" name="user_id" value="${userVid}" />
 						<table border="0">

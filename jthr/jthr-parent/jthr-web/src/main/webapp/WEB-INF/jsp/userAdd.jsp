@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="form/form.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
+
+<style>
+.forma {
+	width: 50%;
+	margin: 0 auto;
+}
+</style>
 </head>
 <body>
 	<div id="main">
@@ -16,19 +23,19 @@
 		<%@ include file="menu.jsp"%>
 		<div id="site_content">
 			<div id="table_container">
-				<div class="form">
+				<div class="forma form">
 					<form action="userAdd" method="POST">
 						<table border="0">
 
 							<tr>
 								<td><label>First Name</label><font color="red">*</font></td>
-								<td><input type="text" id="fnameTextField" name="firstname"></td>
+								<td><input type="text" id="fnameTextField" name="firstname" required></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Last Name</label><font color="red">*</font></td>
-								<td><input type="text" id="lnameTextField" name="lastname"></td>
+								<td><input type="text" id="lnameTextField" name="lastname" required></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
@@ -40,13 +47,13 @@
 
 							<tr>
 								<td><label>Mobile Number</label><font color="red">*</font></td>
-								<td><input type="text" name="mobilePhoneNumber"></td>
+								<td><input type="text" name="mobilePhoneNumber" required></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Email</label><font color="red">*</font></td>
-								<td><input type="text" name="email"></td>
+								<td><input type="text" name="email" required></td>
 								<!--	<td colspan="2"><p style="color:red;"> ${emailmess} </p></td> -->
 							</tr>
 
@@ -66,8 +73,7 @@
 
 							<tr>
 								<td><label>Username</label><font color="red">*</font></td>
-								<td><input type="text" id="userTextField" name="username"
-									readonly></td>
+								<td><input type="text" id="userTextField" name="username" readonly required></td>
 								<td><div class="addGenBTN">
 										<button type="button" title="Generate"
 											onclick="generateUsername()">
@@ -79,8 +85,7 @@
 
 							<tr>
 								<td><label>Password</label><font color="red">*</font></td>
-								<td><input type="text" id="passTextField" name="password"
-									readonly></td>
+								<td><input type="text" id="passTextField" name="password" required readonly></td>
 								<td><div class="addGenBTN">
 										<button type="button" title="Generate"
 											onclick="generatePassword()">
@@ -110,8 +115,7 @@
 
 							<tr>
 								<td><label> </label></td>
-								<td><textarea readonly name="roleResult" id="result" rows=3
-										cols=30></textarea></td>
+								<td><textarea readonly name="roleResult" id="result" rows=3 cols=30 required></textarea></td>
 							</tr>
 
 							<tr>
