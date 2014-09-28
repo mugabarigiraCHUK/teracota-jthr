@@ -11,7 +11,6 @@ import edu.msg.jthr.backend.model.Position;
 import edu.msg.jthr.backend.repository.CandidateRepository;
 import edu.msg.jthr.backend.repository.CommentRepository;
 import edu.msg.jthr.backend.repository.PositionRepository;
-import edu.msg.jthr.backend.service.CandidateService;
 import edu.msg.jthr.backend.service.PositionService;
 
 @Stateless(name = "PositionService", mappedName = "ejb/PositionService")

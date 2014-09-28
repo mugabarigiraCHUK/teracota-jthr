@@ -18,74 +18,53 @@
 		<div id="site_content">
 			<div id="table_container">
 				<div class="form">
-					<form action="addcandidate" method="POST">
+					<form action="addcandidate" method="POST" enctype="multipart/form-data">
 						<table border="0">
 
 							<tr>
 								<td><label>Last Name</label><font color="red">*</font></td>
 								<td><input type="text" name="lastName"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${firstmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>First Name</label><font color="red">*</font></td>
 								<td><input type="text" name="firstName"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Telephone</label></td>
 								<td><input type="text" name="telephone"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Mobile Telephone</label><font color="red">*</font></td>
 								<td><input type="text" name="mobileTelephone"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 							<tr>
 								<td><label>Email</label><font color="red">*</font></td>
 								<td><input type="text" name="email"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 							<tr>
 								<td><label>Address</label></td>
 								<td><input type="text" name="address"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
 							</tr>
 
 							<tr>
 								<td><label>Request Relocation</label></td>
-								<td><input type="checkbox" name=relocation
-									value="relocation"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="checkbox" name=relocation value="relocation"></td>
 							</tr>
 
 							<tr>
 								<td><label>CV</label><font color="red">*</font></td>
-								<td><input type="text" name="cv" value="${cv}" disabled></td>
-								<td><input type="submit" name="cv" value="Add File"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
+								<td><input type="file" name="cv" value="${cv}" required></td>
 							</tr>
 
 							<tr>
-								<td><label>Interview</label></td>
-								<td><input type="date" name="interview"></td>
-							</tr>
-
-							<tr>
-								<td><label>Comment</label></td>
-								<td><input type="text" name="comment"></td>
-								<!--	<td colspan="2"><p style="color:red;"> ${lastmess} </p></td> -->
-
-							</tr>
-
-
-							<tr>
-								<td colspan="2"><center>
+								<td colspan="2">
+									<center>
 										<input type="submit" value="Add" name="submit">
-									</center></td>
+									</center>
+								</td>
 							</tr>
 						</table>
 					</form>
