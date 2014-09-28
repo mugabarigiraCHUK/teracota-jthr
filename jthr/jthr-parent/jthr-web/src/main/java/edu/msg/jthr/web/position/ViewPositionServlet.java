@@ -116,6 +116,7 @@ public class ViewPositionServlet extends HttpServlet {
 		request.setAttribute("positionRequirements", p.getRequirements());
 		request.setAttribute("positionResponsibilities", p.getResponsibilities());
 		request.setAttribute("positionNrOfPlaces", p.getNrOfPlaces());
+		request.setAttribute("positionCreator", p.getCreator());
 		request.setAttribute("positionCandidates", p.getCandidates());
 		request.setAttribute("positionAcceptedCandidates", p.getAcceptedCandidates());
 		request.setAttribute("comments", p.getComments());

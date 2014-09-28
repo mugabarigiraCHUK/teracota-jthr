@@ -37,8 +37,6 @@ public class PositionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().setAttribute("user_id", new Long(1)); // TODO - change this after testing
-		
 		List<Position> poz = positionService.getAllPositions();
 		request.getSession().setAttribute("poz", poz);
 		request.getRequestDispatcher("/WEB-INF/jsp/position.jsp").forward(request, response);
