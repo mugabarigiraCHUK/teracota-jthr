@@ -80,6 +80,7 @@ tr:hover {
 					</table>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 
