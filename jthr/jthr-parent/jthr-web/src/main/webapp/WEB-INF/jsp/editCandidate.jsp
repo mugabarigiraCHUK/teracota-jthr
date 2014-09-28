@@ -80,9 +80,7 @@
 							</tr>
 							<tr>
 								<td><label> </label></td>
-								<td><input type="text" name="interviews"
-									id="
-									interviews" value="${interviews}"></td>
+								<td><input type="text" name="interviews" id="interviews"></td>
 							</tr>
 
 
@@ -147,16 +145,8 @@
 	</div>
 	<script>
 		function addInterview() {
-			var txt = document.getElementById("interviews").value;
-			alert(txt);
-			txt = txt + document.getElementById("interview").value;
-			document.getElementByName("interviews").value = txt;
-		}
-		function addComment() {
-			var txt = document.getElementById("comments").value;
-			alert(txt);
-			txt = txt + document.getElementById("comment").value;
-			document.getElementByName("comments").value = txt;
+			var txt = document.getElementById("interview").value;
+			document.getElementById("interviews").value = txt;
 		}
 	</script>
 </body>
