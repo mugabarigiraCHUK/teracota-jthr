@@ -107,9 +107,6 @@ public class AddInterviewServlet extends HttpServlet {
 			getServletContext().log("Candidate after int add : "+cand);
 			candidateService.editCandidate(cand);
 			
-			/*request.getSession().removeAttribute("candid");
-			getServletContext().log("Sessioned Cleared ?  : "+request.getSession().getAttribute("candid"));*/
-			
 			response.sendRedirect(request.getContextPath() + "/interview");
 			
 		}

@@ -71,7 +71,6 @@ tr:hover {
 		<div id="site_content">
 			<div id="table_container">
 				<div class="CSSTable">
-					<form action="user" method="POST">
 						<table>
 							<tr>
 								<td>Interviewer(s)</td>
@@ -86,18 +85,18 @@ tr:hover {
 									<td>${candidate.firstName} ${candidate.lastName}</td>
 									<td>
 										<div style="text-align:center;">
-										<form action="user" method="POST">
-											<input type="hidden" name="user_id" value="<c:out value="${user.id}" />"/>
-											<input type="submit" class="view" name="viewUser" value=""  title="View" />
-											<input type="submit" class="edit" name="editUser" value="" title="Edit">
-											<input type="submit" class="delete" name="deleteUser" value="" title="Delete" onclick="return confirm('Are you sure you want to delete?')">
+										<form action="viewinterview" method="POST">
+											<input type="hidden" name="cand_id" value="<c:out value="${candidate.id}" />"/>
+											<input type="hidden" name="inter_id" value="<c:out value="${inter.id}" />"/>
+											<input type="submit" class="view" name="viewInterview" value=""  title="View" />
+											<!-- <input type="submit" class="edit" name="editInterview" value="" title="Edit"> -->
+											<input type="submit" class="delete" name="deleteInterview" value="" title="Delete" onclick="return confirm('Are you sure you want to delete?')">
 										</form>
 										</div>
 									</td>
 								</tr>
 							</c:forEach>
 						</table>
-					</form>
 				</div>
 			</div>
 		</div>

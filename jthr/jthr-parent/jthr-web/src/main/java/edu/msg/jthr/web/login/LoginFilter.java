@@ -39,6 +39,7 @@ public class LoginFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession s = req.getSession();
 		HttpServletResponse resp = (HttpServletResponse) response;
@@ -77,6 +78,7 @@ public class LoginFilter implements Filter {
 	}
 
 	public void init(FilterConfig config) throws ServletException {
+		
 		String urls = config.getInitParameter("avoid-urls");
 		StringTokenizer token = new StringTokenizer(urls, ",");
 
