@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Position extends BaseEntity {
@@ -21,12 +22,13 @@ public class Position extends BaseEntity {
 	@Column
 	private Integer nrOfPlaces;
 	
-	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
-	@JoinColumn
+
+	@OneToOne(fetch=FetchType.EAGER)
+	@PrimaryKeyJoinColumn
 	private Department department;
 	
-	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
-	@JoinColumn
+	@OneToOne(fetch=FetchType.EAGER)
+	@PrimaryKeyJoinColumn
 	private Project project;
 	@Column
 	private String requirements;
@@ -41,11 +43,11 @@ public class Position extends BaseEntity {
 	private User creator;
 	
 	@OneToMany(cascade={CascadeType.PERSIST}) 
-	@JoinTable//(name="POSITION_COMMENT", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="COMMENT_ID")})
+	@JoinTable
 	private List<Comment> comments = new ArrayList<>();
 	
 	@OneToMany(cascade={CascadeType.PERSIST}) 
-	@JoinTable//(name="POSITION_CANDIDATE", joinColumns={@JoinColumn(name="POSITION_ID")}, inverseJoinColumns={@JoinColumn(name="CANDIDATE_ID")})
+	@JoinTable
 	private List<Candidate> candidates = new ArrayList<>();
 
 	@OneToMany(cascade={CascadeType.PERSIST}) 

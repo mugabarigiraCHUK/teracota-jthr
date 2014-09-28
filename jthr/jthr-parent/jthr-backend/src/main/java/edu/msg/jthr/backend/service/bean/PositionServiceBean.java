@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.DependsOn;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.persistence.EntityExistsException;
 
 import edu.msg.jthr.backend.model.Comment;
 import edu.msg.jthr.backend.model.Position;
@@ -26,7 +27,13 @@ public class PositionServiceBean implements PositionService {
 
 	@Override
 	public void addPosition(Position position) {
-		repository.save(position);
+		try {
+			// Try to insert your entity by calling persist method
+			repository.save(position);
+		} catch (EntityExistsException e) {
+			// Entity you are trying to insert already exist, then call merge method
+			repository.merge(position);
+		}
 	}
 
 	@Override
