@@ -67,6 +67,17 @@ public class CandidateServlet extends HttpServlet {
 					.getRequestDispatcher("/viewcandidate")
 					.forward(request, response);
 			return;
+		} else if (request.getParameter("addInterview") != null) {
+			String id = request.getParameter("candidate_id");
+			context.log("addInterview, id: " + id);
+
+			request.getSession().setAttribute("candid", id);
+			
+			getServletConfig().getServletContext()
+					.getRequestDispatcher("/addinterview")
+					.forward(request, response);
+			
+			return;
 		}
 	}
 }

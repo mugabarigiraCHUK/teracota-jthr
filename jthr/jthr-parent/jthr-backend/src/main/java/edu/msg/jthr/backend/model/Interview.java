@@ -17,12 +17,12 @@ public class Interview extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	@Column
 	String date;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JoinTable(name = "INTERVIEW_USER", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "USER_ID") })
-	List<User> interviewers;
-	@OneToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JoinTable(name = "INTERVIEW_COMMENT", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
-	List<Comment> comments;
+	@OneToMany(fetch=FetchType.EAGER) 
+	//@JoinTable(name = "INTERVIEW_USER", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "USER_ID") })
+	List<User> interviewers = new ArrayList<User>();
+	@OneToMany(fetch=FetchType.EAGER) 
+	//@JoinTable(name = "INTERVIEW_COMMENT", joinColumns = { @JoinColumn(name = "INTERVIEW_ID") }, inverseJoinColumns = { @JoinColumn(name = "COMMENT_ID") })
+	List<Comment> comments= new ArrayList<Comment>();
 
 	public Interview(String date) {
 		this.date = date;
@@ -74,7 +74,8 @@ public class Interview extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return date;
+		return "Interview [date=" + date + ", interviewers=" + interviewers
+				+ ", comments=" + comments + "]";
 	}
 
 }

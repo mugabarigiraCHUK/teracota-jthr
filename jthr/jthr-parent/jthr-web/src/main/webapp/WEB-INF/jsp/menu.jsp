@@ -16,9 +16,9 @@
 				<li><a data-icon="&#xF00A;" href="/jthr-web/userAdd">Add User</a></li>
 			</ul></li>
 			<li><a data-icon="&#xf044;" href="/jthr-web/interview">Interviews</a>
-			<ul>
+<!-- 			<ul>
 				<li><a data-icon="&#xF00A;" href="/jthr-web/*">Add Interview</a></li>
-			</ul></li>
+			</ul> --></li>
 	</ul>
 	<canvas>
 		<noscript>

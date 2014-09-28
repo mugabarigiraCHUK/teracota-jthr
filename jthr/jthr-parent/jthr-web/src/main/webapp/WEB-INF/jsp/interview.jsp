@@ -79,6 +79,27 @@ tr:hover {
 								<td>Candidate</td>
 								<td>Operations</td>
 							</tr>
+							<c:forEach items="${list}" var="inter">
+								<tr>
+									<td><c:out value="${inter.interviewers}"></c:out></td>
+									<td><c:out value="${inter.date}" /></td>
+									<td><c:out value="${user.phoneNumber}" /></td>
+									<td><c:out value="${user.mobilePhoneNumber}"></c:out></td>
+									<td><c:out value="${user.email}"></c:out></td>
+									<td><c:out value="${user.function}"></c:out></td>
+									<td><c:out value="${user.description}"></c:out></td>
+									<td>
+										<div style="text-align:center;">
+										<form action="user" method="POST">
+											<input type="hidden" name="user_id" value="<c:out value="${user.id}" />"/>
+											<input type="submit" class="view" name="viewUser" value=""  title="View" />
+											<input type="submit" class="edit" name="editUser" value="" title="Edit">
+											<input type="submit" class="delete" name="deleteUser" value="" title="Delete" onclick="return confirm('Are you sure you want to delete?')">
+										</form>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>
 						</table>
 					</form>
 				</div>

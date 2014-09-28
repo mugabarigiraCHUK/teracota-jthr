@@ -18,19 +18,19 @@ public class RoleServiceBean implements RoleService {
 	private RoleRepository repository;
 	
 	@Override
-	public void addUser(Role role) {
+	public void addRole(Role role) {
 		repository.save(role);
 		
 	}
 
 	@Override
-	public void editUser(Role role) {
+	public void editRole(Role role) {
 		repository.merge(role);
 		
 	}
 
 	@Override
-	public void deleteUser(Role role) {
+	public void deleteRole(Role role) {
 		repository.delete(role);
 		
 	}
