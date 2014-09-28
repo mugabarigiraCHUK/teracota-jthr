@@ -1,6 +1,5 @@
 package edu.msg.jthr.backend.service.bean;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,7 +7,6 @@ import javax.ejb.DependsOn;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import edu.msg.jthr.backend.model.Role;
 import edu.msg.jthr.backend.model.User;
 import edu.msg.jthr.backend.repository.RoleRepository;
 import edu.msg.jthr.backend.repository.UserRepository;
@@ -25,12 +23,13 @@ public class UserServiceBean implements UserService {
 
 	@Override
 	public void addUser(User user) {
-		List<Role> roles = user.getRoles();
-		user.setRoles(new ArrayList<Role>());
-		 
-		for (Role r: roles){
-			user.getRoles().add(roleRepo.getById(r.getId()));
-		}
+//		Leave this here, you know.... just in case :)
+//		List<Role> roles = user.getRoles();
+//		user.setRoles(new ArrayList<Role>());
+//		 
+//		for (Role r: roles){
+//			user.getRoles().add(roleRepo.getById(r.getId()));
+//		}
 		
 		repository.save(user);
 	}

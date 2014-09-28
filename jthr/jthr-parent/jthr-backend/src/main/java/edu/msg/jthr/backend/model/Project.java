@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @Entity
 public class Project extends BaseEntity{
 	private static final long serialVersionUID = 1L;
-	@Column
+	@Column(unique = true)
 	private String projectName;
 	
 	public Project() {

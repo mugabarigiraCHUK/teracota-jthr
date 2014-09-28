@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 public class Department extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
-	@Column
+	@Column(unique = true)
 	private String departName;
 	
 	public Department() {}
@@ -29,8 +29,5 @@ public class Department extends BaseEntity{
 	public String toString() {
 		return departName;
 	}
-	
-	
-	
-	
+
 }

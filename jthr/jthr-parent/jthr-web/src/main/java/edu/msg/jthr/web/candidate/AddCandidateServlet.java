@@ -41,6 +41,7 @@ public class AddCandidateServlet extends HttpServlet {
 		if ((contentType.indexOf("multipart/form-data") >= 0)) {
 
 		}
+		
 		String lastName = getValue(request.getPart("lastName"));
 		String firstName = request.getParameter("firstName");
 		String telephone = request.getParameter("telephone");
@@ -53,19 +54,6 @@ public class AddCandidateServlet extends HttpServlet {
 		else
 			relocation = true;
 		String cv = "myCV";
-
-		// List<Interview> interviews = new ArrayList<Interview>();
-		// Interview interview = new
-		// Interview(request.getParameter("interview"));
-		// interviews.add(interview);
-		//
-		// List<Comment> comments = new ArrayList<Comment>();
-		// Comment comment = new Comment(request.getParameter("comment"));
-		// comments.add(comment);
-		//
-		// lastName, firstName, telephone,
-		// mobileTelephone, email, address, relocation, cv, interviews,
-		// comments);
 
 		Candidate candidate = new Candidate();
 		candidate.setFirstName(firstName);
