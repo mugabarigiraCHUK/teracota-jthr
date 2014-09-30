@@ -11,6 +11,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
 <style>
+.forma {
+	width: 50%;
+	margin: 0 auto;
+}
+
 #comment-container {
 	width: 520px;
 	border: 1px solid;
@@ -117,7 +122,7 @@
 
 		<div id="site_content">
 			<div id="table_container">
-				<div class="form">
+				<div class="forma form">
 					<form action="viewcandidate" method="POST">
 						<input type="hidden" name="candidate_id" value="${id}" />
 						<table border="0">
@@ -233,7 +238,13 @@
 			</div>
 		</div>
 	</div>
-
+<script type="text/javascript">
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    document.getElementById(id + "_text").readOnly = false;
+    document.getElementById(id + "_editbutton").disabled = false;
+}
+</script>
 </body>
 </body>
 

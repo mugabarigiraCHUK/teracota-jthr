@@ -72,7 +72,7 @@ public class UpdateUserServlet extends HttpServlet {
 			request.setAttribute("userUJobPoz", u.getFunction());
 			request.setAttribute("userUDescription", u.getDescription());
 			request.setAttribute("userUUsername", u.getUsername());
-			request.setAttribute("userUPassword", u.getPassword());
+//			request.setAttribute("userUPassword", u.getPassword());
 			request.setAttribute("userURoles", u.getRoles());
 			
 			request.getRequestDispatcher("/WEB-INF/jsp/editUser.jsp").forward(request, response);
@@ -95,7 +95,10 @@ public class UpdateUserServlet extends HttpServlet {
 			newUser.setFunction(request.getParameter("function"));
 			newUser.setDescription(request.getParameter("userDescription"));
 			newUser.setUsername(request.getParameter("userUsername"));
-			newUser.setPassword(request.getParameter("userPassword"));
+			
+			if (!request.getParameter("userPassword").equals("")){
+				newUser.setPassword(request.getParameter("userPassword"));
+			}			
 			
 			String str = request.getParameter("roleResult");
 			String[] str2 = str.split(",");

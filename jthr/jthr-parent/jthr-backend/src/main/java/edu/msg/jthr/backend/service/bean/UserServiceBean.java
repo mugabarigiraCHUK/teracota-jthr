@@ -37,7 +37,12 @@ public class UserServiceBean implements UserService {
 
 	@Override
 	public void editUser(User user) {
+		User oldUser = repository.getById(user.getId());
 		
+		if (!oldUser.getPassword().equals(user.getPassword())){
+			user.setPassword(PasswordEncrypter.GenerateHashedPassword(user.getPassword(), ""));
+		}
+
 		repository.merge(user);
 	}
 
