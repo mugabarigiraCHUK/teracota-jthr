@@ -75,7 +75,10 @@
 
 							<tr>
 								<td><label>Password</label><font color="red"></font></td>
-								<td><input type="text" name="userPassword" value="${userUPassword}"></td>
+								<td>
+<%-- 									<input type="text" name="userPassword" value="${userUPassword}"> --%>
+										<input type="text" name="userPassword" value="">
+								</td>
 							</tr>
 
 							<tr>

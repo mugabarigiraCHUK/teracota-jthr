@@ -10,6 +10,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JT HR</title>
 <style>
+.forma {
+	width: 50%;
+	margin: 0 auto;
+}
+
 .edit {
 	background:
 		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABrElEQVRYR72Wu0oEMRSGXW30AWQ7sbMSLO2UtbXQUrTxgo8gwmIniL2teHsERbGwtLYQxEJREVTEUtAtvPxHJnCIJzMntxn4YZNM8n2TSbLT6Mp7dWP4GeQeOZdQjYz8Hoy9h8wiP8gismPzcglwuGF+FxK7XCKHgATnEgvFzPzV5RDow7hHSMvxemkm5pH91AL05JvIFvKKHGokUs0An/YHgMeVEmMpBKR3rpVYjhUoW3BVEseYpekYgTK4WX8uiROCI51QAQ3cJdEx8NBd4AOXJL7oyU2D7wyEwA1rGz+W7LPBRyAGfgrwFPIZKpAFrl0D2eAagazwKoHs8DKBWuAugdrgkkCtcElgHZVte68qys59XtWXH0RN3ExfK2fIcFVH1h4M5zNAIjfFafXiIREF5wKDKNwhbwh9y2kkouFcYBIF+oajSyORBM4FVlHYYO+VJCaQZ+F1JINzgQMU5qyFJ0kkhXOBCxRGhJXPJdbQvoL8+0sV+qmraPXT4fOO9Dp6PaJ+FHlSj+pxIwkMIdcInQG0FS+t3BZtHsPqbyWBfmQAuUI+9F3T3PkL2b6CyG1WKG0AAAAASUVORK5CYII=);
@@ -71,7 +76,7 @@ tr:hover {
 		<div id="site_content">
 			<div id="table_container">
 				<div class="CSSTable">
-						<table>
+					<table>
 							<tr>
 								<td>Interviewer(s)</td>
 								<td>Date</td>
@@ -101,6 +106,5 @@ tr:hover {
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

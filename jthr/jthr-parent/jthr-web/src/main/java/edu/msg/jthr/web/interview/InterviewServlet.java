@@ -68,6 +68,7 @@ public class InterviewServlet extends HttpServlet {
 			String interId = request.getParameter("inter_id");
 			context.log("viewInterview , id: "+ interId);
 
+			request.setAttribute("interid", interId);
 			getServletConfig().getServletContext().getRequestDispatcher("/viewinterview").forward(request, response);
 			return;
 		}
