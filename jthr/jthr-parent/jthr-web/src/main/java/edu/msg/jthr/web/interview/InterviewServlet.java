@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,7 +58,21 @@ public class InterviewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		ServletContext context = getServletContext();
+		
+		if(request.getParameter("viewInterview") != null) {
+			
+			String candId = request.getParameter("cand_id");
+			context.log("viewInterview , candid: "+ candId);
+			String interId = request.getParameter("inter_id");
+			context.log("viewInterview , id: "+ interId);
+
+			request.setAttribute("interid", interId);
+			getServletConfig().getServletContext().getRequestDispatcher("/viewinterview").forward(request, response);
+			return;
+		}
+		
 	}
 
 }

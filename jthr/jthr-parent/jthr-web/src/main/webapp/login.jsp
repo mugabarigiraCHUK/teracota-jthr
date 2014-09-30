@@ -170,7 +170,7 @@ body {
 			<select id="language" name="language" onchange="submit()">
 				<option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
 				<option value="de" ${language == 'de' ? 'selected' : ''}>Deutsch</option>
-				<option value="ro" ${language == 'ro' ? 'selected' : ''}>RomÃ¢nÄƒ</option>
+				<option value="ro" ${language == 'ro' ? 'selected' : ''}>Română</option>
 			</select>
 		</form>
 	</div>
