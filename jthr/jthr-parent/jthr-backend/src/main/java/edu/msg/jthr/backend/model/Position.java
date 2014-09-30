@@ -38,8 +38,8 @@ public class Position extends BaseEntity {
 	private Boolean isApproved = false;
 	@Column
 	private Boolean isClosed = false;
-	@OneToOne(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER)
-	@JoinColumn
+	@OneToOne(fetch=FetchType.EAGER) //cascade={CascadeType.PERSIST}, 
+	//@JoinColumn
 	private User creator;
 	
 	@OneToMany(cascade={CascadeType.PERSIST}) 
